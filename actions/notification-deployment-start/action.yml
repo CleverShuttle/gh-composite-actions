@@ -1,0 +1,63 @@
+name: 'Notification: Start'
+description: 'Send a notification to Slack with relevant information'
+
+inputs:
+  slack_bot_token:
+    description: 'Slack bot token'
+    required: true
+
+  slack_channel:
+    description: 'Slack channel'
+    required: true
+
+  service_name:
+    description: 'Service name'
+    required: true
+
+  artefact_name:
+    description: 'Artefact name'
+    required: true
+
+  artefact_id:
+    description: 'Artefact display identifier'
+    required: false
+
+  artefact_link:
+    description: 'Artefact link'
+    required: true
+
+  target_env:
+    description: 'Target environment'
+    required: true
+
+outputs:
+  slack_message_channel:
+    description: 'Respond channel identifier'
+    value: ${{ fromJson(steps.send-message.outputs.slack-result).response.channel }}
+
+  slack_message_ts:
+    description: 'Message time stamp'
+    value: ${{ fromJson(steps.send-message.outputs.slack-result).response.message.ts }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Notification: Assemble message'
+      shell: bash
+      run: |
+        echo "SUBJECT=*${{ inputs.service_name }}* <${{ inputs.artefact_link }}|${{ inputs.artefact_name }}>" >> $GITHUB_ENV
+        echo "RUN_LINK=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_ENV
+
+    - name: 'Notification: Append artefact id to message'
+      if: ${{ inputs.artefact_id != '' }}
+      shell: bash
+      run: echo "SUBJECT=${{ env.SUBJECT }} (${{ inputs.artefact_id }})" >> $GITHUB_ENV
+
+    - name: 'Notification: Send message'
+      uses: archive/github-actions-slack@master
+      id: send-message
+      with:
+        slack-function: send-message
+        slack-bot-user-oauth-access-token: ${{ inputs.slack_bot_token }}
+        slack-channel: ${{ inputs.slack_channel }}
+        slack-text: ':hourglass: deploying ${{ env.SUBJECT }} to `${{ inputs.target_env }}` – <${{ env.RUN_LINK }}|Details>'

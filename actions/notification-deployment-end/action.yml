@@ -1,0 +1,73 @@
+name: 'Notification: End'
+description: 'Update the start notification to reflect success or failure'
+
+inputs:
+  slack_bot_token:
+    description: 'Slack bot token'
+    required: true
+
+  slack_channel:
+    description: 'Respond channel identifier'
+    required: true
+
+  slack_thread_ts:
+    description: 'Message time stamp'
+    required: true
+
+  status:
+    description: 'Status (success / failure)'
+    required: true
+
+  service_name:
+    description: 'Service display name'
+    required: true
+
+  artefact_name:
+    description: 'Artefact display name'
+    required: true
+
+  artefact_id:
+    description: 'Artefact display identifier'
+    required: false
+
+  artefact_link:
+    description: 'Artefact link'
+    required: true
+
+  target_env:
+    description: 'Target environment (PROD / NONPROD)'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Notification: Assemble subject'
+      shell: bash
+      run: |
+        echo "SUBJECT=*${{ inputs.service_name }}* <${{ inputs.artefact_link }}|${{ inputs.artefact_name }}>" >> $GITHUB_ENV
+        echo "RUN_LINK=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_ENV
+
+    - name: 'Notification: Append artefact id to subject'
+      if: ${{ inputs.artefact_id != '' }}
+      shell: bash
+      run: echo "SUBJECT=${{ env.SUBJECT }} (${{ inputs.artefact_id }})" >> $GITHUB_ENV
+
+    - name: 'Notification: Update to success'
+      uses: archive/github-actions-slack@master
+      if: ${{ inputs.status == 'success' }}
+      with:
+        slack-function: update-message
+        slack-bot-user-oauth-access-token: ${{ inputs.slack_bot_token }}
+        slack-channel: ${{ inputs.slack_channel }}
+        slack-update-message-ts: ${{ inputs.slack_thread_ts }}
+        slack-update-message-text: ':white_check_mark: deployed ${{ env.SUBJECT }} to `${{ inputs.target_env }}` – <${{ env.RUN_LINK }}|Details>'
+
+    - name: 'Notification: Update to failure'
+      uses: archive/github-actions-slack@master
+      if: ${{ inputs.status != 'success' }}
+      with:
+        slack-function: update-message
+        slack-bot-user-oauth-access-token: ${{ inputs.slack_bot_token }}
+        slack-channel: ${{ inputs.slack_channel }}
+        slack-update-message-ts: ${{ inputs.slack_thread_ts }}
+        slack-update-message-text: ':x: failed deploying ${{ env.SUBJECT }} to `${{ inputs.target_env }}` – <${{ env.RUN_LINK }}|Details>'

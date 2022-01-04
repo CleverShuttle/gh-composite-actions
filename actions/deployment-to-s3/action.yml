@@ -1,0 +1,88 @@
+name: 'Deployment: Deploy to S3'
+description: 'Download artefact, check version compatibility, unzip and copy to S3'
+
+inputs:
+  github_token:
+    description: 'Secret GitHub token'
+    required: true
+
+  release:
+    description: 'GitHub release for checkout'
+    required: false
+    default: ''
+
+  source_branch:
+    description: 'Source branch for checkout'
+    required: false
+    default: 'main'
+
+  aws_access_key_id:
+    description: 'AWS access key ID'
+    required: true
+
+  aws_secret_access_key:
+    description: 'AWS secret access Key'
+    required: true
+
+  aws_region:
+    description: 'AWS region'
+    required: false
+    default: 'eu-central-1'
+
+  aws_s3_bucket:
+    description: 'AWS S3 bucket ID'
+    required: true
+
+  backend_version_check:
+    description: Should backend version be checked
+    required: true
+
+  backend_actuator_url:
+    description: Url to fetch backend version from
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Deployment: Download release artifact'
+      if: inputs.release == ''
+      uses: dawidd6/action-download-artifact@v2.16.0
+      with:
+        github_token: ${{ inputs.github_token }}
+        workflow: build.yml
+        branch: ${{ inputs.source_branch }}
+        name: build.zip
+
+    - name: 'Deployment: Download branch artefact'
+      if: inputs.release != ''
+      uses: Legion2/download-release-action@v2.1.0
+      with:
+        token: ${{ inputs.github_token }}
+        repository: ${{ github.repository }}
+        tag: ${{ inputs.release }}
+        path: .
+        file: build.zip
+
+    - name: 'Deployment: Unzip artefact'
+      shell: bash
+      run: unzip -o build.zip
+
+    - name: 'Deployment: Check API version'
+      shell: bash
+      env:
+        BACKEND_VERSION_CHECK: ${{ inputs.backend_version_check }}
+        BACKEND_ACTUATOR_URL: ${{ inputs.backend_actuator_url }}
+      run: . .github/actions/deployment-to-s3/backend-version-check.sh
+
+    - name: 'Deployment: Configure AWS credentials'
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ inputs.aws_access_key_id }}
+        aws-secret-access-key: ${{ inputs.aws_secret_access_key }}
+        aws-region: ${{ inputs.aws_region }}
+
+    - name: 'Deployment: Upload all files to S3 Bucket'
+      shell: bash
+      run: |
+        aws s3 cp ./dist s3://${{ inputs.aws_s3_bucket }} --acl bucket-owner-full-control --recursive
+        aws s3 sync ./dist s3://${{ inputs.aws_s3_bucket }} --acl bucket-owner-full-control --delete --exact-timestamps
