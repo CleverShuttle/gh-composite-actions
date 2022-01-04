@@ -1,0 +1,12 @@
+name: "Debug: Dump GitHub Context"
+description: "Logs GitHub context object."
+
+runs:
+  using: "composite"
+  steps:
+    - name: Dump GitHub context'
+      shell: bash
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
