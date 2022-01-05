@@ -1,0 +1,55 @@
+name: 'Release: Create Jira Release'
+description: 'Extract Jira ticket references, create Jira release, link release to tickets'
+
+inputs:
+  changelog:
+    description: 'Changelog text'
+    required: true
+  jira_email:
+    description: 'Jira user email'
+    required: true
+  jira_api_token:
+    description: 'Jira user email'
+    required: true
+  jira_subdomain:
+    description: 'Jira organization subdomain'
+    default: 'clevershuttle'
+    required: true
+  jira_project:
+    description: 'Jira project'
+    required: true
+  jira_release_name:
+    description: 'Jira release name'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Release: Get Jira ticket ids'
+      id: jira_tickets
+      env:
+        CHANGELOG: ${{ inputs.changelog }}
+      run: |
+        if [ -z "${{ env.CHANGELOG }}" ]; then
+          output=""
+          echo "::set-output name=tickets::$output"
+        else
+          output=$(node .github/actions/notification-append-changelog/get-jira-links.js)
+          # fix multiline output encoding
+          output="${output//'%'/'%25'}"
+          output="${output//$'\n'/'%0A'}"
+          output="${output//$'\r'/'%0D'}"
+          echo "::set-output name=tickets::$output"
+        fi
+
+    - name: 'Release: Create Jira Release'
+      if: ${{ steps.jira_tickets.outputs.tickets != '' }}
+      uses: charpi/jira-release-actions@v1.0.2
+      with:
+        email: ${{ inputs.jira_email }}
+        api_token: ${{ inputs.jira_api_token }}
+        subdomain: ${{ inputs.jira_subdomain }}
+        jira_project: ${{ inputs.jira_project }}
+        release_name: ${{ input.jira_release_name }}
+        tickets: ${{ steps.jira_tickets.outputs.tickets }}
+        create: true
