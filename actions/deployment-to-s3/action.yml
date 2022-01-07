@@ -72,7 +72,7 @@ runs:
       env:
         BACKEND_VERSION_CHECK: ${{ inputs.backend_version_check }}
         BACKEND_ACTUATOR_URL: ${{ inputs.backend_actuator_url }}
-      run: . .github/actions/deployment-to-s3/backend-version-check.sh
+      run: . ${{ github.action_path }}/backend-version-check.sh
 
     - name: 'Deployment: Configure AWS credentials'
       uses: aws-actions/configure-aws-credentials@v1

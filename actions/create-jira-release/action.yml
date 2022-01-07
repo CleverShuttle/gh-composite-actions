@@ -27,6 +27,8 @@ runs:
   steps:
     - name: 'Release: Get Jira ticket ids'
       id: jira_tickets
+      shell: bash
+      working-directory: ${{ github.action_path }}
       env:
         CHANGELOG: ${{ inputs.changelog }}
       run: |
@@ -34,7 +36,7 @@ runs:
           output=""
           echo "::set-output name=tickets::$output"
         else
-          output=$(node .github/actions/notification-append-changelog/get-jira-links.js)
+          output=$(node get-jira-tickets.js)
           # fix multiline output encoding
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
@@ -50,6 +52,6 @@ runs:
         api_token: ${{ inputs.jira_api_token }}
         subdomain: ${{ inputs.jira_subdomain }}
         jira_project: ${{ inputs.jira_project }}
-        release_name: ${{ input.jira_release_name }}
+        release_name: ${{ inputs.jira_release_name }}
         tickets: ${{ steps.jira_tickets.outputs.tickets }}
         create: true

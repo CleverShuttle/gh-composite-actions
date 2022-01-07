@@ -35,8 +35,9 @@ runs:
         tag: ${{ inputs.release }}
 
     - name: 'Changelog: Generate Jira links'
-      shell: bash
       id: changelog_with_links
+      working-directory: ${{ github.action_path }}
+      shell: bash
       env:
         CHANGELOG: ${{ steps.release-info.outputs.body }}
       run: |
@@ -44,7 +45,7 @@ runs:
           output=""
           echo "::set-output name=text::$output"
         else
-          output=$(node .github/actions/notification-append-changelog/generate-jira-links.js)
+          output=$(node generate-jira-links.js)
           # fix multiline output encoding
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
