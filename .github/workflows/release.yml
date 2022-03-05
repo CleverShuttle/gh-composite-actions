@@ -14,16 +14,21 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Setup: Checkout'
-        # https://github.com/actions/checkout/releases
+        # https://github.com/actions/checkout
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - name: 'Setup: Node'
+        uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: '14'
+
+      - name: 'Setup: Install dependencies'
+        run: |
+          npm i conventional-changelog-conventionalcommits
 
       - name: 'Conventional Changelog Action'
         id: changelog
-        # https://github.com/TriPSs/conventional-changelog-action/releases/tag/v3.10.0
+        # https://github.com/TriPSs/conventional-changelog-action
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
@@ -37,7 +42,7 @@ jobs:
 
       - name: 'Create Release'
         id: create_release
-        # https://github.com/actions/create-release/releases/tag/v1.1.4
+        # https://github.com/actions/create-release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
