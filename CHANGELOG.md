@@ -1,8 +1,16 @@
+### [1.4.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.1...v1.4.2) (2022-03-05)
+
+
+### Chores
+
+* Ignore package-lock.json ([7217c21](https://github.com/CleverShuttle/gh-composite-actions/commit/7217c21f7d4ce01a407685be4388f47b60d8124b))
+
 ### [1.4.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.0...v1.4.1) (2022-03-05)
 
 
 ### Chores
 
+* **release:** v1.4.1 ([76e17fa](https://github.com/CleverShuttle/gh-composite-actions/commit/76e17fa133d45d368106b75658b8a403c2a0f150))
 * Remove package-lock.json ([09e044a](https://github.com/CleverShuttle/gh-composite-actions/commit/09e044a1e8fee593e1f75b04a47df22ea9aeddeb))
 
 ## [1.4.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.3.0...v1.4.0) (2022-03-05)
@@ -40,11 +48,4 @@
 ### Bug Fixes
 
 * Syntax errors in create jira release steps ([b667605](https://github.com/CleverShuttle/gh-composite-actions/commit/b667605ff964a9a966892e39a33fd48ce42d411c))
-
-## [1.2.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.1.0...v1.2.0) (2022-01-05)
-
-
-### Features
-
-* Add action to create Jira release ([a2b5903](https://github.com/CleverShuttle/gh-composite-actions/commit/a2b5903adcbe25e84019789d838b6994e11b58b5))
 
