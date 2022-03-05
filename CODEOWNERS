@@ -1,0 +1,16 @@
+# Order is important; the last matching pattern takes the most precedence.
+
+# See https://clevershuttle.atlassian.net/wiki/spaces/CI/pages/3301769347
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+## Default owners
+
+*   @CleverShuttle/omg
+
+## Secondary owners
+
+*   @aboeglin @chriz-hoepfner
+
+## Primary owners
+
+*   @skromberg  @monoclev
