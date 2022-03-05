@@ -1,0 +1,19 @@
+name: Lint commits
+
+on:
+  pull_request:
+
+jobs:
+  lint-commits:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: "Lint commit messages"
+        uses: wagoid/commitlint-github-action@v3
+        with:
+          configFile: '.github/configs/commitlint.config.js'
