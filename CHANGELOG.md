@@ -1,9 +1,21 @@
+### [1.4.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.0...v1.4.1) (2022-03-05)
+
+
+### Chores
+
+* Remove package-lock.json ([09e044a](https://github.com/CleverShuttle/gh-composite-actions/commit/09e044a1e8fee593e1f75b04a47df22ea9aeddeb))
+
 ## [1.4.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.3.0...v1.4.0) (2022-03-05)
 
 
 ### Features
 
 * Optimize release.yml ([e0645a8](https://github.com/CleverShuttle/gh-composite-actions/commit/e0645a8acaac7dfe4517a764bad432422e16a9ed))
+
+
+### Chores
+
+* **release:** v1.4.0 ([acd9c30](https://github.com/CleverShuttle/gh-composite-actions/commit/acd9c30b0ef340b3cdbafaf2f28248c126e970d8))
 
 ## [1.3.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.2.1...v1.3.0) (2022-03-05)
 
@@ -35,11 +47,4 @@
 ### Features
 
 * Add action to create Jira release ([a2b5903](https://github.com/CleverShuttle/gh-composite-actions/commit/a2b5903adcbe25e84019789d838b6994e11b58b5))
-
-## [1.1.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.0.0...v1.1.0) (2022-01-04)
-
-
-### Features
-
-* Add further actions ([a60d9d6](https://github.com/CleverShuttle/gh-composite-actions/commit/a60d9d6e05e1f454875bcb6905aed6ed1f1ecfba))
 
