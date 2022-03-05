@@ -33,7 +33,6 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           preset: 'conventionalcommits'
-          output-file: false
           skip-on-empty: true
           skip-version-file: true
           git-message: 'chore(release): {version}'
