@@ -1,0 +1,42 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: gh-composite-actions-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 'Setup: Checkout'
+        # https://github.com/actions/checkout/releases
+        uses: actions/checkout@v3
+
+      - name: 'Conventional Changelog Action'
+        id: changelog
+        # https://github.com/TriPSs/conventional-changelog-action/releases/tag/v3.10.0
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.github_token }}
+          preset: 'conventionalcommits'
+          output-file: 'false'
+          skip-on-empty: 'true'
+          git-message: 'chore(release): {version}'
+          tag-prefix: 'v'
+          config-file-path: '.github/configs/changelog.config.js'
+
+      - name: 'Create Release'
+        id: create_release
+        # https://github.com/actions/create-release/releases/tag/v1.1.4
+        uses: actions/create-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
