@@ -1,4 +1,4 @@
-name: Release
+name: 'Release'
 
 on:
   push:
@@ -17,11 +17,6 @@ jobs:
         # https://github.com/actions/checkout
         uses: actions/checkout@v3
 
-      - name: 'Setup: Node'
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
       - name: 'Setup: Install dependencies'
         run: |
           npm i conventional-changelog-conventionalcommits
@@ -33,10 +28,8 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           preset: 'conventionalcommits'
-          skip-on-empty: true
           skip-version-file: true
           git-message: 'chore(release): {version}'
-          tag-prefix: 'v'
           config-file-path: '.github/configs/changelog.config.js'
 
       - name: 'Create Release'

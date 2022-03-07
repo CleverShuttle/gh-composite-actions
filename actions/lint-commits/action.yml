@@ -1,0 +1,16 @@
+name: 'Lint commits'
+description: 'Lints Pull Request commits with commitlint'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Checkout repository"
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: "Lint commit messages"
+      # https://github.com/wagoid/commitlint-github-action
+      uses: wagoid/commitlint-github-action@v3
+      with:
+        configFile: commitlint.config.js
