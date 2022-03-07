@@ -1,4 +1,4 @@
-name: 'Lint commits'
+name: 'Lint commit messages'
 description: 'Lints Pull Request commits with commitlint'
 
 runs:
@@ -11,6 +11,6 @@ runs:
 
     - name: "Lint commit messages"
       # https://github.com/wagoid/commitlint-github-action
-      uses: wagoid/commitlint-github-action@v3
+      uses: wagoid/commitlint-github-action@v4
       with:
         configFile: commitlint.config.js
