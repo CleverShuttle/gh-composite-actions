@@ -1,9 +1,21 @@
+### [1.5.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.0...v1.5.1) (2022-03-07)
+
+
+### Chores
+
+* use new lint-commits composite action ([b4f6248](https://github.com/CleverShuttle/gh-composite-actions/commit/b4f62482ab6a6d8d6a7edd783c15dad8c531061a))
+
 ## [1.5.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.2...v1.5.0) (2022-03-07)
 
 
 ### Features
 
 * New lint-commits composite action added ([8e886fd](https://github.com/CleverShuttle/gh-composite-actions/commit/8e886fdac822307d13a6feda0ac3bdcd38333ba3))
+
+
+### Chores
+
+* **release:** v1.5.0 ([4f39546](https://github.com/CleverShuttle/gh-composite-actions/commit/4f395464b574bd28dddf53d2073cea85f52a61de))
 
 ### [1.4.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.1...v1.4.2) (2022-03-05)
 
@@ -32,21 +44,4 @@
 ### Chores
 
 * **release:** v1.4.0 ([acd9c30](https://github.com/CleverShuttle/gh-composite-actions/commit/acd9c30b0ef340b3cdbafaf2f28248c126e970d8))
-
-## [1.3.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.2.1...v1.3.0) (2022-03-05)
-
-
-### Features
-
-* Append lint-commits.yml to project ([710e30c](https://github.com/CleverShuttle/gh-composite-actions/commit/710e30c7b35d57e1490746b77988802e43b55de8))
-* Create GitHub action ([bdd51d9](https://github.com/CleverShuttle/gh-composite-actions/commit/bdd51d9a3c25c983c919dc31b292b686e8a07e8a))
-* Enable renovate for project. Append CODEOWNERS file ([4e7318e](https://github.com/CleverShuttle/gh-composite-actions/commit/4e7318e60785d60eaf724214e270662e598b3415))
-* Optimize setup ([747a41c](https://github.com/CleverShuttle/gh-composite-actions/commit/747a41c028087d9d5da49fd2f83ac5f3b764c2bc))
-* Rename main branch to master ([0bc17e3](https://github.com/CleverShuttle/gh-composite-actions/commit/0bc17e3cdb9297622abf84eb031e34974d94b560))
-* Update README.md ([b7855f4](https://github.com/CleverShuttle/gh-composite-actions/commit/b7855f422205f2b150e288f7d03e2136bc3a522f))
-
-
-### Chores
-
-* **release:** v1.3.0 ([4c1f9f8](https://github.com/CleverShuttle/gh-composite-actions/commit/4c1f9f8ca775c72cddc0e210858b3c042c7c9001))
 
