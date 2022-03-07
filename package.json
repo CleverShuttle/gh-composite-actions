@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "conventional-changelog-conventionalcommits": "^4.6.3"
+    "conventional-changelog-conventionalcommits": "4.6.3"
   }
 }
