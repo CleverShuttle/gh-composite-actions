@@ -1,9 +1,17 @@
+## [1.5.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.2...v1.5.0) (2022-03-07)
+
+
+### Features
+
+* New lint-commits composite action added ([8e886fd](https://github.com/CleverShuttle/gh-composite-actions/commit/8e886fdac822307d13a6feda0ac3bdcd38333ba3))
+
 ### [1.4.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.1...v1.4.2) (2022-03-05)
 
 
 ### Chores
 
 * Ignore package-lock.json ([7217c21](https://github.com/CleverShuttle/gh-composite-actions/commit/7217c21f7d4ce01a407685be4388f47b60d8124b))
+* **release:** v1.4.2 ([7c5e467](https://github.com/CleverShuttle/gh-composite-actions/commit/7c5e46753f28d379ec07aa66b66e7f9401121069))
 
 ### [1.4.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.0...v1.4.1) (2022-03-05)
 
@@ -41,11 +49,4 @@
 ### Chores
 
 * **release:** v1.3.0 ([4c1f9f8](https://github.com/CleverShuttle/gh-composite-actions/commit/4c1f9f8ca775c72cddc0e210858b3c042c7c9001))
-
-### [1.2.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.2.0...v1.2.1) (2022-01-10)
-
-
-### Bug Fixes
-
-* Syntax errors in create jira release steps ([b667605](https://github.com/CleverShuttle/gh-composite-actions/commit/b667605ff964a9a966892e39a33fd48ce42d411c))
 
