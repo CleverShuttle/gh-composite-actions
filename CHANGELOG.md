@@ -1,8 +1,16 @@
+### [1.5.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.1...v1.5.2) (2022-03-08)
+
+
+### Chores
+
+* Exclude own process from updates (Release, Update, Release loop) ([83c852d](https://github.com/CleverShuttle/gh-composite-actions/commit/83c852d3d21059a0a058cc38ba31d544f696e8cb))
+
 ### [1.5.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.0...v1.5.1) (2022-03-07)
 
 
 ### Chores
 
+* **release:** v1.5.1 ([c2e1ac0](https://github.com/CleverShuttle/gh-composite-actions/commit/c2e1ac0dc888ee43d9dcc11244f8e26b32de6418))
 * use new lint-commits composite action ([b4f6248](https://github.com/CleverShuttle/gh-composite-actions/commit/b4f62482ab6a6d8d6a7edd783c15dad8c531061a))
 
 ## [1.5.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.2...v1.5.0) (2022-03-07)
@@ -32,16 +40,4 @@
 
 * **release:** v1.4.1 ([76e17fa](https://github.com/CleverShuttle/gh-composite-actions/commit/76e17fa133d45d368106b75658b8a403c2a0f150))
 * Remove package-lock.json ([09e044a](https://github.com/CleverShuttle/gh-composite-actions/commit/09e044a1e8fee593e1f75b04a47df22ea9aeddeb))
-
-## [1.4.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.3.0...v1.4.0) (2022-03-05)
-
-
-### Features
-
-* Optimize release.yml ([e0645a8](https://github.com/CleverShuttle/gh-composite-actions/commit/e0645a8acaac7dfe4517a764bad432422e16a9ed))
-
-
-### Chores
-
-* **release:** v1.4.0 ([acd9c30](https://github.com/CleverShuttle/gh-composite-actions/commit/acd9c30b0ef340b3cdbafaf2f28248c126e970d8))
 
