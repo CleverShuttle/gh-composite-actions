@@ -27,6 +27,7 @@ runs:
         node-version: '14'
 
     - name: 'Changelog: Read Release Body'
+      # https://github.com/cardinalby/git-get-release-action
       uses: cardinalby/git-get-release-action@1.1.1
       id: release-info
       env:
