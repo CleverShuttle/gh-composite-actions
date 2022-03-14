@@ -1,9 +1,17 @@
+### [1.6.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.1...v1.6.2) (2022-03-14)
+
+
+### Chores
+
+* Remove test files ([4e269fa](https://github.com/CleverShuttle/gh-composite-actions/commit/4e269fa392179a2a4c651d699e463968c9906e0c))
+
 ### [1.6.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.0...v1.6.1) (2022-03-14)
 
 
 ### Chores
 
 * Append rebase-nonprod actions ([8a68c7e](https://github.com/CleverShuttle/gh-composite-actions/commit/8a68c7ef49239dda0c798b405d62fcd4a5445e28))
+* **release:** v1.6.1 ([2016c2a](https://github.com/CleverShuttle/gh-composite-actions/commit/2016c2a94a97fac8adaa861be2527a40d3dfb278))
 
 ## [1.6.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.2...v1.6.0) (2022-03-14)
 
@@ -32,16 +40,4 @@
 
 * **release:** v1.5.1 ([c2e1ac0](https://github.com/CleverShuttle/gh-composite-actions/commit/c2e1ac0dc888ee43d9dcc11244f8e26b32de6418))
 * use new lint-commits composite action ([b4f6248](https://github.com/CleverShuttle/gh-composite-actions/commit/b4f62482ab6a6d8d6a7edd783c15dad8c531061a))
-
-## [1.5.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.2...v1.5.0) (2022-03-07)
-
-
-### Features
-
-* New lint-commits composite action added ([8e886fd](https://github.com/CleverShuttle/gh-composite-actions/commit/8e886fdac822307d13a6feda0ac3bdcd38333ba3))
-
-
-### Chores
-
-* **release:** v1.5.0 ([4f39546](https://github.com/CleverShuttle/gh-composite-actions/commit/4f395464b574bd28dddf53d2073cea85f52a61de))
 
