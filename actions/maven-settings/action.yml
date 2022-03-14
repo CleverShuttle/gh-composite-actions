@@ -1,0 +1,11 @@
+name: 'Maven settings'
+description: 'Copy clevershuttle settings to maven folder'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Copy settings.xml"
+      shell: bash
+      run: |
+        mkdir -p ~/.m2
+        cp settings.xml ~/.m2/settings.xml

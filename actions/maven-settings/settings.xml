@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"
+  xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <id>central</id>
+      <username>${env.USERNAME}</username>
+      <password>${env.PASSWORD}</password>
+    </server>
+    <server>
+      <id>snapshots</id>
+      <username>${env.USERNAME}</username>
+      <password>${env.PASSWORD}</password>
+    </server>
+    <server>
+      <id>thirdparty</id>
+      <username>${env.USERNAME}</username>
+      <password>${env.PASSWORD}</password>
+    </server>
+
+  </servers>
+  <profiles>
+    <profile>
+      <id>artifactory</id>
+      <repositories>
+        <repository>
+          <snapshots>
+            <!-- __should__ be false but is required for versions:use-releases, see https://github.com/mojohaus/versions-maven-plugin/issues/72 -->
+            <enabled>true</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://mvn.clever-shuttle.com/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://mvn.clever-shuttle.com/artifactory/libs-snapshot</url>
+        </repository>
+        <repository>
+          <snapshots>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+          <id>thirdparty</id>
+          <name>thirdparty-releases</name>
+          <url>https://mvn.clever-shuttle.com/artifactory/thirdparty-releases</url>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://mvn.clever-shuttle.com/artifactory/libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://mvn.clever-shuttle.com/artifactory/libs-snapshot</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+          <id>thirdparty</id>
+          <name>thirdparty-releases</name>
+          <url>https://mvn.clever-shuttle.com/artifactory/thirdparty-releases</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <name>Central Repository</name>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <layout>default</layout>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
+
