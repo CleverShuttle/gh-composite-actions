@@ -1,0 +1,6 @@
+# sample .actrc file
+-P ubuntu-latest=nektos/act-environments-ubuntu:18.04
+#-P ubuntu-18.04=nektos/act-environments-ubuntu:18.04
+-P ubuntu-20.04=nektos/act-environments-ubuntu-20.04
+-P ubuntu-18.04:node:16-buster-slim
+--container-architecture linux/amd64

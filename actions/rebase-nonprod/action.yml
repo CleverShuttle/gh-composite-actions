@@ -1,0 +1,34 @@
+name: 'Rebase nonProd onto master'
+description: 'Rebase nonProd onto master'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Checkout repository"
+      uses: actions/checkout@v2
+      with:
+        ref: master
+        # The default of 1 only fetches the default branch. We also want nonProd, so we fetch all.
+        fetch-depth: 0
+
+    - name: "Setup git config"
+      shell: bash
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Github Action"
+
+    - name: "Rebase nonProd onto master"
+      shell: bash
+      run: |
+        if git switch nonprod 2>/dev/null; then
+          echo "nonprod branch exists. Rebasing it onto master"
+          git rebase origin/master
+        else
+          echo "nonprod branch does not exist. Creating it from master"
+          git checkout -b nonprod origin/master
+        fi
+
+    - name: "Push changes"
+      shell: bash
+      run: |
+        git push --force origin nonprod
