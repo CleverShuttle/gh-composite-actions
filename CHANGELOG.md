@@ -1,9 +1,21 @@
+### [1.6.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.0...v1.6.1) (2022-03-14)
+
+
+### Chores
+
+* Append rebase-nonprod actions ([8a68c7e](https://github.com/CleverShuttle/gh-composite-actions/commit/8a68c7ef49239dda0c798b405d62fcd4a5445e28))
+
 ## [1.6.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.2...v1.6.0) (2022-03-14)
 
 
 ### Features
 
 * Rollback latest change for lint-commits.yml ([5366cbd](https://github.com/CleverShuttle/gh-composite-actions/commit/5366cbd73b9248bfcc65e87fe01c19107b206955))
+
+
+### Chores
+
+* **release:** v1.6.0 ([21d4656](https://github.com/CleverShuttle/gh-composite-actions/commit/21d465665ab60dbfe8eaabe7e03d3537a56883b6))
 
 ### [1.5.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.1...v1.5.2) (2022-03-08)
 
@@ -32,12 +44,4 @@
 ### Chores
 
 * **release:** v1.5.0 ([4f39546](https://github.com/CleverShuttle/gh-composite-actions/commit/4f395464b574bd28dddf53d2073cea85f52a61de))
-
-### [1.4.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.4.1...v1.4.2) (2022-03-05)
-
-
-### Chores
-
-* Ignore package-lock.json ([7217c21](https://github.com/CleverShuttle/gh-composite-actions/commit/7217c21f7d4ce01a407685be4388f47b60d8124b))
-* **release:** v1.4.2 ([7c5e467](https://github.com/CleverShuttle/gh-composite-actions/commit/7c5e46753f28d379ec07aa66b66e7f9401121069))
 
