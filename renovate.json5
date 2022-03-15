@@ -1,8 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Presets for GitHub actions",
   "extends": [
-    "local>CleverShuttle/renovate-config"
+    "config:base",
+    ":semanticCommits"
+  ],
+  "schedule": [
+    "after 09:00 and before 16:00 on Monday through Thursday"
   ],
   "automerge": false,
   "automergeType": "branch",
