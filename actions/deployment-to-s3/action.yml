@@ -46,7 +46,7 @@ runs:
   steps:
     - name: 'Deployment: Download release artifact'
       if: inputs.release == ''
-      uses: dawidd6/action-download-artifact@v2.16.0
+      uses: dawidd6/action-download-artifact@v2.17.0
       with:
         github_token: ${{ inputs.github_token }}
         workflow: build.yml
