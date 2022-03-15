@@ -1,9 +1,17 @@
+### [1.6.8](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.7...v1.6.8) (2022-03-15)
+
+
+### Chores
+
+* **deps:** update cardinalby/git-get-release-action action to v1.2.2 ([a772531](https://github.com/CleverShuttle/gh-composite-actions/commit/a7725318749d582d23c359f18edd81e6806ff945))
+
 ### [1.6.7](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.6...v1.6.7) (2022-03-15)
 
 
 ### Chores
 
 * Modify renovate config ([e34b415](https://github.com/CleverShuttle/gh-composite-actions/commit/e34b4157fb2ab934a38d66e5912e209e33e485fb))
+* **release:** v1.6.7 ([486aaa1](https://github.com/CleverShuttle/gh-composite-actions/commit/486aaa1adf27ba209f5c4c7b9b8898f84278bda4))
 
 ### [1.6.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.5...v1.6.6) (2022-03-15)
 
@@ -28,12 +36,4 @@
 
 * Modify renovate config ([94c29df](https://github.com/CleverShuttle/gh-composite-actions/commit/94c29df7cb13a9cbd39bd9ae67ad33b73856ac37))
 * **release:** v1.6.4 ([0c4bb19](https://github.com/CleverShuttle/gh-composite-actions/commit/0c4bb19e0394d8e3425815ba2d6ce63503e71c02))
-
-### [1.6.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.2...v1.6.3) (2022-03-14)
-
-
-### Chores
-
-* Maven settings added ([9af8565](https://github.com/CleverShuttle/gh-composite-actions/commit/9af8565ebbae1e60063abac43886b202f2b29f14))
-* **release:** v1.6.3 ([d1158ce](https://github.com/CleverShuttle/gh-composite-actions/commit/d1158ce0fce031c02fbc21415719140adeef27b0))
 
