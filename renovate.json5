@@ -8,7 +8,7 @@
     "after 9am every weekday",
     "before 5pm every weekday"
   ],
-  "automerge": false,
+  "automerge": true,
   "automergeType": "branch",
   "packageRules": [
     {
