@@ -5,7 +5,7 @@ runs:
   using: 'composite'
   steps:
     - name: "Checkout repository"
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: master
         # The default of 1 only fetches the default branch. We also want nonProd, so we fetch all.
