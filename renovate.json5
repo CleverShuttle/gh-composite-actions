@@ -5,7 +5,8 @@
     ":semanticCommits"
   ],
   "schedule": [
-    "after 09:00 and before 16:00 on Monday through Thursday"
+    "after 9am every weekday",
+    "before 5pm every weekday"
   ],
   "automerge": false,
   "automergeType": "branch",
@@ -15,6 +16,7 @@
         "github-actions"
       ],
       "reviewersFromCodeOwners": true,
+      "reviewersSampleSize": 1,
       "enabled": true
     }
   ]
