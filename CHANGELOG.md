@@ -1,9 +1,17 @@
+### [1.6.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.3...v1.6.4) (2022-03-15)
+
+
+### Chores
+
+* Modify renovate config ([94c29df](https://github.com/CleverShuttle/gh-composite-actions/commit/94c29df7cb13a9cbd39bd9ae67ad33b73856ac37))
+
 ### [1.6.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.2...v1.6.3) (2022-03-14)
 
 
 ### Chores
 
 * Maven settings added ([9af8565](https://github.com/CleverShuttle/gh-composite-actions/commit/9af8565ebbae1e60063abac43886b202f2b29f14))
+* **release:** v1.6.3 ([d1158ce](https://github.com/CleverShuttle/gh-composite-actions/commit/d1158ce0fce031c02fbc21415719140adeef27b0))
 
 ### [1.6.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.1...v1.6.2) (2022-03-14)
 
@@ -32,12 +40,4 @@
 ### Chores
 
 * **release:** v1.6.0 ([21d4656](https://github.com/CleverShuttle/gh-composite-actions/commit/21d465665ab60dbfe8eaabe7e03d3537a56883b6))
-
-### [1.5.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.5.1...v1.5.2) (2022-03-08)
-
-
-### Chores
-
-* Exclude own process from updates (Release, Update, Release loop) ([83c852d](https://github.com/CleverShuttle/gh-composite-actions/commit/83c852d3d21059a0a058cc38ba31d544f696e8cb))
-* **release:** v1.5.2 ([7dcfa14](https://github.com/CleverShuttle/gh-composite-actions/commit/7dcfa14124e1f57fa89561a253e5a50997f09bf0))
 
