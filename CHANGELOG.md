@@ -1,9 +1,17 @@
+### [1.6.11](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.10...v1.6.11) (2022-03-16)
+
+
+### Chores
+
+* **deps:** update wagoid/commitlint-github-action action to v4 ([acf9933](https://github.com/CleverShuttle/gh-composite-actions/commit/acf9933ddc76b33bd0303c9f337ce0dfa3170a5f))
+
 ### [1.6.10](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.9...v1.6.10) (2022-03-16)
 
 
 ### Chores
 
 * **deps:** update actions/checkout action to v3 ([5564f03](https://github.com/CleverShuttle/gh-composite-actions/commit/5564f03ac3247631e226148fea651ecb8fb2e84d))
+* **release:** v1.6.10 ([29f8fcc](https://github.com/CleverShuttle/gh-composite-actions/commit/29f8fcc556e57180027c3522230d9a5e81ff797c))
 
 ### [1.6.9](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.8...v1.6.9) (2022-03-15)
 
@@ -28,12 +36,4 @@
 
 * Modify renovate config ([e34b415](https://github.com/CleverShuttle/gh-composite-actions/commit/e34b4157fb2ab934a38d66e5912e209e33e485fb))
 * **release:** v1.6.7 ([486aaa1](https://github.com/CleverShuttle/gh-composite-actions/commit/486aaa1adf27ba209f5c4c7b9b8898f84278bda4))
-
-### [1.6.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.5...v1.6.6) (2022-03-15)
-
-
-### Chores
-
-* Modify renovate config ([5f2d812](https://github.com/CleverShuttle/gh-composite-actions/commit/5f2d812a4edc3d9a83bd3a5ddc1573fe66f1463f))
-* **release:** v1.6.6 ([559d38f](https://github.com/CleverShuttle/gh-composite-actions/commit/559d38f6a112dee01055edc085e5411d248768b5))
 
