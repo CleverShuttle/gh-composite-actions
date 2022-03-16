@@ -14,6 +14,6 @@ jobs:
           fetch-depth: 0
 
       - name: "Lint commit messages"
-        uses: wagoid/commitlint-github-action@v3
+        uses: wagoid/commitlint-github-action@v4
         with:
           configFile: 'actions/lint-commits/commitlint.config.js'
