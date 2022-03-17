@@ -28,13 +28,16 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
+      # https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
+      # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
       run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar
         -Dsonar.host.url=${{ inputs.sonar_url }}
         -Dsonar.login=${{ inputs.sonar_token }}
         -Dsonar.projectKey=${{ inputs.sonar_project_key }}
         -Dsonar.scm.provider=git
         -Dsonar.sourceEncoding=UTF-8
-        -Dsonar.java.binaries=target
+        -Dsonar.verbose=true
+        -Dsonar.java.binaries=target/classes
         -Dsonar.qualitygate.wait=true
         -Dsonar.qualitygate.timeout=300
         -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
