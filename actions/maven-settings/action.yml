@@ -8,4 +8,4 @@ runs:
       shell: bash
       run: |
         mkdir -p ~/.m2
-        cp settings.xml ~/.m2/settings.xml
+        cp .settings.xml ~/.m2/settings.xml
