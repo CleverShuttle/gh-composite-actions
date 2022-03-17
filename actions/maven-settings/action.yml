@@ -8,4 +8,5 @@ runs:
       shell: bash
       run: |
         mkdir -p ~/.m2
+        ls -al
         cp actions/maven-settings/settings.xml ~/.m2/settings.xml
