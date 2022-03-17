@@ -8,4 +8,4 @@ runs:
       shell: bash
       run: |
         mkdir -p ~/.m2
-        cp .github/workflows/settings.xml ~/.m2/settings.xml
+        cp ${{ github.action_path }}/settings.xml ~/.m2/settings.xml
