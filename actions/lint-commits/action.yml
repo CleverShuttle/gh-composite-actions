@@ -1,5 +1,5 @@
 name: 'Lint commit messages'
-description: 'Lints Pull Request commits with commitlint'
+description: 'Lints pull request commits with commitlint'
 
 runs:
   using: 'composite'
