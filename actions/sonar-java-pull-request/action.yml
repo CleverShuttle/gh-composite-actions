@@ -30,6 +30,7 @@ runs:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       # https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
+      # https://github.com/spotbugs/sonar-findbugs/issues/388#issuecomment-986628385
       run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar
         -Dsonar.host.url=${{ inputs.sonar_url }}
         -Dsonar.login=${{ inputs.sonar_token }}
