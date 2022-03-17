@@ -1,9 +1,17 @@
+### [1.6.14](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.13...v1.6.14) (2022-03-17)
+
+
+### Chores
+
+* Fix composite action ([5b8664d](https://github.com/CleverShuttle/gh-composite-actions/commit/5b8664d430c8bb51c9c36142d4ff13cb5e52aee6))
+
 ### [1.6.13](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.12...v1.6.13) (2022-03-17)
 
 
 ### Chores
 
 * Fix composite action ([0f418f0](https://github.com/CleverShuttle/gh-composite-actions/commit/0f418f0c2ec0509c76ca56ede6a5e7c0efe10a67))
+* **release:** v1.6.13 ([19e548c](https://github.com/CleverShuttle/gh-composite-actions/commit/19e548cbc7d7c605fc0fcb9b528b7176ac5a3205))
 
 ### [1.6.12](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.11...v1.6.12) (2022-03-17)
 
@@ -28,12 +36,4 @@
 
 * **deps:** update actions/checkout action to v3 ([5564f03](https://github.com/CleverShuttle/gh-composite-actions/commit/5564f03ac3247631e226148fea651ecb8fb2e84d))
 * **release:** v1.6.10 ([29f8fcc](https://github.com/CleverShuttle/gh-composite-actions/commit/29f8fcc556e57180027c3522230d9a5e81ff797c))
-
-### [1.6.9](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.8...v1.6.9) (2022-03-15)
-
-
-### Chores
-
-* **deps:** update dawidd6/action-download-artifact action to v2.17.0 ([06efaca](https://github.com/CleverShuttle/gh-composite-actions/commit/06efaca60b3f4e92bda7451294b8a4ad4693c89f))
-* **release:** v1.6.9 ([86d6062](https://github.com/CleverShuttle/gh-composite-actions/commit/86d60622ae5fe75637c071de4c174c96e4247a04))
 
