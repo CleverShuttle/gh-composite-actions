@@ -1,0 +1,47 @@
+name: 'Sonar'
+description: 'Run analysis for pull requests'
+
+inputs:
+  github_token:
+    description: 'Secret GitHub token'
+    required: true
+
+  sonar_token:
+    description: 'Secret Sonar token'
+    required: true
+
+  sonar_url:
+    description: 'Sonar url'
+    required: true
+
+  sonar_project_key:
+    description: 'Sonar project key'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Checkout repository"
+      uses: actions/checkout@v3
+
+    - name: "Sonar"
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar
+        -Dsonar.host.url=${{ inputs.sonar_url }}
+        -Dsonar.login=${{ inputs.sonar_token }}
+        -Dsonar.projectKey=${{ inputs.sonar_project_key }}
+        -Dsonar.scm.provider=git
+        -Dsonar.sourceEncoding=UTF-8
+        -Dsonar.language=java
+        -Dsonar.qualitygate.wait=true
+        -Dsonar.qualitygate.timeout=300
+        -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
+        -Dsonar.dependencyCheck.htmlReportPath=target/site/dependency-check-report.html
+        -Dsonar.pullrequest.provider=GitHub
+        -Dsonar.pullrequest.key=${{ github.event.number }}
+        -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
+        -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
+        -Dsonar.pullrequest.github.repository=${{ github.repository }}
+
