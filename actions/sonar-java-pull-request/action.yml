@@ -34,7 +34,7 @@ runs:
         -Dsonar.projectKey=${{ inputs.sonar_project_key }}
         -Dsonar.scm.provider=git
         -Dsonar.sourceEncoding=UTF-8
-        -Dsonar.language=java
+        -Dsonar.java.binaries=target
         -Dsonar.qualitygate.wait=true
         -Dsonar.qualitygate.timeout=300
         -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
