@@ -47,7 +47,6 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
-      # https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
       # https://docs.sonarqube.org/latest/analysis/pull-request/
       run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
@@ -67,4 +66,3 @@ runs:
         -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
         -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
         -Dsonar.pullrequest.github.repository=${{ github.repository }}
-
