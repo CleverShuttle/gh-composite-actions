@@ -1,9 +1,21 @@
+## [1.15.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.14.0...v1.15.0) (2022-03-18)
+
+
+### Features
+
+* Modify sonar-java-pull-request composite action - use setup-sonar-scanner ([9b1e7e2](https://github.com/CleverShuttle/gh-composite-actions/commit/9b1e7e2eb6c6016421d6f26de3e37ec3f31e2eeb))
+
 ## [1.14.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.13.0...v1.14.0) (2022-03-18)
 
 
 ### Features
 
 * Modify sonar-java-pull-request composite action - use setup-sonar-scanner ([7fcd540](https://github.com/CleverShuttle/gh-composite-actions/commit/7fcd540f2ddec07a83781ba3506b02f53e5f7a6a))
+
+
+### Chores
+
+* **release:** v1.14.0 ([7314409](https://github.com/CleverShuttle/gh-composite-actions/commit/73144090e5e1679791198c6e03200bfe89eec1ac))
 
 ## [1.13.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.12.0...v1.13.0) (2022-03-18)
 
@@ -40,16 +52,4 @@
 ### Chores
 
 * **release:** v1.11.0 ([dfd9578](https://github.com/CleverShuttle/gh-composite-actions/commit/dfd9578a00fd582ce087e00888069db73c450a48))
-
-## [1.10.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.9.1...v1.10.0) (2022-03-17)
-
-
-### Features
-
-* Modify sonar-java-pull-request composite action ([f211b3d](https://github.com/CleverShuttle/gh-composite-actions/commit/f211b3dae3b9fb4e17c592c5163c1bd2fc369d77))
-
-
-### Chores
-
-* **release:** v1.10.0 ([abfd90c](https://github.com/CleverShuttle/gh-composite-actions/commit/abfd90cb12fa951400d8850c1ea4c52181128f0f))
 
