@@ -1,11 +1,6 @@
 name: 'Generate changelog'
 description: 'Generate a changelog with conventional commits'
 
-inputs:
-  github_token:
-    description: 'Secret GitHub token'
-    required: true
-
 outputs:
   clean_changelog:
     description: 'The generated changelog for the new version without the version name in it (Better for Github releases)'
@@ -26,7 +21,7 @@ runs:
       uses: TriPSs/conventional-changelog-action@v3.7.1
       with:
         presets: "conventionalcommits"
-        github-token: ${{ inputs.github_token }}
+        github-token: ${{ github.token }}
         skip-on-empty: true
         tag-prefix: "v"
         output-file: false
