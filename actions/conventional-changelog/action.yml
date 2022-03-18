@@ -1,0 +1,35 @@
+name: 'Generate changelog'
+description: 'Generate a changelog with conventional commits'
+
+inputs:
+  github_token:
+    description: 'Secret GitHub token'
+    required: true
+
+outputs:
+  clean_changelog:
+    description: 'The generated changelog for the new version without the version name in it (Better for Github releases)'
+    # https://github.com/TriPSs/conventional-changelog-action#outputs
+    value: ${{ steps.changelog.outputs.clean_changelog }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Setup: Install dependencies'
+      shell: bash
+      run: |
+        npm i conventional-changelog-conventionalcommits
+
+    # https://github.com/TriPSs/conventional-changelog-action
+    - name: "Generate changelog"
+      id: changelog
+      uses: TriPSs/conventional-changelog-action@v3.7.1
+      with:
+        presets: "conventionalcommits"
+        github-token: ${{ inputs.github_token }}
+        skip-on-empty: true
+        tag-prefix: "v"
+        output-file: false
+        skip-version-file: true
+        skip-commit: true
+        config-file-path: changelog.config.js

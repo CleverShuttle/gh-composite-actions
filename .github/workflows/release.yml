@@ -5,8 +5,9 @@ on:
     branches:
       - master
 
+# https://docs.github.com/en/actions/using-jobs/using-concurrency
 concurrency:
-  group: gh-composite-actions-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -30,7 +31,7 @@ jobs:
           preset: 'conventionalcommits'
           skip-version-file: true
           git-message: 'chore(release): {version}'
-          config-file-path: '.github/configs/changelog.config.js'
+          config-file-path: 'actions/conventional-changelog/changelog.config.js'
 
       - name: 'Create Release'
         id: create_release

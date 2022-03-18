@@ -1,31 +1,7 @@
 # GitHub Composite-Actions
 
-The repository provides all reusable GitHub actions.
+The repository provides all GitHub composite-actions
 
-## Actions
+## Code owners
 
-#### create-jira-release
-
-TBD
-
-#### deployment-to-s3
-
-TBD
-
-#### dump-github-context
-
-TBD
-
-#### notification-append-changelog
-
-TBD
-
-#### notification-deployment-start
-
-TBD
-
-#### notification-deployment-end
-
-TBD
-
-
+See [CODEOWNERS](CODEOWNERS)
