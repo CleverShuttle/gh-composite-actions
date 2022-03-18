@@ -36,10 +36,10 @@ runs:
         LATEST_VERSION=$(curl -u${{ inputs.artifactory_username }}:${{ inputs.artifactory_password }} -s $URL | grep latest | sed "s/.*<latest>\([^<]*\)<\/latest>.*/\1/")
         
         if [ -z "$LATEST_VERSION" ]; then
-          echo "Use default sonar-maven-plugin 3.9.1.2184"
+          echo "Use default sonar-maven-plugin '3.9.1.2184'"
           echo "SONAR_MAVEN_PLUGIN_VERSION=3.9.1.2184" >> $GITHUB_ENV
         else
-          echo "Use latest sonar-maven-plugin $LATEST_VERSION"
+          echo "Use latest sonar-maven-plugin '$LATEST_VERSION'"
           echo "SONAR_MAVEN_PLUGIN_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
         fi
 
@@ -50,23 +50,21 @@ runs:
       # https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
       # https://docs.sonarqube.org/latest/analysis/pull-request/
-      run: |
-        echo "Start sonar-maven-plugin '${{ env.SONAR_MAVEN_PLUGIN_VERSION }}'"
-        mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
-          -Dsonar.host.url=${{ inputs.sonar_url }}
-          -Dsonar.login=${{ inputs.sonar_token }}
-          -Dsonar.projectKey=${{ inputs.sonar_project_key }}
-          -Dsonar.scm.provider=git
-          -Dsonar.sourceEncoding=UTF-8
-          -Dsonar.verbose=true
-          -Dsonar.language=java
-          -Dsonar.qualitygate.wait=true
-          -Dsonar.qualitygate.timeout=300
-          -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
-          -Dsonar.dependencyCheck.htmlReportPath=target/site/dependency-check-report.html
-          -Dsonar.pullrequest.provider=GitHub
-          -Dsonar.pullrequest.key=${{ github.event.number }}
-          -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
-          -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
-          -Dsonar.pullrequest.github.repository=${{ github.repository }}
+      run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
+        -Dsonar.host.url=${{ inputs.sonar_url }}
+        -Dsonar.login=${{ inputs.sonar_token }}
+        -Dsonar.projectKey=${{ inputs.sonar_project_key }}
+        -Dsonar.scm.provider=git
+        -Dsonar.sourceEncoding=UTF-8
+        -Dsonar.verbose=true
+        -Dsonar.language=java
+        -Dsonar.qualitygate.wait=true
+        -Dsonar.qualitygate.timeout=300
+        -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
+        -Dsonar.dependencyCheck.htmlReportPath=target/site/dependency-check-report.html
+        -Dsonar.pullrequest.provider=GitHub
+        -Dsonar.pullrequest.key=${{ github.event.number }}
+        -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
+        -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
+        -Dsonar.pullrequest.github.repository=${{ github.repository }}
 
