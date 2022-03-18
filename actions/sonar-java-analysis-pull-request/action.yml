@@ -2,10 +2,6 @@ name: 'Sonar'
 description: 'Run analysis for pull requests'
 
 inputs:
-  github_token:
-    description: 'Secret GitHub token'
-    required: true
-
   sonar_token:
     description: 'Secret Sonar token'
     required: true
@@ -45,8 +41,6 @@ runs:
 
     - name: "Sonar"
       shell: bash
-      env:
-        GITHUB_TOKEN: ${{ inputs.github_token }}
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
       # https://docs.sonarqube.org/latest/analysis/pull-request/
       run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
