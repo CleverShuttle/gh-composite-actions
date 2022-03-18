@@ -1,9 +1,21 @@
+## [1.21.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.20.0...v1.21.0) (2022-03-18)
+
+
+### Features
+
+* Remove github_token from conventional-changelog ([f011bb6](https://github.com/CleverShuttle/gh-composite-actions/commit/f011bb69c2340d59f83579b71c7cdbaf9841301a))
+
 ## [1.20.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.19.0...v1.20.0) (2022-03-18)
 
 
 ### Features
 
 * Remove github_token from sonar-composite-actions ([fb33e37](https://github.com/CleverShuttle/gh-composite-actions/commit/fb33e37a03cfcda6562938abf3de042589f2d292))
+
+
+### Chores
+
+* **release:** v1.20.0 ([2869a7f](https://github.com/CleverShuttle/gh-composite-actions/commit/2869a7f14263dd784feecca46f7d79085361225f))
 
 ## [1.19.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.18.0...v1.19.0) (2022-03-18)
 
@@ -40,16 +52,4 @@
 ### Chores
 
 * **release:** v1.17.0 ([7c4edcf](https://github.com/CleverShuttle/gh-composite-actions/commit/7c4edcf6faede1237edca9a49877003b4a9bc891))
-
-## [1.16.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.15.0...v1.16.0) (2022-03-18)
-
-
-### Features
-
-* Modify sonar-java-pull-request composite action ([94884de](https://github.com/CleverShuttle/gh-composite-actions/commit/94884de7b4175e3522968bc5f801a4a212732a51))
-
-
-### Chores
-
-* **release:** v1.16.0 ([7c6d7c2](https://github.com/CleverShuttle/gh-composite-actions/commit/7c6d7c21e32b09c10bede562aad37f0cb395b4af))
 
