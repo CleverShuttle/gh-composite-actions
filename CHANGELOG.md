@@ -1,9 +1,21 @@
+## [1.13.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.12.0...v1.13.0) (2022-03-18)
+
+
+### Features
+
+* Modify maven-settings composite action ([1578bc2](https://github.com/CleverShuttle/gh-composite-actions/commit/1578bc2d5f3f6cc9869fcd8dff992c8ed4733778))
+
 ## [1.12.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.11.0...v1.12.0) (2022-03-18)
 
 
 ### Features
 
 * Modify sonar-java-pull-request composite action ([6a4dcc8](https://github.com/CleverShuttle/gh-composite-actions/commit/6a4dcc804d645172b35274d228670c88a23059c0))
+
+
+### Chores
+
+* **release:** v1.12.0 ([665d0f8](https://github.com/CleverShuttle/gh-composite-actions/commit/665d0f8c5bf1e1ba2543090e9c04acdf37291561))
 
 ## [1.11.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.10.0...v1.11.0) (2022-03-17)
 
@@ -36,16 +48,4 @@
 
 * Append new comment for findbugs ([1d2ba71](https://github.com/CleverShuttle/gh-composite-actions/commit/1d2ba7142bab30e4d244063fbd796966782f0ac6))
 * **release:** v1.9.1 ([56b91ea](https://github.com/CleverShuttle/gh-composite-actions/commit/56b91eab60fac3c7a65ca2143165979fd581578e))
-
-## [1.9.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.8.0...v1.9.0) (2022-03-17)
-
-
-### Features
-
-* Modify sonar-java-pull-request composite action ([71ee46e](https://github.com/CleverShuttle/gh-composite-actions/commit/71ee46e3ae4619a5ddc123bdacbf1e035933be6c))
-
-
-### Chores
-
-* **release:** v1.9.0 ([85ddd61](https://github.com/CleverShuttle/gh-composite-actions/commit/85ddd61e6d9052a9d4314aa5be45dd117b123ae7))
 
