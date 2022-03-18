@@ -56,7 +56,7 @@
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
-          <id>central</id>
+          <id>release</id>
           <name>libs-release</name>
           <url>https://mvn.clever-shuttle.com/artifactory/libs-release</url>
         </pluginRepository>
@@ -76,6 +76,7 @@
           <name>thirdparty-releases</name>
           <url>https://mvn.clever-shuttle.com/artifactory/thirdparty-releases</url>
         </pluginRepository>
+
         <pluginRepository>
           <id>central</id>
           <name>Central Repository</name>
