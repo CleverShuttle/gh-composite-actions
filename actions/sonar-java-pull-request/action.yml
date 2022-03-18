@@ -21,14 +21,18 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: 'Setup sonarqube'
+      # https://github.com/Warchant/setup-sonar-scanner
+      uses: warchant/setup-sonar-scanner@v3
+
     - name: "Sonar"
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
-      # https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
+      # https://github.com/SonarSource/sonar-scanner-cli/releases
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
-      # https://github.com/spotbugs/sonar-findbugs/issues/388#issuecomment-986628385
-      run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar
+      # https://docs.sonarqube.org/latest/analysis/pull-request/
+      run: sonar-scanner
         -Dsonar.host.url=${{ inputs.sonar_url }}
         -Dsonar.login=${{ inputs.sonar_token }}
         -Dsonar.projectKey=${{ inputs.sonar_project_key }}
