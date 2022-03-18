@@ -40,6 +40,7 @@ runs:
         -Dsonar.sourceEncoding=UTF-8
         -Dsonar.verbose=true
         -Dsonar.language=java
+        -Dsonar.sources=$GITHUB_WORKSPACE
         -Dsonar.qualitygate.wait=true
         -Dsonar.qualitygate.timeout=300
         -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
