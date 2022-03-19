@@ -20,6 +20,11 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - name: 'Setup: Node'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
     - name: 'Setup: Install dependencies'
       shell: bash
       run: |
