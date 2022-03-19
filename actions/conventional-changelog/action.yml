@@ -37,4 +37,4 @@ runs:
         output-file: false
         skip-version-file: true
         skip-commit: true
-        config-file-path: changelog.config.js
+        config-file-path: ${{ github.action_path }}/changelog.config.js
