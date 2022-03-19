@@ -1,9 +1,21 @@
+### [1.21.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.3...v1.21.4) (2022-03-19)
+
+
+### Bug Fixes
+
+* Try to fix conventional-changelog ([565fad7](https://github.com/CleverShuttle/gh-composite-actions/commit/565fad772a2eb7680c444cb91b210fc9475b310e))
+
 ### [1.21.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.2...v1.21.3) (2022-03-19)
 
 
 ### Bug Fixes
 
 * Append node to conventional-changelog ([99dba90](https://github.com/CleverShuttle/gh-composite-actions/commit/99dba904a4dbff20726a334da6114572b3719bde))
+
+
+### Chores
+
+* **release:** v1.21.3 ([50fc99a](https://github.com/CleverShuttle/gh-composite-actions/commit/50fc99af05435569399e4cba306f09bc5e654795))
 
 ### [1.21.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.1...v1.21.2) (2022-03-19)
 
@@ -36,16 +48,4 @@
 ### Chores
 
 * **release:** v1.21.0 ([b6bc7ee](https://github.com/CleverShuttle/gh-composite-actions/commit/b6bc7eea78a3aac84f03b21caf4b457686600960))
-
-## [1.20.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.19.0...v1.20.0) (2022-03-18)
-
-
-### Features
-
-* Remove github_token from sonar-composite-actions ([fb33e37](https://github.com/CleverShuttle/gh-composite-actions/commit/fb33e37a03cfcda6562938abf3de042589f2d292))
-
-
-### Chores
-
-* **release:** v1.20.0 ([2869a7f](https://github.com/CleverShuttle/gh-composite-actions/commit/2869a7f14263dd784feecca46f7d79085361225f))
 
