@@ -1,9 +1,21 @@
+### [1.21.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.4...v1.21.5) (2022-03-19)
+
+
+### Bug Fixes
+
+* Try to fix conventional-changelog ([c428fd7](https://github.com/CleverShuttle/gh-composite-actions/commit/c428fd72081fb2544cee992aa21942679855da95))
+
 ### [1.21.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.3...v1.21.4) (2022-03-19)
 
 
 ### Bug Fixes
 
 * Try to fix conventional-changelog ([565fad7](https://github.com/CleverShuttle/gh-composite-actions/commit/565fad772a2eb7680c444cb91b210fc9475b310e))
+
+
+### Chores
+
+* **release:** v1.21.4 ([744f621](https://github.com/CleverShuttle/gh-composite-actions/commit/744f6217bb8fc87397f82b28600a4d451421c2ee))
 
 ### [1.21.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.2...v1.21.3) (2022-03-19)
 
@@ -36,16 +48,4 @@
 
 * Append additional output properties to conventional-changelog ([f9bf0c5](https://github.com/CleverShuttle/gh-composite-actions/commit/f9bf0c5d8099e805c6e4eb66efe4be964d79ea3f))
 * **release:** v1.21.1 ([2b4220f](https://github.com/CleverShuttle/gh-composite-actions/commit/2b4220f2283f2d32b74d440dceccccf3be8c5e25))
-
-## [1.21.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.20.0...v1.21.0) (2022-03-18)
-
-
-### Features
-
-* Remove github_token from conventional-changelog ([f011bb6](https://github.com/CleverShuttle/gh-composite-actions/commit/f011bb69c2340d59f83579b71c7cdbaf9841301a))
-
-
-### Chores
-
-* **release:** v1.21.0 ([b6bc7ee](https://github.com/CleverShuttle/gh-composite-actions/commit/b6bc7eea78a3aac84f03b21caf4b457686600960))
 
