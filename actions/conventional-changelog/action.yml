@@ -19,8 +19,7 @@ runs:
   steps:
     - name: 'Setup: Install dependencies'
       shell: bash
-      run: |
-        npm i conventional-changelog-conventionalcommits
+      run: npm install --save commitlint@next @commitlint/cli@next commitlint-plugin-cleanfeet conventional-changelog-conventionalcommits
 
     # https://github.com/TriPSs/conventional-changelog-action
     - name: "Generate changelog"
