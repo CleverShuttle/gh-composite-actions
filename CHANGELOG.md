@@ -1,9 +1,21 @@
+### [1.21.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.2...v1.21.3) (2022-03-19)
+
+
+### Bug Fixes
+
+* Append node to conventional-changelog ([99dba90](https://github.com/CleverShuttle/gh-composite-actions/commit/99dba904a4dbff20726a334da6114572b3719bde))
+
 ### [1.21.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.1...v1.21.2) (2022-03-19)
 
 
 ### Bug Fixes
 
 * Path problem in conventional-changelog ([3b986e3](https://github.com/CleverShuttle/gh-composite-actions/commit/3b986e362822483fc4b488c3769b0c69b1c0a5ce))
+
+
+### Chores
+
+* **release:** v1.21.2 ([cfe13d4](https://github.com/CleverShuttle/gh-composite-actions/commit/cfe13d46bd46384cd5b2a48d7ed4695ac430f349))
 
 ### [1.21.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.0...v1.21.1) (2022-03-19)
 
@@ -36,16 +48,4 @@
 ### Chores
 
 * **release:** v1.20.0 ([2869a7f](https://github.com/CleverShuttle/gh-composite-actions/commit/2869a7f14263dd784feecca46f7d79085361225f))
-
-## [1.19.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.18.0...v1.19.0) (2022-03-18)
-
-
-### Features
-
-* Append new composite action conventional-changelog ([5050a83](https://github.com/CleverShuttle/gh-composite-actions/commit/5050a83c69085fe674089291c73463c73da0589a))
-
-
-### Chores
-
-* **release:** v1.19.0 ([a6a1729](https://github.com/CleverShuttle/gh-composite-actions/commit/a6a1729bf2163235078f1ba5df2758a7368340f4))
 
