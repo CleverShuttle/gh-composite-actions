@@ -4,6 +4,7 @@ description: 'Download artefact, check version compatibility, unzip and copy to 
 inputs:
   github_token:
     description: 'Secret GitHub token'
+    deprecationMessage: "Not necessary"
     required: true
 
   release:
@@ -57,7 +58,7 @@ runs:
       if: inputs.release != ''
       uses: Legion2/download-release-action@v2.1.0
       with:
-        token: ${{ inputs.github_token }}
+        token: ${{ github.token }}
         repository: ${{ github.repository }}
         tag: ${{ inputs.release }}
         path: .
