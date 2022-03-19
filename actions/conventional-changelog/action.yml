@@ -7,6 +7,16 @@ outputs:
     # https://github.com/TriPSs/conventional-changelog-action#outputs
     value: ${{ steps.changelog.outputs.clean_changelog }}
 
+  skipped:
+    description: 'Boolean specifying if this step have been skipped'
+    # https://github.com/TriPSs/conventional-changelog-action#outputs
+    value: ${{ steps.changelog.outputs.skipped }}
+
+  version:
+    description: 'The new version'
+    # https://github.com/TriPSs/conventional-changelog-action#outputs
+    value: ${{ steps.changelog.outputs.version }}
+
 runs:
   using: 'composite'
   steps:
