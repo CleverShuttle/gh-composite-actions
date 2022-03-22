@@ -17,7 +17,7 @@ outputs:
 
   changelog-skipped:
     description: 'Boolean specifying if changelog step has been skipped'
-    value: ${{ steps.changelog.outputs.skipped }}
+    value: ${{ steps.conventional-changelog.outputs.skipped }}
 
   version:
     description: 'The new maven version'
@@ -35,12 +35,10 @@ runs:
       uses: TriPSs/conventional-changelog-action@v3.11.0
       with:
         github-token: ${{ github.token }}
+        git-push: false
         skip-on-empty: true
-        output-file: false
         skip-version-file: true
         skip-commit: true
-        tag-prefix: ''
-        git-push: false
 
     - name: 'Generate Jira links for the changelog'
       shell: bash
@@ -65,7 +63,14 @@ runs:
         USERNAME: ${{ inputs.artifactory_username }}
         PASSWORD: ${{ inputs.artifactory_password }}
       run: |
-        mvn -B versions:set -DnewVersion=${{ steps.conventional-changelog.outputs.version }} -N versions:update-child-modules -DgenerateBackupPoms=false
+        mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn versions:set -DnewVersion=${{ steps.conventional-changelog.outputs.version }} -N versions:update-child-modules -DgenerateBackupPoms=false
+        mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn versions:commit
+
+    - name: 'Commit changes'
+      shell: bash
+      run: |
+        git add .
+        git commit -m "chore(release): ${{ steps.conventional-changelog.outputs.version }}" -a
 
     - name: 'Push changes'
       # https://github.com/ad-m/github-push-action
