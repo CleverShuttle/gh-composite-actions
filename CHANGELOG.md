@@ -1,3 +1,12 @@
+# [1.23.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.22.0...v1.23.0) (2022-03-23)
+
+
+### Features
+
+* Use preset angular as default ([cce7ef0](https://github.com/CleverShuttle/gh-composite-actions/commit/cce7ef00a37888400e9307c78cdec0144d8b81b7))
+
+
+
 # [1.22.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.7...v1.22.0) (2022-03-23)
 
 
@@ -33,15 +42,6 @@
 ### Bug Fixes
 
 * Try to fix conventional-changelog ([c428fd7](https://github.com/CleverShuttle/gh-composite-actions/commit/c428fd72081fb2544cee992aa21942679855da95))
-
-
-
-## [1.21.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.3...v1.21.4) (2022-03-19)
-
-
-### Bug Fixes
-
-* Try to fix conventional-changelog ([565fad7](https://github.com/CleverShuttle/gh-composite-actions/commit/565fad772a2eb7680c444cb91b210fc9475b310e))
 
 
 
