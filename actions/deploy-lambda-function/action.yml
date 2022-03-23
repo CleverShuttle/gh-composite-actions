@@ -1,0 +1,35 @@
+name: 'Deploy lambda function'
+description: 'Deploy AWS lambda function via the AWS CLI'
+
+inputs:
+  aws_access_key_id:
+    description: 'AWS access key ID to use for deployment'
+    required: true
+  aws_region:
+    description: 'AWS region to deploy to'
+    required: true
+  aws_secret_access_key:
+    description: 'AWS secret access key to use for deployment'
+    required: true
+  project_version:
+    description: 'Project version to deploy'
+    required: true
+  function_name:
+    description: 'The name of the AWS Lambda function to be deployed'
+    required: true
+  jar_file:
+    description: 'The path to the Jar file to be uploaded. You can use <PROJECT_VERSION> as a placeholder for the project version.'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Configure AWS credentials for integration tests"
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ inputs.aws_access_key_id }}
+        aws-secret-access-key: ${{ inputs.aws_secret_access_key }}
+        aws-region: ${{ inputs.aws_region }}
+    - name: "Deploy lambda function"
+      shell: bash
+      run: deploy-lambda-function.sh ${{ inputs.project_version }} ${{ inputs.function_name }} ${{ inputs.jar_file }}
