@@ -18,7 +18,7 @@ inputs:
     description: 'The name of the AWS Lambda function to be deployed'
     required: true
   jar_file:
-    description: 'The path to the Jar file to be uploaded. You can use <PROJECT_VERSION> as a placeholder for the project version.'
+    description: 'The path to the Jar file to be uploaded. You can use PROJECT_VERSION as a placeholder for the project version.'
     required: true
 
 runs:
@@ -32,4 +32,4 @@ runs:
         aws-region: ${{ inputs.aws_region }}
     - name: "Deploy lambda function"
       shell: bash
-      run: deploy-lambda-function.sh ${{ inputs.project_version }} ${{ inputs.function_name }} ${{ inputs.jar_file }}
+      run: . ${{ github.action_path }}/deploy-lambda-function.sh ${{ inputs.project_version }} ${{ inputs.function_name }} ${{ inputs.jar_file }}
