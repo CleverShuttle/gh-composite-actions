@@ -86,8 +86,8 @@ runs:
         github_token: ${{ github.token }}
       with:
         body: ${{ steps.changelog-with-jira-links.outputs.text }}
-          tag_name: ${{ steps.conventional-changelog.outputs.tag }}
-          name: ${{ steps.conventional-changelog.outputs.tag }}
+        tag_name: ${{ steps.conventional-changelog.outputs.tag }}
+        name: ${{ steps.conventional-changelog.outputs.tag }}
 
     - name: 'Outputs'
       shell: bash
