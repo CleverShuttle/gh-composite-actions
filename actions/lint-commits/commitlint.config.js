@@ -1,6 +1,6 @@
 module.exports = {
-  // see https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional
-  extends: ["@commitlint/config-conventional"],
+  // see https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-angular
+  extends: ["@commitlint/config-angular"],
   rules: {
     "scope-case": [1, "always", "upper-case"],
     "subject-case": [1, "always", "sentence-case"],
