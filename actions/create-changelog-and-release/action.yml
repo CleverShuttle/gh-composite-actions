@@ -20,7 +20,7 @@ outputs:
     value: ${{ steps.conventional-changelog.outputs.skipped }}
 
   version:
-    description: 'The new maven version'
+    description: 'The new version'
     value: ${{ steps.conventional-changelog.outputs.version }}
 
 runs:
@@ -36,7 +36,6 @@ runs:
       with:
         github-token: ${{ github.token }}
         git-push: false
-        skip-on-empty: true
         skip-version-file: true
         skip-commit: true
 
