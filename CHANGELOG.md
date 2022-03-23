@@ -1,3 +1,12 @@
+## [1.23.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.0...v1.23.1) (2022-03-23)
+
+
+### Bug Fixes
+
+* Indentation ([4b0eb32](https://github.com/CleverShuttle/gh-composite-actions/commit/4b0eb3246cad92a963bfa50868f8af167c6c8afb))
+
+
+
 # [1.23.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.22.0...v1.23.0) (2022-03-23)
 
 
@@ -33,15 +42,6 @@
 ### Bug Fixes
 
 * Try to fix conventional-changelog ([5f65608](https://github.com/CleverShuttle/gh-composite-actions/commit/5f65608ec9838f94e09318b2c84f11fe3ecd5878))
-
-
-
-## [1.21.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.4...v1.21.5) (2022-03-19)
-
-
-### Bug Fixes
-
-* Try to fix conventional-changelog ([c428fd7](https://github.com/CleverShuttle/gh-composite-actions/commit/c428fd72081fb2544cee992aa21942679855da95))
 
 
 
