@@ -14,33 +14,25 @@ jobs:
   release:
     runs-on: ubuntu-20.04
     steps:
-      - name: 'Setup: Checkout'
+      - name: 'Checkout'
         # https://github.com/actions/checkout
         uses: actions/checkout@v3
 
-      - name: 'Setup: Install dependencies'
-        run: |
-          npm i conventional-changelog-conventionalcommits
-
-      - name: 'Conventional Changelog Action'
-        id: changelog
+      - name: 'Generate changelog'
+        id: conventional-changelog
         # https://github.com/TriPSs/conventional-changelog-action
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: TriPSs/conventional-changelog-action@v3.11.0
         with:
           github-token: ${{ secrets.github_token }}
-          preset: 'conventionalcommits'
           skip-version-file: true
-          git-message: 'chore(release): {version}'
-          config-file-path: 'actions/conventional-changelog/changelog.config.js'
 
-      - name: 'Create Release'
-        id: create_release
-        # https://github.com/actions/create-release
-        uses: actions/create-release@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+      - name: 'Create Github release'
+        # https://github.com/softprops/action-gh-release
+        uses: softprops/action-gh-release@v0.1.14
+        if: ${{ steps.conventional-changelog.outputs.skipped == 'false' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+          github_token: ${{ secrets.github_token }}
         with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: ${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
+          body: ${{ steps.conventional-changelog.outputs.clean_changelog }}
+          tag_name: ${{ steps.conventional-changelog.outputs.tag }}
+          name: ${{ steps.conventional-changelog.outputs.tag }}

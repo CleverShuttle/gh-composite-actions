@@ -82,12 +82,12 @@ runs:
       # https://github.com/softprops/action-gh-release
       id: gh-release
       uses: softprops/action-gh-release@v0.1.14
-      with:
-        body: ${{ steps.changelog-with-jira-links.outputs.text }}
-        tag_name: v${{ steps.conventional-changelog.outputs.version }}
-        name: v${{ steps.conventional-changelog.outputs.version }}
       env:
         github_token: ${{ github.token }}
+      with:
+        body: ${{ steps.changelog-with-jira-links.outputs.text }}
+          tag_name: ${{ steps.conventional-changelog.outputs.tag }}
+          name: ${{ steps.conventional-changelog.outputs.tag }}
 
     - name: 'Outputs'
       shell: bash
