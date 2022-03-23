@@ -5,5 +5,3 @@ The repository provides all GitHub composite-actions
 ## Code owners
 
 See [CODEOWNERS](CODEOWNERS)
-
-## Test
