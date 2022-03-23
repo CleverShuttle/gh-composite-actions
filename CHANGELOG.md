@@ -1,3 +1,12 @@
+## [1.23.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.1...v1.23.2) (2022-03-23)
+
+
+### Bug Fixes
+
+* Update README.md ([dadb776](https://github.com/CleverShuttle/gh-composite-actions/commit/dadb77646c8166af0d51e5a007786d27dc2264d8))
+
+
+
 ## [1.23.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.0...v1.23.1) (2022-03-23)
 
 
@@ -33,15 +42,6 @@
 
 * New create-changelog-and-create-release action ([043b332](https://github.com/CleverShuttle/gh-composite-actions/commit/043b332355dedab077603e289088372345574080))
 * Update README.md ([4fbf23c](https://github.com/CleverShuttle/gh-composite-actions/commit/4fbf23cdc9df443af10a96b6c9ae118edc285944))
-
-
-
-## [1.21.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.5...v1.21.6) (2022-03-19)
-
-
-### Bug Fixes
-
-* Try to fix conventional-changelog ([5f65608](https://github.com/CleverShuttle/gh-composite-actions/commit/5f65608ec9838f94e09318b2c84f11fe3ecd5878))
 
 
 
