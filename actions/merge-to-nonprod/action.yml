@@ -1,5 +1,5 @@
-name: 'Rebase nonProd onto master'
-description: 'Rebase nonProd onto master'
+name: 'Merge to nonProd'
+description: 'Merge all features to nonProd'
 
 runs:
   using: 'composite'
@@ -17,16 +17,27 @@ runs:
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
 
-    - name: "Rebase nonProd onto master"
+    - name: "Prepare nonProd"
       shell: bash
       run: |
+        set -o errexit -o nounset
         if git switch nonprod 2>/dev/null; then
-          echo "nonProd branch exists. Rebasing it onto master"
-          git rebase origin/master
+          branchName="${{ github.head_ref }}"
+          # https://stackoverflow.com/a/29613573/5390250
+          escapedBranchName=$(sed "s/[^^]/[&]/g; s/\^/\\^/g" <<< "$branchName")
+          echo "nonProd branch exists. Dropping old feature commit '$branchName' if it exists"
+          GIT_SEQUENCE_EDITOR="sed -i -e \"s/pick\(.*$escapedBranchName\)$/drop\1/g\"" git rebase -i master
         else
           echo "nonProd branch does not exist. Creating it from master"
           git checkout -b nonprod origin/master
         fi
+
+    - name: "Merge feature to nonProd"
+      shell: bash
+      run: |
+        set -o nounset -o errexit
+        git merge --squash "origin/${{ github.head_ref }}"
+        git commit -m "${{ github.head_ref }}"
 
     - name: "Push changes"
       shell: bash
