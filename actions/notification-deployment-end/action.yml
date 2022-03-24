@@ -53,7 +53,7 @@ runs:
       run: echo "SUBJECT=${{ env.SUBJECT }} (${{ inputs.artefact_id }})" >> $GITHUB_ENV
 
     - name: 'Notification: Update to success'
-      uses: archive/github-actions-slack@master
+      uses: archive/github-actions-slack@v2.4.0
       if: ${{ inputs.status == 'success' }}
       with:
         slack-function: update-message
@@ -63,7 +63,7 @@ runs:
         slack-update-message-text: ':white_check_mark: deployed ${{ env.SUBJECT }} to `${{ inputs.target_env }}` – <${{ env.RUN_LINK }}|Details>'
 
     - name: 'Notification: Update to failure'
-      uses: archive/github-actions-slack@master
+      uses: archive/github-actions-slack@v2.4.0
       if: ${{ inputs.status != 'success' }}
       with:
         slack-function: update-message

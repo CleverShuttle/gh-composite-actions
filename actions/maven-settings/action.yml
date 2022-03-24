@@ -4,7 +4,7 @@ description: 'Copy clevershuttle settings to maven folder'
 runs:
   using: 'composite'
   steps:
-    - name: "Copy settings.xml"
+    - name: "Copy Maven settings.xml"
       shell: bash
       run: |
         mkdir -p ~/.m2

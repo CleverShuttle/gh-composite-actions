@@ -61,7 +61,7 @@ runs:
         text: ${{ steps.changelog_with_links.outputs.text }}
 
     - name: 'Notification: Append Changelog'
-      uses: archive/github-actions-slack@master
+      uses: archive/github-actions-slack@v2.4.0
       with:
         slack-function: send-message
         slack-bot-user-oauth-access-token: ${{ inputs.slack_bot_token }}

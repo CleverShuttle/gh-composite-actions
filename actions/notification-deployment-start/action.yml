@@ -54,7 +54,7 @@ runs:
       run: echo "SUBJECT=${{ env.SUBJECT }} (${{ inputs.artefact_id }})" >> $GITHUB_ENV
 
     - name: 'Notification: Send message'
-      uses: archive/github-actions-slack@master
+      uses: archive/github-actions-slack@v2.4.0
       id: send-message
       with:
         slack-function: send-message
