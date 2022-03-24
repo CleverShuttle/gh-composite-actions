@@ -1,3 +1,12 @@
+# [1.25.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.24.0...v1.25.0) (2022-03-24)
+
+
+### Features
+
+* new composite-action merge-to-nonprod ([3fa94f0](https://github.com/CleverShuttle/gh-composite-actions/commit/3fa94f01b64e1380dec7160804e7c6a0ad22c70d))
+
+
+
 # [1.24.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.2...v1.24.0) (2022-03-24)
 
 
@@ -32,16 +41,6 @@
 ### Features
 
 * Use preset angular as default ([cce7ef0](https://github.com/CleverShuttle/gh-composite-actions/commit/cce7ef00a37888400e9307c78cdec0144d8b81b7))
-
-
-
-# [1.22.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.7...v1.22.0) (2022-03-23)
-
-
-### Features
-
-* Optimize create-changelog-and-release action; Fail on warnings in lint-commits action ([1482041](https://github.com/CleverShuttle/gh-composite-actions/commit/14820419ff6685804e3d6526ae21354fea91cbe7))
-* Optimize workflow; Use preset angular ([8f144f4](https://github.com/CleverShuttle/gh-composite-actions/commit/8f144f4fbe4f51fdf5366d3e9c3ef6d51fae378b))
 
 
 
