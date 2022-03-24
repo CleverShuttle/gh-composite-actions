@@ -1,3 +1,12 @@
+# [1.27.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.26.0...v1.27.0) (2022-03-24)
+
+
+### Features
+
+* Set archive/github-actions-slack to concrete version; Wording ([27e78ab](https://github.com/CleverShuttle/gh-composite-actions/commit/27e78aba94ead91969b9ca113b2abd5086e1290a))
+
+
+
 # [1.26.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.25.0...v1.26.0) (2022-03-24)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * Update README.md ([dadb776](https://github.com/CleverShuttle/gh-composite-actions/commit/dadb77646c8166af0d51e5a007786d27dc2264d8))
-
-
-
-## [1.23.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.0...v1.23.1) (2022-03-23)
-
-
-### Bug Fixes
-
-* Indentation ([4b0eb32](https://github.com/CleverShuttle/gh-composite-actions/commit/4b0eb3246cad92a963bfa50868f8af167c6c8afb))
 
 
 
