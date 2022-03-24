@@ -1,3 +1,12 @@
+# [1.26.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.25.0...v1.26.0) (2022-03-24)
+
+
+### Features
+
+* new composite-action create-nonprod-changelog ([bb1c3fd](https://github.com/CleverShuttle/gh-composite-actions/commit/bb1c3fd912400d279c8795a0e028ac7a55ffbbb4))
+
+
+
 # [1.25.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.24.0...v1.25.0) (2022-03-24)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * Indentation ([4b0eb32](https://github.com/CleverShuttle/gh-composite-actions/commit/4b0eb3246cad92a963bfa50868f8af167c6c8afb))
-
-
-
-# [1.23.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.22.0...v1.23.0) (2022-03-23)
-
-
-### Features
-
-* Use preset angular as default ([cce7ef0](https://github.com/CleverShuttle/gh-composite-actions/commit/cce7ef00a37888400e9307c78cdec0144d8b81b7))
 
 
 
