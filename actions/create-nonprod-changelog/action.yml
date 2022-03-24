@@ -1,0 +1,34 @@
+name: 'Generate nonProd changelog'
+description: 'Generate nonProd changelog'
+
+outputs:
+  changelog:
+    description: 'The generated changelog'
+    value: ${{ steps.create-nonprod-changelog.outputs.changelog }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Env variable: General"
+      shell: bash
+      run: echo "REPO_BASE_URL=https://github.com/CleverShuttle/${{ github.event.repository.name }}" >> $GITHUB_ENV
+
+    - name: 'Generate changelog'
+      shell: bash
+      id: create-nonprod-changelog
+      env:
+        REPO_BASE_URL: ${{ env.REPO_BASE_URL }}
+      run: |
+        set -o nounset -o errexit
+        git fetch origin
+        git checkout nonprod
+        output=$(node ${{ github.action_path }}/generate-nonprod-changelog.js ${{ env.REPO_BASE_URL }})
+        output="${output//'%'/'%25'}"
+        output="${output//$'\n'/'%0A'}"
+        output="${output//$'\r'/'%0D'}"
+        echo "::set-output name=changelog::$output"
+
+    - name: 'Outputs'
+      shell: bash
+      run: |
+        echo "Changelog: '${{ steps.create-nonprod-changelog.outputs.changelog }}'"

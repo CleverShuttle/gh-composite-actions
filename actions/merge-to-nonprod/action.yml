@@ -1,5 +1,5 @@
 name: 'Merge to nonProd'
-description: 'Merge all features to nonProd'
+description: 'Merge to nonProd'
 
 runs:
   using: 'composite'
