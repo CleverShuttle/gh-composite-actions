@@ -27,7 +27,7 @@ runs:
   using: 'composite'
   steps:
     - name: "Copy Maven settings"
-      uses: CleverShuttle/gh-composite-actions/actions/maven-settings@v1.21.1
+      uses: CleverShuttle/gh-composite-actions/actions/maven-settings@v1.27.0
 
     - name: 'Generate changelog'
       id: conventional-changelog
