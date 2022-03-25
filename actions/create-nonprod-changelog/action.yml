@@ -1,5 +1,5 @@
-name: 'Generate nonProd changelog'
-description: 'Generate nonProd changelog'
+name: 'Generate nonprod changelog'
+description: 'Generate nonprod changelog'
 
 outputs:
   changelog:

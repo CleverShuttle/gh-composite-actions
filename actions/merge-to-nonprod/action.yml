@@ -1,5 +1,5 @@
-name: 'Merge to nonProd'
-description: 'Merge to nonProd'
+name: 'Merge to nonprod'
+description: 'Merge to nonprod'
 
 runs:
   using: 'composite'
@@ -8,7 +8,7 @@ runs:
       uses: actions/checkout@v3
       with:
         ref: master
-        # The default of 1 only fetches the default branch. We also want nonProd, so we fetch all.
+        # The default of 1 only fetches the default branch. We also want nonprod, so we fetch all.
         fetch-depth: 0
 
     - name: "Setup git config"
@@ -17,7 +17,7 @@ runs:
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
 
-    - name: "Prepare nonProd"
+    - name: "Prepare nonprod"
       shell: bash
       run: |
         set -o errexit -o nounset
@@ -25,14 +25,14 @@ runs:
           branchName="${{ github.head_ref }}"
           # https://stackoverflow.com/a/29613573/5390250
           escapedBranchName=$(sed "s/[^^]/[&]/g; s/\^/\\^/g" <<< "$branchName")
-          echo "nonProd branch exists. Dropping old feature commit '$branchName' if it exists"
+          echo "nonprod branch exists. Dropping old feature commit '$branchName' if it exists"
           GIT_SEQUENCE_EDITOR="sed -i -e \"s/pick\(.*$escapedBranchName\)$/drop\1/g\"" git rebase -i master
         else
-          echo "nonProd branch does not exist. Creating it from master"
+          echo "nonprod branch does not exist. Creating it from master"
           git checkout -b nonprod origin/master
         fi
 
-    - name: "Merge feature to nonProd"
+    - name: "Merge feature to nonprod"
       shell: bash
       run: |
         set -o nounset -o errexit

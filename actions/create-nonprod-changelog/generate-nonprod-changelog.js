@@ -1,5 +1,5 @@
 /**
- * Script to generate the changelog for nonProd deployments
+ * Script to generate the changelog for nonprod deployments
  *
  * usage:
  *   node generate-nonprod-changelog.js REPO_BASE_URL
