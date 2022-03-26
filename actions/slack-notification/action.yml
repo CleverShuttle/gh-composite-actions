@@ -1,0 +1,43 @@
+name: 'Slack: Success'
+description: 'Report a success message via Slack'
+
+inputs:
+  slack_token:
+    description: 'Slack bot token'
+    required: true
+
+  slack_channel_id:
+    description: 'Slack channel identifier'
+    required: true
+
+  status:
+    description: 'Status (start / success / failure)'
+    required: true
+
+  target_environment:
+    description: 'Target environment (PROD / NONPROD)'
+    required: false
+
+  slack_message:
+    description: 'Slack text'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Convert message to Slack's mrkdwn format"
+      if: ${{ inputs.slack_message != '' }}
+      id: slack-text
+      # https://github.com/LoveToKnow/slackify-markdown-action
+      uses: lovetoknow/slackify-markdown-action@v1.0.0
+      with:
+        text: ${{ inputs.slack_text }}
+
+    - name: 'Send success message to Slack'
+      if: ${{ inputs.status == 'start' }}
+
+    - name: 'Send success message to Slack'
+      if: ${{ inputs.status == 'success' }}
+
+    - name: 'Send failure message to Slack'
+      if: ${{ inputs.status == 'failure' }}
