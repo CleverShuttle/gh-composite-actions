@@ -35,6 +35,7 @@ runs:
       # https://github.com/TriPSs/conventional-changelog-action
       uses: TriPSs/conventional-changelog-action@v3.11.0
       with:
+        preset: conventionalcommits
         github-token: ${{ github.token }}
         git-push: false
         skip-version-file: true
