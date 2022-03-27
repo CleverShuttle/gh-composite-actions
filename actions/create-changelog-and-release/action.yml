@@ -12,16 +12,16 @@ inputs:
 
 outputs:
   changelog:
-    description: 'The generated changelog with optional jira links'
+    description: 'The generated changelog for the new version'
     value: ${{ steps.changelog-with-jira-links.outputs.text }}
-
-  changelog-skipped:
-    description: 'Boolean specifying if changelog step has been skipped'
-    value: ${{ steps.conventional-changelog.outputs.skipped }}
 
   version:
     description: 'The new version'
-    value: ${{ steps.conventional-changelog.outputs.version }}
+    value: ${{ steps.versioning.outputs.version }}
+
+  tag:
+    description: 'The new tag'
+    value: ${{ steps.versioning.outputs.tag }}
 
 runs:
   using: 'composite'
@@ -29,6 +29,12 @@ runs:
     - name: "Copy Maven settings"
       # Use always master as ref
       uses: CleverShuttle/gh-composite-actions/actions/maven-settings@master
+
+    - name: 'Install package required in changelog.config.js'
+      # see https://stackoverflow.com/a/66643346
+      shell: bash
+      run: |
+        cd ${{github.action_path}} && npm i conventional-changelog-conventionalcommits
 
     - name: 'Generate changelog'
       id: conventional-changelog
@@ -40,11 +46,35 @@ runs:
         git-push: false
         skip-version-file: true
         skip-commit: true
+        release-count: 0
+        config-file-path: ${{ github.action_path }}/changelog.config.js
+
+    - name: 'Semantic versioning'
+      id: semantic-versioning
+      # https://github.com/ietf-tools/semver-action
+      uses: ietf-tools/semver-action@v1.1.0
+      with:
+        token: ${{ github.token }}
+        branch: master
+        minorList: feat
+        # https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum
+        patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, docs, revert, style, deps
+
+    - name: 'Set version and tag'
+      id: versioning
+      shell: bash
+      env:
+        SEMANTIC_VERSIONING_VERSION: ${{ env.nextStrict }}
+      run: |
+        echo "semantic-versioning version '${{ env.SEMANTIC_VERSIONING_VERSION }}'"
+        echo "::set-output name=version::${{ env.SEMANTIC_VERSIONING_VERSION }}"
+        echo "::set-output name=tag::v${{ env.SEMANTIC_VERSIONING_VERSION }}"
 
     - name: 'Generate Jira links for the changelog'
       shell: bash
       id: changelog-with-jira-links
       env:
+        # https://github.com/TriPSs/conventional-changelog-action#outputs
         CHANGELOG: ${{ steps.conventional-changelog.outputs.clean_changelog }}
       run: |
         if [ -z "${{ env.CHANGELOG }}" ]; then
@@ -65,7 +95,7 @@ runs:
         PASSWORD: ${{ inputs.artifactory_password }}
       run: |
         mvn versions:set \
-          -DnewVersion=${{ steps.conventional-changelog.outputs.version }} \
+          -DnewVersion=${{ steps.versioning.outputs.version }} \
           -N versions:update-child-modules \
           -DgenerateBackupPoms=false
         mvn versions:commit
@@ -74,7 +104,7 @@ runs:
       shell: bash
       run: |
         git add .
-        git commit -m "chore(release): ${{ steps.conventional-changelog.outputs.version }}" -a
+        git commit -m "chore(release): ${{ steps.versioning.outputs.version }}" -a
 
     - name: 'Push changes'
       # https://github.com/ad-m/github-push-action
@@ -91,12 +121,12 @@ runs:
         github_token: ${{ github.token }}
       with:
         body: ${{ steps.changelog-with-jira-links.outputs.text }}
-        tag_name: ${{ steps.conventional-changelog.outputs.tag }}
-        name: ${{ steps.conventional-changelog.outputs.tag }}
+        tag_name: ${{ steps.versioning.outputs.tag }}
+        name: ${{ steps.versioning.outputs.tag }}
 
     - name: 'Outputs'
       shell: bash
       run: |
+        echo "Version: '${{ steps.versioning.outputs.version }}'"
+        echo "Tag: '${{ steps.versioning.outputs.tag }}'"
         echo "Changelog: '${{ steps.changelog-with-jira-links.outputs.text }}'"
-        echo "Version: '${{ steps.conventional-changelog.outputs.version }}'"
-        echo "Skipped: '${{ steps.conventional-changelog.outputs.skipped }}'"
