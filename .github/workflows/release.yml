@@ -41,9 +41,9 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: ${{ github.ref }}
-          minorList: feat
+          minorList: feat, feature
           # https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum
-          patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, docs, revert, style, deps
+          patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, doc, docs, revert, style, deps, improvements, enhancement, other
 
       - name: 'Set version and tag'
         id: versioning
