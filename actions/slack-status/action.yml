@@ -1,0 +1,209 @@
+name: 'Slack status message'
+description: 'Report a status message via Slack'
+
+# Necessary permissions
+
+# Send messages as @<NAME>
+# chat:write
+
+# Send messages as @<NAME> with a customized username and avatar
+# chat:write.customize
+
+# Add and edit emoji reactions
+# reactions:write
+
+inputs:
+  slack_token:
+    description: 'Slack bot token'
+    required: true
+
+  slack_channel_id:
+    description: 'Slack channel identifier'
+    required: true
+
+  slack_message_ts:
+    description: 'Message time stamp'
+    required: false
+
+  slack_reaction:
+    description: 'Send additional Slack reaction'
+    required: false
+
+  changelog:
+    description: 'Changelog in markdown'
+    required: false
+
+  status:
+    description: 'IN_PROGRESS, SUCCESS, FAILURE'
+    required: true
+
+  build:
+    description: 'PULL_REQUEST or RELEASE'
+    required: true
+
+  type:
+    description: 'LAMBDA, COMPONENT or SERVICE'
+    required: true
+
+  version:
+    description: 'New (non)prod version'
+    required: false
+
+outputs:
+  slack_message_ts:
+    description: 'Slack message timestamp'
+    value: ${{ steps.slack-message.outputs.slack_message_ts }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'General env variables'
+      shell: bash
+      run: |
+        echo "REPO_BASE_URL=https://github.com/${{ github.repository }}" >> $GITHUB_ENV
+        ARTEFACT_NAME=$(echo ${{ github.repository }}| cut -d'/' -f 2)
+        echo "ARTEFACT_NAME=$ARTEFACT_NAME" >> $GITHUB_ENV
+
+    - name: 'Build env variables'
+      shell: bash
+      run: |
+        if [ "${{ inputs.build }}" = "PULL_REQUEST" ]; then
+          echo "CHANGELOG_TITLE=*Released branches*" >> $GITHUB_ENV
+          echo "ENVIRONMENT=NONPROD" >> $GITHUB_ENV
+        else
+          echo "CHANGELOG_TITLE=*Changelog*" >> $GITHUB_ENV
+          echo "ENVIRONMENT=PROD" >> $GITHUB_ENV
+        fi
+
+    - name: 'Type env variables'
+      # https://www.webfx.com/tools/emoji-cheat-sheet/
+      shell: bash
+      run: |
+        if [ "${{ inputs.type }}" = "LAMBDA" ]; then
+          echo "TYPE_EMOJI=:heart:" >> $GITHUB_ENV
+        elif [ "${{ inputs.type }}" = "COMPONENT" ]; then
+          echo "TYPE_EMOJI=:yellow_heart:" >> $GITHUB_ENV
+        else
+          echo "TYPE_EMOJI=:green_heart:" >> $GITHUB_ENV
+        fi
+
+    - name: "Convert message to Slack's mrkdwn format"
+      if: ${{ inputs.changelog != '' }}
+      id: slackify-mrkdwn
+      # https://github.com/LoveToKnow/slackify-markdown-action
+      uses: lovetoknow/slackify-markdown-action@v1.0.0
+      with:
+        text: ${{ inputs.changelog }}
+
+    - name: "Escape all newlines in mrkdwn"
+      id: mrkdwn
+      shell: bash
+      env:
+        MRKDWN: ${{ steps.slackify-mrkdwn.outputs.text }}
+      run: |
+        output="${{ env.MRKDWN }}"
+        output=${output//$'\n'/\\n}
+        echo "::set-output name=text::$output"
+
+    - id: change-string-case-type
+      # https://github.com/ASzc/change-string-case-action
+      uses: ASzc/change-string-case-action@v2
+      with:
+        string: ${{ inputs.type }}
+
+    - id: change-string-case-build
+      uses: ASzc/change-string-case-action@v2
+      with:
+        string: ${{ inputs.build }}
+
+    - id: change-string-case-status
+      uses: ASzc/change-string-case-action@v2
+      with:
+        string: ${{ inputs.status }}
+
+    - name: 'Template variable'
+      shell: bash
+      run: |
+        echo "TEMPLATE_PATH=templates/${{ steps.change-string-case-type.outputs.lowercase }}/${{ steps.change-string-case-build.outputs.lowercase }}-${{ steps.change-string-case-status.outputs.lowercase }}.hbs" >> $GITHUB_ENV
+
+    - name: 'Echo variables'
+      shell: bash
+      run: |
+        echo "Status: '${{ inputs.status }}'"
+        echo "Build: '${{ inputs.build }}'"
+        echo "Type: '${{ inputs.type }}'"
+        echo "Version: '${{ inputs.version }}'"
+        echo "Empoji: '${{ env.TYPE_EMOJI }}'"
+        echo "Environment: '${{ env.ENVIRONMENT }}'"
+        echo "Changelog title: '${{ env.CHANGELOG_TITLE }}'"
+        echo "Changelog: '${{ steps.mrkdwn.outputs.text }}'"
+        echo "Repo base url: '${{ env.REPO_BASE_URL }}'"
+        echo "Artefact name: '${{ env.ARTEFACT_NAME }}'"
+        echo "Template path: '${{ env.TEMPLATE_PATH }}'"
+        echo "Slack message timestamp: '${{ inputs.slack_message_ts }}'"
+
+    - name: "Render template"
+      id: render-template
+      # https://github.com/badsyntax/github-action-render-template
+      uses: badsyntax/github-action-render-template@v1.0.0
+      with:
+        template: ${{ github.action_path }}/${{ env.TEMPLATE_PATH }}
+        inputs: |
+          {
+            "type": "${{ steps.change-string-case-type.outputs.capitalized }}",
+            "repo_base_url": "${{ env.REPO_BASE_URL }}",
+            "artefact_name": "${{ env.ARTEFACT_NAME }}",
+            "version": "${{ inputs.version }}",
+            "environment": "${{ env.ENVIRONMENT }}",
+            "type_emoji": "${{ env.TYPE_EMOJI }}",
+            "changelog_title": "${{ env.CHANGELOG_TITLE }}",
+            "changelog": "${{ steps.mrkdwn.outputs.text }}",
+            "run_id": "${{ github.run_id }}"
+          }
+
+    - name: "Send Slack message"
+      if: ${{ inputs.slack_message_ts == '' }}
+      # https://github.com/archive/github-actions-slack
+      uses: archive/github-actions-slack@v2.4.0
+      id: send-message
+      with:
+        slack-function: send-message
+        slack-bot-user-oauth-access-token: ${{ inputs.slack_token }}
+        slack-channel: ${{ inputs.slack_channel_id }}
+        slack-text: ${{ steps.render-template.outputs.result }}
+
+    - name: 'Slack message timestamp'
+      if: ${{ inputs.slack_message_ts == '' }}
+      id: slack-message
+      shell: bash
+      env:
+        SEND_MESSAGE_OUTPUT: ${{ steps.send-message.outputs.slack-result }}
+      run: |
+        if [ -z "${{ env.SEND_MESSAGE_OUTPUT }}" ]; then
+          output=""
+          echo "::set-output name=slack_message_ts::$output"
+        else
+          MESSAGE_TIMESTAMP=`echo $(jq -r '.response.message.ts' <<< "$SEND_MESSAGE_OUTPUT")`
+          echo "::set-output name=slack_message_ts::$MESSAGE_TIMESTAMP"
+          echo "Message timestamp '$MESSAGE_TIMESTAMP'"
+        fi
+
+    - name: "Send Slack message update"
+      if: ${{ inputs.slack_message_ts != '' }}
+      uses: archive/github-actions-slack@v2.4.0
+      with:
+        slack-function: update-message
+        slack-bot-user-oauth-access-token: ${{ inputs.slack_token }}
+        slack-channel: ${{ inputs.slack_channel_id }}
+        slack-update-message-text: ${{ steps.render-template.outputs.result }}
+        slack-update-message-ts: ${{ inputs.slack_message_ts }}
+
+    - name: "Send Slack reaction"
+      if: ${{ inputs.slack_message_ts != '' && inputs.status == 'SUCCESS' && inputs.slack_reaction != '' }}
+      uses: archive/github-actions-slack@v2.4.0
+      with:
+        slack-function: send-reaction
+        slack-bot-user-oauth-access-token: ${{ inputs.slack_token }}
+        slack-channel: ${{ inputs.slack_channel_id }}
+        slack-emoji-name: ${{ inputs.slack_reaction }}
+        slack-message-timestamp: ${{ inputs.slack_message_ts }}
