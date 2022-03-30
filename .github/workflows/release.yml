@@ -28,7 +28,9 @@ jobs:
         with:
           preset: conventionalcommits
           github-token: ${{ secrets.github_token }}
+          git-push: false
           skip-version-file: true
+          skip-commit: true
           release-count: 0
           config-file-path: 'actions/create-changelog-and-release/changelog.config.js'
 
@@ -38,7 +40,7 @@ jobs:
         uses: ietf-tools/semver-action@v1.1.0
         with:
           token: ${{ github.token }}
-          branch: master
+          branch: ${{ github.ref }}
           minorList: feat
           # https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum
           patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, docs, revert, style, deps
@@ -51,6 +53,19 @@ jobs:
         run: |
           echo "::set-output name=version::${{ env.SEMANTIC_VERSIONING_VERSION }}"
           echo "::set-output name=tag::v${{ env.SEMANTIC_VERSIONING_VERSION }}"
+
+      - name: 'Commit changes'
+        shell: bash
+        run: |
+          git add .
+          git commit -m "chore(release): ${{ steps.versioning.outputs.version }}" -a
+
+      - name: 'Push changes'
+        # https://github.com/ad-m/github-push-action
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ github.token }}
+          branch: ${{ github.ref }}
 
       - name: 'Create Github release'
         # https://github.com/softprops/action-gh-release
