@@ -20,6 +20,6 @@ const isNotEmpty = s => s !== "";
 const output = branches
   .split("\n")
   .filter(isNotEmpty)
-  .reduce((result, branchName) => `${result}\n* [${branchName}](${repoBaseUrl}/tree/${branchName})`, "**Released branches:**")
+  .reduce((result, branchName) => `${result}\n* [${branchName}](${repoBaseUrl}/tree/${branchName})`, "")
 
 console.log(output);
