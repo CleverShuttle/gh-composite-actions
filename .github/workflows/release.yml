@@ -17,6 +17,10 @@ jobs:
         # https://github.com/actions/checkout
         uses: actions/checkout@v3
 
+      - name: 'Install package required in changelog.config.js'
+        shell: bash
+        run: npm i conventional-changelog-conventionalcommits
+
       - name: 'Generate changelog'
         id: conventional-changelog
         # https://github.com/TriPSs/conventional-changelog-action
@@ -26,6 +30,7 @@ jobs:
           github-token: ${{ secrets.github_token }}
           skip-version-file: true
           release-count: 0
+          config-file-path: 'actions/create-changelog-and-release/changelog.config.js'
 
       - name: 'Semantic versioning'
         id: semantic-versioning
