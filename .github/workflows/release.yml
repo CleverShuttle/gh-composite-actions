@@ -1,4 +1,4 @@
-name: 'Composite-Actions: Release master'
+name: 'Composite-Actions: Release'
 
 on:
   push:
@@ -22,16 +22,37 @@ jobs:
         # https://github.com/TriPSs/conventional-changelog-action
         uses: TriPSs/conventional-changelog-action@v3.11.0
         with:
+          preset: conventionalcommits
           github-token: ${{ secrets.github_token }}
           skip-version-file: true
+          release-count: 0
+
+      - name: 'Semantic versioning'
+        id: semantic-versioning
+        # https://github.com/ietf-tools/semver-action
+        uses: ietf-tools/semver-action@v1.1.0
+        with:
+          token: ${{ github.token }}
+          branch: master
+          minorList: feat
+          # https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum
+          patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, docs, revert, style, deps
+
+      - name: 'Set version and tag'
+        id: versioning
+        shell: bash
+        env:
+          SEMANTIC_VERSIONING_VERSION: ${{ env.nextStrict }}
+        run: |
+          echo "::set-output name=version::${{ env.SEMANTIC_VERSIONING_VERSION }}"
+          echo "::set-output name=tag::v${{ env.SEMANTIC_VERSIONING_VERSION }}"
 
       - name: 'Create Github release'
         # https://github.com/softprops/action-gh-release
         uses: softprops/action-gh-release@v0.1.14
-        if: ${{ steps.conventional-changelog.outputs.skipped == 'false' }}
         env:
           github_token: ${{ secrets.github_token }}
         with:
           body: ${{ steps.conventional-changelog.outputs.clean_changelog }}
-          tag_name: ${{ steps.conventional-changelog.outputs.tag }}
-          name: ${{ steps.conventional-changelog.outputs.tag }}
+          tag_name: ${{ steps.versioning.outputs.tag }}
+          name: ${{ steps.versioning.outputs.tag }}
