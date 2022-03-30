@@ -1,9 +1,17 @@
+### [1.29.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.1...v1.29.2) (2022-03-30)
+
+
+### 🐛 Bugfixes
+
+* release workflow ([ea8d673](https://github.com/CleverShuttle/gh-composite-actions/commit/ea8d67317d83eed72fea52c9a3a093add546c7ba))
+
 ### [1.29.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.0...v1.29.1) (2022-03-30)
 
 
 ### 🧹 Chores
 
 * Improve CHANGELOG.md ([637f9cd](https://github.com/CleverShuttle/gh-composite-actions/commit/637f9cd26e7502836d874c9edc7c6a8b4ed15b31))
+* **release:** v1.29.1 ([447fe08](https://github.com/CleverShuttle/gh-composite-actions/commit/447fe08d51974cfd402090cd351f93629b02d3fb))
 
 ## [1.29.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.28.0...v1.29.0) (2022-03-30)
 
