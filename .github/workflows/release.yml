@@ -54,11 +54,15 @@ jobs:
           echo "::set-output name=version::${{ env.SEMANTIC_VERSIONING_VERSION }}"
           echo "::set-output name=tag::v${{ env.SEMANTIC_VERSIONING_VERSION }}"
 
-      - name: 'Commit changes'
+      - name: "Commit changes and set git tag"
         shell: bash
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
           git add .
           git commit -m "chore(release): ${{ steps.versioning.outputs.version }}" -a
+          git tag -d ${{ steps.versioning.outputs.tag }}
+          git tag -a ${{ steps.versioning.outputs.tag }} -m ${{ steps.versioning.outputs.tag }}
 
       - name: 'Push changes'
         # https://github.com/ad-m/github-push-action
