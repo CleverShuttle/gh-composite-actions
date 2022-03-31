@@ -1,3 +1,10 @@
+### [1.29.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.4...v1.29.5) (2022-03-31)
+
+
+### 🐛 Bugfixes
+
+* create-nonprod-changelog ([54abddb](https://github.com/CleverShuttle/gh-composite-actions/commit/54abddb2698fead8253d4feaf814402bcfcc24e9))
+
 ### [1.29.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.3...v1.29.4) (2022-03-30)
 
 
@@ -9,6 +16,11 @@
 ### 🐛 Bugfixes
 
 * Improve semantic versioning ([751903c](https://github.com/CleverShuttle/gh-composite-actions/commit/751903cb0731bfb5ed33b7afdc85b1d908cc89fb))
+
+
+### 🧹 Chores
+
+* **release:** 1.29.4 ([c3adf3d](https://github.com/CleverShuttle/gh-composite-actions/commit/c3adf3db4f04f7c0b5c47fedbb766b8f376f53eb))
 
 ### [1.29.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.2...v1.29.3) (2022-03-30)
 
