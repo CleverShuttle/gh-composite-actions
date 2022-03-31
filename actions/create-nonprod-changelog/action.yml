@@ -20,6 +20,7 @@ runs:
         REPO_BASE_URL: ${{ env.REPO_BASE_URL }}
       run: |
         set -o nounset -o errexit
+        git restore .
         git fetch origin
         git checkout nonprod
         output=$(node ${{ github.action_path }}/generate-nonprod-changelog.js ${{ env.REPO_BASE_URL }})

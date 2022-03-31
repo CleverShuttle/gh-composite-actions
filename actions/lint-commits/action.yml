@@ -11,7 +11,7 @@ runs:
 
     - name: "Lint commit messages"
       # https://github.com/wagoid/commitlint-github-action
-      uses: wagoid/commitlint-github-action@v4
+      uses: wagoid/commitlint-github-action@v2.0.3
       with:
         failOnWarnings: true
         configFile: commitlint.config.js
