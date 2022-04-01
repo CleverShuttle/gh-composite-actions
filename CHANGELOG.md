@@ -1,9 +1,21 @@
+### [1.30.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.0...v1.30.1) (2022-04-01)
+
+
+### 🐛 Bugfixes
+
+* Fix typo ([b5ac81e](https://github.com/CleverShuttle/gh-composite-actions/commit/b5ac81e5627be4ccbc6e459e8ae8124cbe6ff874))
+
 ## [1.30.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.6...v1.30.0) (2022-04-01)
 
 
 ### 🎉 New Features
 
 * Use MAVEN_ARGS environment variable from calling workflow ([6543476](https://github.com/CleverShuttle/gh-composite-actions/commit/654347684c1164e471450b2eb9b112439e1c776d))
+
+
+### 🧹 Chores
+
+* **release:** 1.30.0 ([962e197](https://github.com/CleverShuttle/gh-composite-actions/commit/962e1976e830f2256ecf356cca9f6d73f54c91e8))
 
 ### [1.29.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.5...v1.29.6) (2022-04-01)
 
