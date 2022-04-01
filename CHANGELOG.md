@@ -1,9 +1,21 @@
+### [1.29.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.5...v1.29.6) (2022-04-01)
+
+
+### 🐛 Bugfixes
+
+* path to commitlint config file ([3dbbb2a](https://github.com/CleverShuttle/gh-composite-actions/commit/3dbbb2ae57ad78dd196212270c2dc1b518fe3b91))
+
 ### [1.29.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.4...v1.29.5) (2022-03-31)
 
 
 ### 🐛 Bugfixes
 
 * create-nonprod-changelog ([54abddb](https://github.com/CleverShuttle/gh-composite-actions/commit/54abddb2698fead8253d4feaf814402bcfcc24e9))
+
+
+### 🧹 Chores
+
+* **release:** 1.29.5 ([9df5a11](https://github.com/CleverShuttle/gh-composite-actions/commit/9df5a11c288b1abb33151c23eb99c1959ecc02cd))
 
 ### [1.29.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.3...v1.29.4) (2022-03-30)
 
