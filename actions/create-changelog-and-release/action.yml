@@ -94,11 +94,11 @@ runs:
         USERNAME: ${{ inputs.artifactory_username }}
         PASSWORD: ${{ inputs.artifactory_password }}
       run: |
-        mvn versions:set \
+        mvn ${{ env.MAVEN_ARGS }} versions:set \
           -DnewVersion=${{ steps.versioning.outputs.version }} \
           -N versions:update-child-modules \
           -DgenerateBackupPoms=false
-        mvn versions:commit
+        mvn ${{ env.MAVEN_ARGS }} versions:commit
 
     - name: "Commit changes and set git tag"
       shell: bash
