@@ -14,4 +14,4 @@ runs:
       uses: wagoid/commitlint-github-action@v2.0.3
       with:
         failOnWarnings: true
-        configFile: commitlint.config.js
+        configFile: ${{ github.action_path }}/commitlint.config.js
