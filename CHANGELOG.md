@@ -1,9 +1,21 @@
+### [1.30.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.1...v1.30.2) (2022-04-01)
+
+
+### 🐛 Bugfixes
+
+* Fix typo ([068c2a5](https://github.com/CleverShuttle/gh-composite-actions/commit/068c2a5f9d64baa6894ec1a7168daa66a602cf3f))
+
 ### [1.30.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.0...v1.30.1) (2022-04-01)
 
 
 ### 🐛 Bugfixes
 
 * Fix typo ([b5ac81e](https://github.com/CleverShuttle/gh-composite-actions/commit/b5ac81e5627be4ccbc6e459e8ae8124cbe6ff874))
+
+
+### 🧹 Chores
+
+* **release:** 1.30.1 ([3b49d1a](https://github.com/CleverShuttle/gh-composite-actions/commit/3b49d1a57090cd174e3b2f680297c377aef76366))
 
 ## [1.30.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.29.6...v1.30.0) (2022-04-01)
 
