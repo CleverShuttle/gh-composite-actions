@@ -11,7 +11,7 @@ runs:
 
     - name: "Lint commit messages"
       # https://github.com/wagoid/commitlint-github-action
-      uses: wagoid/commitlint-github-action@v2.0.3
+      uses: wagoid/commitlint-github-action@v2.2.5
       with:
         failOnWarnings: true
         configFile: ${{ github.action_path }}/commitlint.config.js
