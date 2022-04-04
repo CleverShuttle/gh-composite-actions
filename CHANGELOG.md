@@ -1,9 +1,17 @@
+### [1.30.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.4...v1.30.5) (2022-04-04)
+
+
+### 🐛 Bugfixes
+
+* Release action for projects with invalid tags ([3e2ae94](https://github.com/CleverShuttle/gh-composite-actions/commit/3e2ae944b526f42a4b1b6929ec7ded2011883ab8))
+
 ### [1.30.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.3...v1.30.4) (2022-04-04)
 
 
 ### 🧹 Chores
 
 * **deps:** update ietf-tools/semver-action action to v1.1.1 ([307ba82](https://github.com/CleverShuttle/gh-composite-actions/commit/307ba82e1e121f489cab08f079a1bce5fd4c0ee7))
+* **release:** 1.30.4 ([eac3ac9](https://github.com/CleverShuttle/gh-composite-actions/commit/eac3ac9a9b938e6bdf4ab6172ad60c010f2ae223))
 
 ### [1.30.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.2...v1.30.3) (2022-04-04)
 
