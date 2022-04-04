@@ -1,6 +1,6 @@
 /.idea/
 .DS_Store
-/.github/workflows/act.yml
+/.github/workflows/act*.yml
 node_modules
 package-lock.json
 package.json

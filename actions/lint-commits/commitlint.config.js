@@ -1,9 +1,10 @@
 module.exports = {
-  // see https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional
+  // https://www.conventionalcommits.org/en/v1.0.0/
+  // see https://github.com/conventional-changelog/commitlint/blob/master/%40commitlint/config-conventional/index.js
   extends: ["@commitlint/config-conventional"],
   rules: {
-    "scope-case": [1, "always", "upper-case"],
-    "subject-case": [1, "always", "sentence-case"],
-    "body-max-line-length": [1, "always", 100],
-  },
+    // 'sentence-case', // Sentence case
+    'subject-case': [0, 'always', ['sentence-case']],
+    "body-max-line-length": [0, "always", 100],
+  }
 }

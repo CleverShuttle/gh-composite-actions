@@ -43,7 +43,7 @@ runs:
       shell: bash
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
       # https://docs.sonarqube.org/latest/analysis/pull-request/
-      run: mvn ${{ env.MAVEN_ARGS }} org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
+      run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
         -Dsonar.host.url=${{ inputs.sonar_url }}
         -Dsonar.login=${{ inputs.sonar_token }}
         -Dsonar.projectKey=${{ inputs.sonar_project_key }}

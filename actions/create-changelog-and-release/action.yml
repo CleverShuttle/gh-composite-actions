@@ -46,7 +46,7 @@ runs:
         git-push: false
         skip-version-file: true
         skip-commit: true
-        release-count: 0
+        release-count: 50
         config-file-path: ${{ github.action_path }}/changelog.config.js
 
     - name: 'Semantic versioning'
@@ -94,11 +94,11 @@ runs:
         USERNAME: ${{ inputs.artifactory_username }}
         PASSWORD: ${{ inputs.artifactory_password }}
       run: |
-        mvn ${{ env.MAVEN_ARGS }} versions:set \
+        mvn versions:set \
           -DnewVersion=${{ steps.versioning.outputs.version }} \
           -N versions:update-child-modules \
           -DgenerateBackupPoms=false
-        mvn ${{ env.MAVEN_ARGS }} versions:commit
+        mvn versions:commit
 
     - name: "Commit changes and set git tag"
       shell: bash
