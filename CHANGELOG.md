@@ -1,9 +1,21 @@
+### [1.30.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.2...v1.30.3) (2022-04-04)
+
+
+### 🧹 Chores
+
+* Optimize release-count history and lint commit rules; ([efaaf25](https://github.com/CleverShuttle/gh-composite-actions/commit/efaaf25e75dbb1bf9bed1feee116b694f1ef4a53))
+
 ### [1.30.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.1...v1.30.2) (2022-04-01)
 
 
 ### 🐛 Bugfixes
 
 * Fix typo ([068c2a5](https://github.com/CleverShuttle/gh-composite-actions/commit/068c2a5f9d64baa6894ec1a7168daa66a602cf3f))
+
+
+### 🧹 Chores
+
+* **release:** 1.30.2 ([0fe7b94](https://github.com/CleverShuttle/gh-composite-actions/commit/0fe7b94497e2783628893fd112e266c702f3289b))
 
 ### [1.30.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.0...v1.30.1) (2022-04-01)
 
