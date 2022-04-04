@@ -1,9 +1,17 @@
+### [1.30.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.3...v1.30.4) (2022-04-04)
+
+
+### 🧹 Chores
+
+* **deps:** update ietf-tools/semver-action action to v1.1.1 ([307ba82](https://github.com/CleverShuttle/gh-composite-actions/commit/307ba82e1e121f489cab08f079a1bce5fd4c0ee7))
+
 ### [1.30.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.2...v1.30.3) (2022-04-04)
 
 
 ### 🧹 Chores
 
 * Optimize release-count history and lint commit rules; ([efaaf25](https://github.com/CleverShuttle/gh-composite-actions/commit/efaaf25e75dbb1bf9bed1feee116b694f1ef4a53))
+* **release:** 1.30.3 ([4809396](https://github.com/CleverShuttle/gh-composite-actions/commit/480939634b934d7f63ede84c3b9dd4808614bc19))
 
 ### [1.30.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.1...v1.30.2) (2022-04-01)
 
