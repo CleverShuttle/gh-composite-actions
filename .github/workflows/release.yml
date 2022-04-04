@@ -37,7 +37,7 @@ jobs:
       - name: 'Semantic versioning'
         id: semantic-versioning
         # https://github.com/ietf-tools/semver-action
-        uses: ietf-tools/semver-action@v1.1.0
+        uses: ietf-tools/semver-action@v1.1.1
         with:
           token: ${{ github.token }}
           branch: ${{ github.ref }}
