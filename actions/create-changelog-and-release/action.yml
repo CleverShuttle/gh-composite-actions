@@ -107,7 +107,12 @@ runs:
         git config --local user.name "Github Action"
         git add .
         git commit -m "chore(release): ${{ steps.versioning.outputs.version }}" -a
-        git tag -d ${{ steps.versioning.outputs.tag }}
+        
+        if [ $(git tag -l "${{ steps.versioning.outputs.tag }}") ]; then
+          echo "Delete tag from 'conventional-changelog-action'"
+          git tag -d ${{ steps.versioning.outputs.tag }}
+        fi
+      
         git tag -a ${{ steps.versioning.outputs.tag }} -m ${{ steps.versioning.outputs.tag }}
 
     - name: 'Push changes'

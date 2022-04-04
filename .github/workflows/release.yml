@@ -31,7 +31,7 @@ jobs:
           git-push: false
           skip-version-file: true
           skip-commit: true
-          release-count: 0
+          release-count: 50
           config-file-path: 'actions/create-changelog-and-release/changelog.config.js'
 
       - name: 'Semantic versioning'
