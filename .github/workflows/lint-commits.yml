@@ -15,7 +15,7 @@ jobs:
 
       - name: "Lint commit messages"
         # https://github.com/wagoid/commitlint-github-action
-        uses: wagoid/commitlint-github-action@v2.0.3
+        uses: wagoid/commitlint-github-action@v2.2.5
         with:
           failOnWarnings: true
           configFile: 'actions/lint-commits/commitlint.config.js'
