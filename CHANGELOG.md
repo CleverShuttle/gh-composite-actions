@@ -1,9 +1,21 @@
+### [1.30.7](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.6...v1.30.7) (2022-04-04)
+
+
+### 🧹 Chores
+
+* **deps:** update wagoid/commitlint-github-action action to v2.2.5 ([feb4236](https://github.com/CleverShuttle/gh-composite-actions/commit/feb4236e4df936b65ec7bc2e83cd761982e360af))
+
 ### [1.30.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.5...v1.30.6) (2022-04-04)
 
 
 ### 🐛 Bugfixes
 
 * Reduce count of releases; Use fix for create-changelog action too ([fa34b07](https://github.com/CleverShuttle/gh-composite-actions/commit/fa34b073b9df75b88e4d66dd8b83f455ff11c9eb))
+
+
+### 🧹 Chores
+
+* **release:** 1.30.6 ([6997bdd](https://github.com/CleverShuttle/gh-composite-actions/commit/6997bdde680db9966262c91400112515d5a98646))
 
 ### [1.30.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.4...v1.30.5) (2022-04-04)
 
@@ -555,12 +567,4 @@
 
 * Fix composite action ([4bc89b0](https://github.com/CleverShuttle/gh-composite-actions/commit/4bc89b02f447676d0729b31ac47024f5f57b47ad))
 * **release:** v1.6.15 ([b47d042](https://github.com/CleverShuttle/gh-composite-actions/commit/b47d04286319952861821196fd6c661e178e8d6e))
-
-### [1.6.14](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.13...v1.6.14) (2022-03-17)
-
-
-### 🧹 Chores
-
-* Fix composite action ([5b8664d](https://github.com/CleverShuttle/gh-composite-actions/commit/5b8664d430c8bb51c9c36142d4ff13cb5e52aee6))
-* **release:** v1.6.14 ([54e3d9a](https://github.com/CleverShuttle/gh-composite-actions/commit/54e3d9a06262f6f0b857e7220b1e36e82cc7cfdf))
 
