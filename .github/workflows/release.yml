@@ -6,8 +6,7 @@ on:
       - master
 
 # https://docs.github.com/en/actions/using-jobs/using-concurrency
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+concurrency: ${{ github.workflow }}
 
 jobs:
   release:
