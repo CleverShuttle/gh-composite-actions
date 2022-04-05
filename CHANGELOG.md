@@ -1,9 +1,17 @@
+## [1.31.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.7...v1.31.0) (2022-04-05)
+
+
+### 🎉 New Features
+
+* New slack notifcation action ([e457042](https://github.com/CleverShuttle/gh-composite-actions/commit/e457042845f6f93ec1f496fd85639cdddb08bd09))
+
 ### [1.30.7](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.6...v1.30.7) (2022-04-04)
 
 
 ### 🧹 Chores
 
 * **deps:** update wagoid/commitlint-github-action action to v2.2.5 ([feb4236](https://github.com/CleverShuttle/gh-composite-actions/commit/feb4236e4df936b65ec7bc2e83cd761982e360af))
+* **release:** 1.30.7 ([58f575c](https://github.com/CleverShuttle/gh-composite-actions/commit/58f575c550e76f981dccae76f155bb53ee34ccf9))
 
 ### [1.30.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.5...v1.30.6) (2022-04-04)
 
@@ -559,12 +567,4 @@
 
 * Fix composite action ([49639a1](https://github.com/CleverShuttle/gh-composite-actions/commit/49639a1a2159bbc0430dc144e5a71498c9747714))
 * **release:** v1.6.16 ([38bf957](https://github.com/CleverShuttle/gh-composite-actions/commit/38bf9574634484329a411714f74a07e6c3d49641))
-
-### [1.6.15](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.14...v1.6.15) (2022-03-17)
-
-
-### 🧹 Chores
-
-* Fix composite action ([4bc89b0](https://github.com/CleverShuttle/gh-composite-actions/commit/4bc89b02f447676d0729b31ac47024f5f57b47ad))
-* **release:** v1.6.15 ([b47d042](https://github.com/CleverShuttle/gh-composite-actions/commit/b47d04286319952861821196fd6c661e178e8d6e))
 
