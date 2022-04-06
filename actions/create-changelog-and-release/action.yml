@@ -106,7 +106,8 @@ runs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
-        git add .
+        git add CHANGELOG.md
+        git add pom.xml
         git commit -m "chore(release): ${{ steps.versioning.outputs.version }}" -a
         
         if [ $(git tag -l "${{ steps.versioning.outputs.tag }}") ]; then
