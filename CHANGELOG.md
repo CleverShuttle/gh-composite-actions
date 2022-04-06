@@ -1,9 +1,21 @@
+## [1.32.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.31.1...v1.32.0) (2022-04-06)
+
+
+### 🎉 New Features
+
+* New templates for another slack job ([57bf71a](https://github.com/CleverShuttle/gh-composite-actions/commit/57bf71ae6ea1a30fb3f183c22db1f34007516e0e))
+
 ### [1.31.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.31.0...v1.31.1) (2022-04-05)
 
 
 ### 🐛 Bugfixes
 
 * Hardening concurrency ([35ac2bb](https://github.com/CleverShuttle/gh-composite-actions/commit/35ac2bb45df0fa340970dbbc16d148d8a3066576))
+
+
+### 🧹 Chores
+
+* **release:** 1.31.1 ([63dd640](https://github.com/CleverShuttle/gh-composite-actions/commit/63dd640ea3cb43320f1bd416ed7ec558248daa69))
 
 ## [1.31.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.30.7...v1.31.0) (2022-04-05)
 
@@ -563,12 +575,4 @@
 ### 🧹 Chores
 
 * **release:** v1.7.0 ([2309891](https://github.com/CleverShuttle/gh-composite-actions/commit/2309891c64ea0427708a06140b0c9cbc2f278466))
-
-### [1.6.17](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.16...v1.6.17) (2022-03-17)
-
-
-### 🧹 Chores
-
-* **release:** v1.6.17 ([1cf864f](https://github.com/CleverShuttle/gh-composite-actions/commit/1cf864f506a142424298c76dc7c8a34b29779cbc))
-* Wording ([f071414](https://github.com/CleverShuttle/gh-composite-actions/commit/f071414b01b2ab13e701e5e94e850566c63e2a4c))
 
