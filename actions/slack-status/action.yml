@@ -29,21 +29,21 @@ inputs:
     description: 'Send additional Slack reaction'
     required: false
 
-  changelog:
-    description: 'Changelog in markdown'
-    required: false
+  job:
+    description: 'PULL_REQUEST, RELEASE, DEPLOY_VERSION'
+    required: true
 
   status:
     description: 'IN_PROGRESS, SUCCESS, FAILURE'
     required: true
 
-  build:
-    description: 'PULL_REQUEST or RELEASE'
-    required: true
-
   type:
     description: 'LAMBDA, COMPONENT or SERVICE'
     required: true
+
+  changelog:
+    description: 'Changelog in markdown'
+    required: false
 
   version:
     description: 'New (non)prod version'
@@ -65,9 +65,10 @@ runs:
         echo "ARTEFACT_NAME=$ARTEFACT_NAME" >> $GITHUB_ENV
 
     - name: 'Build env variables'
+      if: ${{ inputs.changelog != '' }}
       shell: bash
       run: |
-        if [ "${{ inputs.build }}" = "PULL_REQUEST" ]; then
+        if [ "${{ inputs.job }}" = "PULL_REQUEST" ]; then
           echo "CHANGELOG_TITLE=*Released branches*" >> $GITHUB_ENV
           echo "ENVIRONMENT=NONPROD" >> $GITHUB_ENV
         else
@@ -111,10 +112,10 @@ runs:
       with:
         string: ${{ inputs.type }}
 
-    - id: change-string-case-build
+    - id: change-string-case-job
       uses: ASzc/change-string-case-action@v2
       with:
-        string: ${{ inputs.build }}
+        string: ${{ inputs.job }}
 
     - id: change-string-case-status
       uses: ASzc/change-string-case-action@v2
@@ -124,13 +125,13 @@ runs:
     - name: 'Template variable'
       shell: bash
       run: |
-        echo "TEMPLATE_PATH=templates/${{ steps.change-string-case-type.outputs.lowercase }}/${{ steps.change-string-case-build.outputs.lowercase }}-${{ steps.change-string-case-status.outputs.lowercase }}.hbs" >> $GITHUB_ENV
+        echo "TEMPLATE_PATH=templates/${{ steps.change-string-case-type.outputs.lowercase }}/${{ steps.change-string-case-job.outputs.lowercase }}-${{ steps.change-string-case-status.outputs.lowercase }}.hbs" >> $GITHUB_ENV
 
     - name: 'Echo variables'
       shell: bash
       run: |
+        echo "Job: '${{ inputs.job }}'"
         echo "Status: '${{ inputs.status }}'"
-        echo "Build: '${{ inputs.build }}'"
         echo "Type: '${{ inputs.type }}'"
         echo "Version: '${{ inputs.version }}'"
         echo "Empoji: '${{ env.TYPE_EMOJI }}'"
