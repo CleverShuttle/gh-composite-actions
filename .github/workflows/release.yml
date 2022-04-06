@@ -26,7 +26,7 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3.11.0
         with:
           preset: conventionalcommits
-          github-token: ${{ secrets.github_token }}
+          github-token: ${{ github.token }}
           git-push: false
           skip-version-file: true
           skip-commit: true
@@ -79,7 +79,7 @@ jobs:
         # https://github.com/softprops/action-gh-release
         uses: softprops/action-gh-release@v0.1.14
         env:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ github.token }}
         with:
           body: ${{ steps.conventional-changelog.outputs.clean_changelog }}
           tag_name: ${{ steps.versioning.outputs.tag }}
