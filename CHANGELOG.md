@@ -1,9 +1,21 @@
+### [1.32.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.0...v1.32.1) (2022-04-06)
+
+
+### 🧹 Chores
+
+* Tokens ([63502cf](https://github.com/CleverShuttle/gh-composite-actions/commit/63502cf5739e14ca24e58043c59832617432536a))
+
 ## [1.32.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.31.1...v1.32.0) (2022-04-06)
 
 
 ### 🎉 New Features
 
 * New templates for another slack job ([57bf71a](https://github.com/CleverShuttle/gh-composite-actions/commit/57bf71ae6ea1a30fb3f183c22db1f34007516e0e))
+
+
+### 🧹 Chores
+
+* **release:** 1.32.0 ([c14ffea](https://github.com/CleverShuttle/gh-composite-actions/commit/c14ffead98e9d8fecca5065e2df3c07b49eec67e))
 
 ### [1.31.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.31.0...v1.31.1) (2022-04-05)
 
@@ -563,16 +575,4 @@
 ### 🧹 Chores
 
 * **release:** v1.8.0 ([82d9c1a](https://github.com/CleverShuttle/gh-composite-actions/commit/82d9c1af78aaee03fb223f89921044ca57082a99))
-
-## [1.7.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.6.17...v1.7.0) (2022-03-17)
-
-
-### 🎉 New Features
-
-* New sonar-java-pull-request composite action ([66b4fa6](https://github.com/CleverShuttle/gh-composite-actions/commit/66b4fa65689741034e9a2c4e7d7ffee92080c588))
-
-
-### 🧹 Chores
-
-* **release:** v1.7.0 ([2309891](https://github.com/CleverShuttle/gh-composite-actions/commit/2309891c64ea0427708a06140b0c9cbc2f278466))
 
