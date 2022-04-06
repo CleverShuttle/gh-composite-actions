@@ -123,9 +123,11 @@ runs:
         string: ${{ inputs.status }}
 
     - name: 'Template variable'
+      id: template-path
       shell: bash
       run: |
-        echo "TEMPLATE_PATH=templates/${{ steps.change-string-case-type.outputs.lowercase }}/${{ steps.change-string-case-job.outputs.lowercase }}-${{ steps.change-string-case-status.outputs.lowercase }}.hbs" >> $GITHUB_ENV
+        output="templates/${{ steps.change-string-case-type.outputs.lowercase }}/${{ steps.change-string-case-job.outputs.lowercase }}-${{ steps.change-string-case-status.outputs.lowercase }}.hbs"
+        echo "::set-output name=template::$output"
 
     - name: 'Echo variables'
       shell: bash
@@ -140,7 +142,7 @@ runs:
         echo "Changelog: '${{ steps.mrkdwn.outputs.text }}'"
         echo "Repo base url: '${{ env.REPO_BASE_URL }}'"
         echo "Artefact name: '${{ env.ARTEFACT_NAME }}'"
-        echo "Template path: '${{ env.TEMPLATE_PATH }}'"
+        echo "Template path: '${{ steps.template-path.outputs.template }}'"
         echo "Slack message timestamp: '${{ inputs.slack_message_ts }}'"
 
     - name: "Render template"
@@ -148,7 +150,7 @@ runs:
       # https://github.com/badsyntax/github-action-render-template
       uses: badsyntax/github-action-render-template@v1.0.0
       with:
-        template: ${{ github.action_path }}/${{ env.TEMPLATE_PATH }}
+        template: ${{ github.action_path }}/${{ steps.template-path.outputs.template }}
         inputs: |
           {
             "type": "${{ steps.change-string-case-type.outputs.capitalized }}",
