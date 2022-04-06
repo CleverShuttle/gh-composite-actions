@@ -1,8 +1,16 @@
+### [1.32.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.1...v1.32.2) (2022-04-06)
+
+
+### 🐛 Bugfixes
+
+* Restrict git to specific files ([acbd133](https://github.com/CleverShuttle/gh-composite-actions/commit/acbd133b8a92f06af76bfe9b85c7546045c8b523))
+
 ### [1.32.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.0...v1.32.1) (2022-04-06)
 
 
 ### 🧹 Chores
 
+* **release:** 1.32.1 ([588be40](https://github.com/CleverShuttle/gh-composite-actions/commit/588be4009649ec39b1f55f89cd15f71ecd66df69))
 * Tokens ([63502cf](https://github.com/CleverShuttle/gh-composite-actions/commit/63502cf5739e14ca24e58043c59832617432536a))
 
 ## [1.32.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.31.1...v1.32.0) (2022-04-06)
@@ -563,16 +571,4 @@
 ### 🧹 Chores
 
 * **release:** v1.9.0 ([85ddd61](https://github.com/CleverShuttle/gh-composite-actions/commit/85ddd61e6d9052a9d4314aa5be45dd117b123ae7))
-
-## [1.8.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.7.0...v1.8.0) (2022-03-17)
-
-
-### 🎉 New Features
-
-* Modify sonar-java-pull-request composite action ([b7f837c](https://github.com/CleverShuttle/gh-composite-actions/commit/b7f837cafd330b41928ac113c53cbe72098d0b1d))
-
-
-### 🧹 Chores
-
-* **release:** v1.8.0 ([82d9c1a](https://github.com/CleverShuttle/gh-composite-actions/commit/82d9c1af78aaee03fb223f89921044ca57082a99))
 
