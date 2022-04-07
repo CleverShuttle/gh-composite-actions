@@ -1,9 +1,21 @@
+## [1.34.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.33.1...v1.34.0) (2022-04-07)
+
+
+### 🎉 New Features
+
+* Move the major version tag (such as v1, v2) to point to the Git ref of the current release ([304503e](https://github.com/CleverShuttle/gh-composite-actions/commit/304503e236cae145819c7cab9284e890490d626c))
+
 ### [1.33.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.33.0...v1.33.1) (2022-04-07)
 
 
 ### 🗑 Reverts
 
 * Move the major version tag (such as v1, v2) to point to the Git ref of the current release ([24cfbd6](https://github.com/CleverShuttle/gh-composite-actions/commit/24cfbd6d0ac217a656c870d2f6600ffee4bf37b2))
+
+
+### 🧹 Chores
+
+* **release:** 1.33.1 ([39ccbde](https://github.com/CleverShuttle/gh-composite-actions/commit/39ccbdeeea38ff78fcbe81f3ec7c058478760a82))
 
 ## [1.33.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.5...v1.33.0) (2022-04-07)
 
@@ -563,16 +575,4 @@
 ### 🧹 Chores
 
 * **release:** v1.14.0 ([7314409](https://github.com/CleverShuttle/gh-composite-actions/commit/73144090e5e1679791198c6e03200bfe89eec1ac))
-
-## [1.13.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.12.0...v1.13.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Modify maven-settings composite action ([1578bc2](https://github.com/CleverShuttle/gh-composite-actions/commit/1578bc2d5f3f6cc9869fcd8dff992c8ed4733778))
-
-
-### 🧹 Chores
-
-* **release:** v1.13.0 ([5c8929f](https://github.com/CleverShuttle/gh-composite-actions/commit/5c8929f5f79cb4947f21aabda92e692f064c3a86))
 
