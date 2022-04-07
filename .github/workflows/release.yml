@@ -50,8 +50,11 @@ jobs:
         env:
           SEMANTIC_VERSIONING_VERSION: ${{ env.nextStrict }}
         run: |
-          echo "::set-output name=version::${{ env.SEMANTIC_VERSIONING_VERSION }}"
-          echo "::set-output name=tag::v${{ env.SEMANTIC_VERSIONING_VERSION }}"
+          version="${{ env.SEMANTIC_VERSIONING_VERSION }}"
+          echo "::set-output name=version::$version"
+          echo "::set-output name=tag::v$version"
+          parts=(${version//./ })
+          echo "::set-output name=major::v${parts[0]}"
 
       - name: "Commit changes and set git tag"
         shell: bash
@@ -65,7 +68,14 @@ jobs:
             echo "Delete tag from 'conventional-changelog-action'"
             git tag -d ${{ steps.versioning.outputs.tag }}
           fi
+          
+          if [ $(git tag -l "${{ steps.versioning.outputs.major }}") ]; then
+            echo "Delete major tag from '${{ steps.versioning.outputs.major }}'"
+            git tag -d ${{ steps.versioning.outputs.major }}
+          fi
 
+          # major version tag (such as v1, v2) to point to the Git ref of the current release
+          git tag -a ${{ steps.versioning.outputs.major }} -m ${{ steps.versioning.outputs.major }}
           git tag -a ${{ steps.versioning.outputs.tag }} -m ${{ steps.versioning.outputs.tag }}
 
       - name: 'Push changes'
