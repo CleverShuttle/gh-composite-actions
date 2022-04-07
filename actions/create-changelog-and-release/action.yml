@@ -114,7 +114,14 @@ runs:
           echo "Delete tag from 'conventional-changelog-action'"
           git tag -d ${{ steps.versioning.outputs.tag }}
         fi
+        
+        # nextMajor	Next version major number in format v1
+        if [ $(git tag -l "${{ env.nextMajor }}") ]; then
+          echo "Delete major tag '${{ env.nextMajor }}'"
+          git tag -d ${{ env.nextMajor }}
+        fi
       
+        git tag -a "${{ env.nextMajor }} -m "${{ env.nextMajor }}
         git tag -a ${{ steps.versioning.outputs.tag }} -m ${{ steps.versioning.outputs.tag }}
 
     - name: 'Push changes'
