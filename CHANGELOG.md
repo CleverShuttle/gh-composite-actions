@@ -1,9 +1,21 @@
+### [1.32.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.3...v1.32.4) (2022-04-07)
+
+
+### 🐛 Bugfixes
+
+* Escape slacks backticks ([c67ff77](https://github.com/CleverShuttle/gh-composite-actions/commit/c67ff77f32be6ef5d07023ebc4c6cfed28965b9c))
+
 ### [1.32.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.2...v1.32.3) (2022-04-06)
 
 
 ### 🪚 Refactors
 
 * Switch from env to step variable ([024e0af](https://github.com/CleverShuttle/gh-composite-actions/commit/024e0af303480806ae3694c00685c94007fe4cfe))
+
+
+### 🧹 Chores
+
+* **release:** 1.32.3 ([a2ef487](https://github.com/CleverShuttle/gh-composite-actions/commit/a2ef4878caccbb13cb3c5ed25f7c7d9f9ca6cef4))
 
 ### [1.32.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.1...v1.32.2) (2022-04-06)
 
@@ -563,12 +575,4 @@
 ### 🧹 Chores
 
 * **release:** v1.10.0 ([abfd90c](https://github.com/CleverShuttle/gh-composite-actions/commit/abfd90cb12fa951400d8850c1ea4c52181128f0f))
-
-### [1.9.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.9.0...v1.9.1) (2022-03-17)
-
-
-### 🧹 Chores
-
-* Append new comment for findbugs ([1d2ba71](https://github.com/CleverShuttle/gh-composite-actions/commit/1d2ba7142bab30e4d244063fbd796966782f0ac6))
-* **release:** v1.9.1 ([56b91ea](https://github.com/CleverShuttle/gh-composite-actions/commit/56b91eab60fac3c7a65ca2143165979fd581578e))
 
