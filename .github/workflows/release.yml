@@ -70,7 +70,7 @@ jobs:
           fi
           
           if [ $(git tag -l "${{ steps.versioning.outputs.major }}") ]; then
-            echo "Delete major tag from '${{ steps.versioning.outputs.major }}'"
+            echo "Delete major tag '${{ steps.versioning.outputs.major }}'"
             git tag -d ${{ steps.versioning.outputs.major }}
           fi
 
@@ -84,6 +84,7 @@ jobs:
         with:
           github_token: ${{ github.token }}
           branch: ${{ github.ref }}
+          tags: true
 
       - name: 'Create Github release'
         # https://github.com/softprops/action-gh-release
