@@ -85,6 +85,7 @@ jobs:
           github_token: ${{ github.token }}
           branch: ${{ github.ref }}
           tags: true
+          force: true
 
       - name: 'Create Github release'
         # https://github.com/softprops/action-gh-release
