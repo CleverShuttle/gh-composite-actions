@@ -44,7 +44,7 @@ jobs:
           # https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum
           patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, doc, docs, revert, style, deps, improvements, enhancement, other
 
-      - name: 'Set version and tag'
+      - name: 'Calculate version, tag and major tag'
         id: versioning
         shell: bash
         env:
@@ -56,7 +56,7 @@ jobs:
           parts=(${version//./ })
           echo "::set-output name=major::v${parts[0]}"
 
-      - name: "Commit changes and set git tag"
+      - name: "Commit changes and set git tags"
         shell: bash
         run: |
           git config --local user.email "action@github.com"
