@@ -175,22 +175,6 @@ runs:
         slack-channel: ${{ inputs.slack_channel_id }}
         slack-text: ${{ steps.render-template.outputs.result }}
 
-    - name: 'Slack message timestamp'
-      if: ${{ inputs.slack_message_ts == '' }}
-      id: slack-message
-      shell: bash
-      env:
-        SEND_MESSAGE_OUTPUT: ${{ steps.send-message.outputs.slack-result }}
-      run: |
-        if [ -z "${{ env.SEND_MESSAGE_OUTPUT }}" ]; then
-          output=""
-          echo "::set-output name=slack_message_ts::$output"
-        else
-          MESSAGE_TIMESTAMP=`echo $(jq -r '.response.message.ts' <<< "$SEND_MESSAGE_OUTPUT")`
-          echo "::set-output name=slack_message_ts::$MESSAGE_TIMESTAMP"
-          echo "Message timestamp '$MESSAGE_TIMESTAMP'"
-        fi
-
     - name: "Send Slack message update"
       if: ${{ inputs.slack_message_ts != '' }}
       uses: archive/github-actions-slack@v2.4.0
@@ -210,3 +194,21 @@ runs:
         slack-channel: ${{ inputs.slack_channel_id }}
         slack-emoji-name: ${{ inputs.slack_reaction }}
         slack-message-timestamp: ${{ inputs.slack_message_ts }}
+
+    - name: 'Slack message timestamp'
+      if: ${{ inputs.slack_message_ts == '' }}
+      id: slack-message
+      shell: bash
+      env:
+        # May contain invalid characters for the bash shell - `SLACK_FORMATTING`
+        SEND_MESSAGE_OUTPUT: ${{ steps.send-message.outputs.slack-result }}
+      run: |
+        MESSAGE_OUTPUT=$(echo ${{ env.SEND_MESSAGE_OUTPUT }} | sed -e "s/\`/____/g")
+        if [ -z "$MESSAGE_OUTPUT" ]; then
+          output=""
+          echo "::set-output name=slack_message_ts::$output"
+        else
+          MESSAGE_TIMESTAMP=`echo $(jq -r '.response.message.ts' <<< "$MESSAGE_OUTPUT")`
+          echo "::set-output name=slack_message_ts::$MESSAGE_TIMESTAMP"
+          echo "Message timestamp '$MESSAGE_TIMESTAMP'"
+        fi
