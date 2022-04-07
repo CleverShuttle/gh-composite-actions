@@ -1,9 +1,21 @@
+### [1.33.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.33.0...v1.33.1) (2022-04-07)
+
+
+### 🗑 Reverts
+
+* Move the major version tag (such as v1, v2) to point to the Git ref of the current release ([24cfbd6](https://github.com/CleverShuttle/gh-composite-actions/commit/24cfbd6d0ac217a656c870d2f6600ffee4bf37b2))
+
 ## [1.33.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.5...v1.33.0) (2022-04-07)
 
 
 ### 🎉 New Features
 
 * Move the major version tag (such as v1, v2) to point to the Git ref of the current release ([0a12b20](https://github.com/CleverShuttle/gh-composite-actions/commit/0a12b20f9db11a3554f239aafd206cd408928a0d))
+
+
+### 🧹 Chores
+
+* **release:** 1.33.0 ([68ae7bb](https://github.com/CleverShuttle/gh-composite-actions/commit/68ae7bb8c74f1c515a59a52c25febb723a8e9316))
 
 ### [1.32.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.32.4...v1.32.5) (2022-04-07)
 
@@ -563,16 +575,4 @@
 ### 🧹 Chores
 
 * **release:** v1.13.0 ([5c8929f](https://github.com/CleverShuttle/gh-composite-actions/commit/5c8929f5f79cb4947f21aabda92e692f064c3a86))
-
-## [1.12.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.11.0...v1.12.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Modify sonar-java-pull-request composite action ([6a4dcc8](https://github.com/CleverShuttle/gh-composite-actions/commit/6a4dcc804d645172b35274d228670c88a23059c0))
-
-
-### 🧹 Chores
-
-* **release:** v1.12.0 ([665d0f8](https://github.com/CleverShuttle/gh-composite-actions/commit/665d0f8c5bf1e1ba2543090e9c04acdf37291561))
 
