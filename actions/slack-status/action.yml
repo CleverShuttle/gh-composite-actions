@@ -64,15 +64,22 @@ runs:
         ARTEFACT_NAME=$(echo ${{ github.repository }}| cut -d'/' -f 2)
         echo "ARTEFACT_NAME=$ARTEFACT_NAME" >> $GITHUB_ENV
 
-    - name: 'Build env variables'
+    - name: 'Changelog title variables'
       if: ${{ inputs.changelog != '' }}
       shell: bash
       run: |
         if [ "${{ inputs.job }}" = "PULL_REQUEST" ]; then
           echo "CHANGELOG_TITLE=*Released branches*" >> $GITHUB_ENV
-          echo "ENVIRONMENT=NONPROD" >> $GITHUB_ENV
         else
           echo "CHANGELOG_TITLE=*Changelog*" >> $GITHUB_ENV
+        fi
+
+    - name: 'Build env variables'
+      shell: bash
+      run: |
+        if [ "${{ inputs.job }}" = "PULL_REQUEST" ]; then
+          echo "ENVIRONMENT=NONPROD" >> $GITHUB_ENV
+        else
           echo "ENVIRONMENT=PROD" >> $GITHUB_ENV
         fi
 
@@ -203,7 +210,7 @@ runs:
         # May contain invalid characters for the bash shell - `SLACK_FORMATTING`
         SEND_MESSAGE_OUTPUT: ${{ steps.send-message.outputs.slack-result }}
       run: |
-        MESSAGE_OUTPUT=$(echo ${{ env.SEND_MESSAGE_OUTPUT }} | sed -e "s/\`/____/g")
+        MESSAGE_OUTPUT=$(echo $SEND_MESSAGE_OUTPUT | sed -e "s/\`/____/g")
         if [ -z "$MESSAGE_OUTPUT" ]; then
           output=""
           echo "::set-output name=slack_message_ts::$output"
