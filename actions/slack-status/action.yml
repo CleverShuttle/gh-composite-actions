@@ -22,7 +22,7 @@ inputs:
     required: true
 
   slack_message_ts:
-    description: 'Message time stamp'
+    description: 'Message timestamp'
     required: false
 
   slack_reaction:
