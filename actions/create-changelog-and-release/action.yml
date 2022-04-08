@@ -66,9 +66,9 @@ runs:
       env:
         SEMANTIC_VERSIONING_VERSION: ${{ env.nextStrict }}
       run: |
-        echo "Semantic-versioning version '${{ env.SEMANTIC_VERSIONING_VERSION }}'"
-        echo "::set-output name=version::${{ env.SEMANTIC_VERSIONING_VERSION }}"
-        echo "::set-output name=tag::v${{ env.SEMANTIC_VERSIONING_VERSION }}"
+        echo "Semantic-versioning version '$SEMANTIC_VERSIONING_VERSION'"
+        echo "::set-output name=version::$SEMANTIC_VERSIONING_VERSION"
+        echo "::set-output name=tag::v$SEMANTIC_VERSIONING_VERSION"
 
     - name: 'Generate Jira links for the changelog'
       shell: bash
@@ -77,7 +77,7 @@ runs:
         # https://github.com/TriPSs/conventional-changelog-action#outputs
         CHANGELOG: ${{ steps.conventional-changelog.outputs.clean_changelog }}
       run: |
-        if [ -z "${{ env.CHANGELOG }}" ]; then
+        if [ -z "$CHANGELOG" ]; then
           output=""
           echo "::set-output name=text::$output"
         else
@@ -94,28 +94,32 @@ runs:
       env:
         USERNAME: ${{ inputs.artifactory_username }}
         PASSWORD: ${{ inputs.artifactory_password }}
+        NEW_VERSION: ${{ steps.versioning.outputs.version }}
       run: |
-        mvn ${{ env.MAVEN_ARGS }} versions:set \
-          -DnewVersion=${{ steps.versioning.outputs.version }} \
+        mvn $MAVEN_ARGS versions:set \
+          -DnewVersion="$NEW_VERSION \
           -N versions:update-child-modules \
           -DgenerateBackupPoms=false
-        mvn ${{ env.MAVEN_ARGS }} versions:commit
+        mvn $MAVEN_ARGS versions:commit
 
     - name: "Commit changes and set git tag"
       shell: bash
+      env:
+        NEW_TAG: ${{ steps.versioning.outputs.tag }}
+        NEW_VERSION: ${{ steps.versioning.outputs.version }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
         git add CHANGELOG.md
         git add pom.xml
-        git commit -m "chore(release): ${{ steps.versioning.outputs.version }}" -a
+        git commit -m "chore(release): $NEW_VERSION" -a
         
-        if [ $(git tag -l "${{ steps.versioning.outputs.tag }}") ]; then
+        if [ $(git tag -l "$NEW_TAG") ]; then
           echo "Delete tag from 'conventional-changelog-action'"
-          git tag -d ${{ steps.versioning.outputs.tag }}
+          git tag -d "$NEW_TAG"
         fi
 
-        git tag -a ${{ steps.versioning.outputs.tag }} -m ${{ steps.versioning.outputs.tag }}
+        git tag -a "$NEW_TAG" -m "$NEW_TAG"
 
     - name: 'Push changes'
       # https://github.com/ad-m/github-push-action
@@ -137,7 +141,11 @@ runs:
 
     - name: 'Outputs'
       shell: bash
+      env:
+        NEW_TAG: ${{ steps.versioning.outputs.tag }}
+        NEW_VERSION: ${{ steps.versioning.outputs.version }}
+        CHANGELOG: ${{ steps.changelog-with-jira-links.outputs.text }}
       run: |
-        echo "Version: '${{ steps.versioning.outputs.version }}'"
-        echo "Tag: '${{ steps.versioning.outputs.tag }}'"
-        echo "Changelog: '${{ steps.changelog-with-jira-links.outputs.text }}'"
+        echo "Version: '$NEW_VERSION'"
+        echo "Tag: '$NEW_TAG'"
+        echo "Changelog: '$CHANGELOG'"

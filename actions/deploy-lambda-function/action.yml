@@ -32,4 +32,8 @@ runs:
         aws-region: ${{ inputs.aws_region }}
     - name: "Deploy lambda function"
       shell: bash
-      run: . ${{ github.action_path }}/deploy-lambda-function.sh ${{ inputs.project_version }} ${{ inputs.function_name }} ${{ inputs.jar_file }}
+      env:
+        PROJECT_VERSION: ${{ inputs.project_version }}
+        FUNCTION_NAME: ${{ inputs.function_name }}
+        JAR_FILE: ${{ inputs.jar_file }}
+      run: . ${{ github.action_path }}/deploy-lambda-function.sh "$PROJECT_VERSION" "$FUNCTION_NAME" "$JAR_FILE"

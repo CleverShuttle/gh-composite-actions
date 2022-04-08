@@ -59,16 +59,20 @@ runs:
   steps:
     - name: 'General env variables'
       shell: bash
+      env:
+        REPOSITORY: ${{ github.repository }}
       run: |
-        echo "REPO_BASE_URL=https://github.com/${{ github.repository }}" >> $GITHUB_ENV
-        ARTEFACT_NAME=$(echo ${{ github.repository }}| cut -d'/' -f 2)
+        echo "REPO_BASE_URL=https://github.com/$REPOSITORY" >> $GITHUB_ENV
+        ARTEFACT_NAME="$(echo $REPOSITORY| cut -d'/' -f 2)"
         echo "ARTEFACT_NAME=$ARTEFACT_NAME" >> $GITHUB_ENV
 
     - name: 'Changelog title variables'
       if: ${{ inputs.changelog != '' }}
       shell: bash
+      env:
+        JOB: ${{ inputs.job }}
       run: |
-        if [ "${{ inputs.job }}" = "PULL_REQUEST" ]; then
+        if [ "$JOB" = "PULL_REQUEST" ]; then
           echo "CHANGELOG_TITLE=*Released branches*" >> $GITHUB_ENV
         else
           echo "CHANGELOG_TITLE=*Changelog*" >> $GITHUB_ENV
@@ -76,8 +80,10 @@ runs:
 
     - name: 'Build env variables'
       shell: bash
+      env:
+        JOB: ${{ inputs.job }}
       run: |
-        if [ "${{ inputs.job }}" = "PULL_REQUEST" ]; then
+        if [ "$JOB" = "PULL_REQUEST" ]; then
           echo "ENVIRONMENT=NONPROD" >> $GITHUB_ENV
         else
           echo "ENVIRONMENT=PROD" >> $GITHUB_ENV
@@ -86,10 +92,12 @@ runs:
     - name: 'Type env variables'
       # https://www.webfx.com/tools/emoji-cheat-sheet/
       shell: bash
+      env:
+        TYPE: ${{ inputs.type }}
       run: |
-        if [ "${{ inputs.type }}" = "LAMBDA" ]; then
+        if [ "$TYPE" = "LAMBDA" ]; then
           echo "TYPE_EMOJI=:heart:" >> $GITHUB_ENV
-        elif [ "${{ inputs.type }}" = "COMPONENT" ]; then
+        elif [ "$TYPE" = "COMPONENT" ]; then
           echo "TYPE_EMOJI=:yellow_heart:" >> $GITHUB_ENV
         else
           echo "TYPE_EMOJI=:green_heart:" >> $GITHUB_ENV
@@ -109,7 +117,7 @@ runs:
       env:
         MRKDWN: ${{ steps.slackify-mrkdwn.outputs.text }}
       run: |
-        output="${{ env.MRKDWN }}"
+        output="$MRKDWN"
         output=${output//$'\n'/\\n}
         echo "::set-output name=text::$output"
 
@@ -132,25 +140,37 @@ runs:
     - name: 'Template variable'
       id: template-path
       shell: bash
+      env:
+        TYPE: ${{ steps.change-string-case-type.outputs.lowercase }}
+        JOB: ${{ steps.change-string-case-job.outputs.lowercase }}
+        STATUS: ${{ steps.change-string-case-status.outputs.lowercase }}
       run: |
-        output="templates/${{ steps.change-string-case-type.outputs.lowercase }}/${{ steps.change-string-case-job.outputs.lowercase }}-${{ steps.change-string-case-status.outputs.lowercase }}.hbs"
+        output="templates/$TYPE/$JOB-$STATUS.hbs"
         echo "::set-output name=template::$output"
 
     - name: 'Echo variables'
       shell: bash
+      env:
+        JOB: ${{ inputs.job }}
+        STATUS: ${{ inputs.status }}
+        TYPE: ${{ inputs.type }}
+        VERSION: ${{ inputs.version }}
+        CHANGELOG: ${{ steps.mrkdwn.outputs.text }}
+        TEMPLATE_PATH: ${{ steps.template-path.outputs.template }}
+        SLACK_MESSAGE_TIMESTAMP: ${{ inputs.slack_message_ts }}
       run: |
-        echo "Job: '${{ inputs.job }}'"
-        echo "Status: '${{ inputs.status }}'"
-        echo "Type: '${{ inputs.type }}'"
-        echo "Version: '${{ inputs.version }}'"
-        echo "Empoji: '${{ env.TYPE_EMOJI }}'"
-        echo "Environment: '${{ env.ENVIRONMENT }}'"
-        echo "Changelog title: '${{ env.CHANGELOG_TITLE }}'"
-        echo "Changelog: '${{ steps.mrkdwn.outputs.text }}'"
-        echo "Repo base url: '${{ env.REPO_BASE_URL }}'"
-        echo "Artefact name: '${{ env.ARTEFACT_NAME }}'"
-        echo "Template path: '${{ steps.template-path.outputs.template }}'"
-        echo "Slack message timestamp: '${{ inputs.slack_message_ts }}'"
+        echo "Job: '$JOB'"
+        echo "Status: '$STATUS'"
+        echo "Type: '$TYPE'"
+        echo "Version: '$VERSION'"
+        echo "Empoji: '$TYPE_EMOJI'"
+        echo "Environment: '$ENVIRONMENT'"
+        echo "Changelog title: '$CHANGELOG_TITLE'"
+        echo "Changelog: '$CHANGELOG'"
+        echo "Repo base url: '$REPO_BASE_URL'"
+        echo "Artefact name: '$ARTEFACT_NAME'"
+        echo "Template path: '$TEMPLATE_PATH'"
+        echo "Slack message timestamp: '$SLACK_MESSAGE_TIMESTAMP'"
 
     - name: "Render template"
       id: render-template

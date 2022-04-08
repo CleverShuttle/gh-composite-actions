@@ -84,6 +84,8 @@ runs:
 
     - name: 'Deployment: Upload all files to S3 Bucket'
       shell: bash
+      env:
+        S3_BUCKET: ${{ inputs.aws_s3_bucket }}
       run: |
-        aws s3 cp ./dist s3://${{ inputs.aws_s3_bucket }} --acl bucket-owner-full-control --recursive
-        aws s3 sync ./dist s3://${{ inputs.aws_s3_bucket }} --acl bucket-owner-full-control --delete --exact-timestamps
+        aws s3 cp ./dist "s3://$S3_BUCKET" --acl bucket-owner-full-control --recursive
+        aws s3 sync ./dist "s3://$S3_BUCKET" --acl bucket-owner-full-control --delete --exact-timestamps

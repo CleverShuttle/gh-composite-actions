@@ -27,9 +27,12 @@ runs:
   steps:
     - name: "Sonar: Get latest sonar-maven-plugin version"
       shell: bash
+      env:
+        ARTIFACTORY_USERNAME: ${{ inputs.artifactory_username }}
+        ARTIFACTORY_PASSWORD: ${{ inputs.artifactory_password }}
       run: |
         URL=https://mvn.clever-shuttle.com/artifactory/libs-release/org/sonarsource/scanner/maven/sonar-maven-plugin/maven-metadata.xml
-        LATEST_VERSION=$(curl -u${{ inputs.artifactory_username }}:${{ inputs.artifactory_password }} -s $URL | grep latest | sed "s/.*<latest>\([^<]*\)<\/latest>.*/\1/")
+        LATEST_VERSION=$(curl -u$ARTIFACTORY_USERNAME:$ARTIFACTORY_PASSWORD -s $URL | grep latest | sed "s/.*<latest>\([^<]*\)<\/latest>.*/\1/")
         
         if [ -z "$LATEST_VERSION" ]; then
           echo "Use default sonar-maven-plugin '3.9.1.2184'"
@@ -42,11 +45,19 @@ runs:
     - name: "Sonar"
       shell: bash
       # https://docs.sonarqube.org/latest/analysis/analysis-parameters/
+      env:
+        SONAR_URL: ${{ inputs.sonar_url }}
+        SONAR_TOKEN: ${{ inputs.sonar_token }}
+        SONAR_PROJECT_KEY: ${{ inputs.sonar_project_key }}
+        EVENT_NUMBER: ${{ github.event.number }}
+        BRANCH_NAME: ${{ github.HEAD_REF }}
+        PR_BASE: ${{ github.event.pull_request.base.ref }}
+        REPOSITORY: ${{ github.repository }}
       # https://docs.sonarqube.org/latest/analysis/pull-request/
-      run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:${{ env.SONAR_MAVEN_PLUGIN_VERSION }}:sonar
-        -Dsonar.host.url=${{ inputs.sonar_url }}
-        -Dsonar.login=${{ inputs.sonar_token }}
-        -Dsonar.projectKey=${{ inputs.sonar_project_key }}
+      run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:"$SONAR_MAVEN_PLUGIN_VERSION":sonar
+        -Dsonar.host.url="$SONAR_URL"
+        -Dsonar.login="$SONAR_TOKEN"
+        -Dsonar.projectKey="$SONAR_PROJECT_KEY"
         -Dsonar.scm.provider=git
         -Dsonar.sourceEncoding=UTF-8
         -Dsonar.verbose=true
@@ -56,7 +67,7 @@ runs:
         -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml
         -Dsonar.dependencyCheck.htmlReportPath=target/site/dependency-check-report.html
         -Dsonar.pullrequest.provider=GitHub
-        -Dsonar.pullrequest.key=${{ github.event.number }}
-        -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
-        -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
-        -Dsonar.pullrequest.github.repository=${{ github.repository }}
+        -Dsonar.pullrequest.key="$EVENT_NUMBER"
+        -Dsonar.pullrequest.branch="$BRANCH_NAME"
+        -Dsonar.pullrequest.base="$PR_BASE"
+        -Dsonar.pullrequest.github.repository="$REPOSITORY"

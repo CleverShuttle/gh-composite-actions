@@ -42,7 +42,7 @@ runs:
       env:
         CHANGELOG: ${{ steps.release-info.outputs.body }}
       run: |
-        if [ -z "${{ env.CHANGELOG }}" ]; then
+        if [ -z "$CHANGELOG" ]; then
           output=""
           echo "::set-output name=text::$output"
         else

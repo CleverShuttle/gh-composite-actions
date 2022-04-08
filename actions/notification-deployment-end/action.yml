@@ -43,14 +43,20 @@ runs:
   steps:
     - name: 'Notification: Assemble subject'
       shell: bash
+      env:
+        SUBJECT: ${{ inputs.service_name }}
+        ARTEFACT_LINK: ${{ inputs.artefact_link }}
+        ARTEFACT_NAME: ${{ inputs.artefact_name }}
       run: |
-        echo "SUBJECT=*${{ inputs.service_name }}* <${{ inputs.artefact_link }}|${{ inputs.artefact_name }}>" >> $GITHUB_ENV
+        echo "SUBJECT=*$SUBJECT* <$ARTEFACT_LINK|$ARTEFACT_NAME>" >> $GITHUB_ENV
         echo "RUN_LINK=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_ENV
 
     - name: 'Notification: Append artefact id to subject'
       if: ${{ inputs.artefact_id != '' }}
       shell: bash
-      run: echo "SUBJECT=${{ env.SUBJECT }} (${{ inputs.artefact_id }})" >> $GITHUB_ENV
+      env:
+        ARTEFACT_ID: ${{ inputs.artefact_id }}
+      run: echo "SUBJECT=$SUBJECT ($ARTEFACT_ID)" >> $GITHUB_ENV
 
     - name: 'Notification: Update to success'
       uses: archive/github-actions-slack@v2.4.0
