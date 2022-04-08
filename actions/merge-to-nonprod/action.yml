@@ -19,10 +19,12 @@ runs:
 
     - name: "Prepare nonprod"
       shell: bash
+      env:
+        BRANCH_NAME: ${{ github.head_ref }}
       run: |
         set -o errexit -o nounset
         if git switch nonprod 2>/dev/null; then
-          branchName="${{ github.head_ref }}"
+          branchName="$BRANCH_NAME"
           # https://stackoverflow.com/a/29613573/5390250
           escapedBranchName=$(sed "s/[^^]/[&]/g; s/\^/\\^/g" <<< "$branchName")
           echo "nonprod branch exists. Dropping old feature commit '$branchName' if it exists"
@@ -34,10 +36,12 @@ runs:
 
     - name: "Merge feature to nonprod"
       shell: bash
+      env:
+        BRANCH_NAME: ${{ github.head_ref }}
       run: |
         set -o nounset -o errexit
-        git merge --squash "origin/${{ github.head_ref }}"
-        git commit -m "${{ github.head_ref }}"
+        git merge --squash "origin/$BRANCH_NAME"
+        git commit -m "$BRANCH_NAME"
 
     - name: "Push changes"
       shell: bash

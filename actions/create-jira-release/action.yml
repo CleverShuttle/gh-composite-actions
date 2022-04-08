@@ -32,7 +32,7 @@ runs:
       env:
         CHANGELOG: ${{ inputs.changelog }}
       run: |
-        if [ -z "${{ env.CHANGELOG }}" ]; then
+        if [ -z "$CHANGELOG" ]; then
           output=""
           echo "::set-output name=tickets::$output"
         else

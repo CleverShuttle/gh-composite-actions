@@ -11,19 +11,19 @@ runs:
   steps:
     - name: "Env variable: General"
       shell: bash
-      run: echo "REPO_BASE_URL=https://github.com/CleverShuttle/${{ github.event.repository.name }}" >> $GITHUB_ENV
+      env:
+        REPOSITORY_NAME: ${{ github.event.repository.name }}
+      run: echo "REPO_BASE_URL=https://github.com/CleverShuttle/$REPOSITORY_NAME" >> $GITHUB_ENV
 
     - name: 'Generate changelog'
       shell: bash
       id: create-nonprod-changelog
-      env:
-        REPO_BASE_URL: ${{ env.REPO_BASE_URL }}
       run: |
         set -o nounset -o errexit
         git restore .
         git fetch origin
         git checkout nonprod
-        output=$(node ${{ github.action_path }}/generate-nonprod-changelog.js ${{ env.REPO_BASE_URL }})
+        output=$(node ${{ github.action_path }}/generate-nonprod-changelog.js "$REPO_BASE_URL")
         output="${output//'%'/'%25'}"
         output="${output//$'\n'/'%0A'}"
         output="${output//$'\r'/'%0D'}"
@@ -31,5 +31,7 @@ runs:
 
     - name: 'Outputs'
       shell: bash
+      env:
+        CHANGELOG: ${{ steps.create-nonprod-changelog.outputs.changelog }}
       run: |
-        echo "Changelog: '${{ steps.create-nonprod-changelog.outputs.changelog }}'"
+        echo "Changelog: '$CHANGELOG'"
