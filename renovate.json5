@@ -1,23 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":semanticCommits"
-  ],
-  "schedule": [
-    "after 9am every weekday",
-    "before 5pm every weekday"
-  ],
-  "automerge": true,
-  "automergeType": "branch",
-  "packageRules": [
-    {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "reviewersFromCodeOwners": true,
-      "reviewersSampleSize": 1,
-      "enabled": true
-    }
+    "local>CleverShuttle/renovate-config:more-updates"
   ]
 }
