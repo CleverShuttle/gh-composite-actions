@@ -1,8 +1,16 @@
+### [1.34.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.3...v1.34.4) (2022-04-09)
+
+
+### 🧹 Chores
+
+* Update renovate.json5 ([f74bd21](https://github.com/CleverShuttle/gh-composite-actions/commit/f74bd21b5a9505a239e302d0e483bef898243546))
+
 ### [1.34.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.2...v1.34.3) (2022-04-07)
 
 
 ### 🧹 Chores
 
+* **release:** 1.34.3 ([1ec5144](https://github.com/CleverShuttle/gh-composite-actions/commit/1ec51441890a749ebcc8fe4086bd0453803ffbdb))
 * Test tagging III ([292389e](https://github.com/CleverShuttle/gh-composite-actions/commit/292389e6b0f0466af0ed0a815ec0b12c57987822))
 
 ### [1.34.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.1...v1.34.2) (2022-04-07)
@@ -555,16 +563,4 @@
 ### 🧹 Chores
 
 * **release:** v1.18.0 ([629657a](https://github.com/CleverShuttle/gh-composite-actions/commit/629657a3938827819698c06a2d0a93c58c50be44))
-
-## [1.17.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.16.0...v1.17.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Modify sonar-java-pull-request composite action ([d954daa](https://github.com/CleverShuttle/gh-composite-actions/commit/d954daaef72f91c30b97936a44e1ec9a8f763106))
-
-
-### 🧹 Chores
-
-* **release:** v1.17.0 ([7c4edcf](https://github.com/CleverShuttle/gh-composite-actions/commit/7c4edcf6faede1237edca9a49877003b4a9bc891))
 
