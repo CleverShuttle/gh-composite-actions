@@ -1,8 +1,21 @@
+## [1.35.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.4...v1.35.0) (2022-04-11)
+
+
+### 🎉 New Features
+
+* Apply security best practices ([7107280](https://github.com/CleverShuttle/gh-composite-actions/commit/71072807a313bfae50fa268434189bb6d03df4eb))
+
+
+### 🧹 Chores
+
+* Copy commitlint config to workspace ([9c7da12](https://github.com/CleverShuttle/gh-composite-actions/commit/9c7da128ccd16e66f3c79c40e52eeb00f13c9120))
+
 ### [1.34.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.3...v1.34.4) (2022-04-09)
 
 
 ### 🧹 Chores
 
+* **release:** 1.34.4 ([40495c0](https://github.com/CleverShuttle/gh-composite-actions/commit/40495c0f51dbc14baf7f8f45995aefd59e723d79))
 * Update renovate.json5 ([f74bd21](https://github.com/CleverShuttle/gh-composite-actions/commit/f74bd21b5a9505a239e302d0e483bef898243546))
 
 ### [1.34.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.2...v1.34.3) (2022-04-07)
@@ -551,16 +564,4 @@
 ### 🧹 Chores
 
 * **release:** v1.19.0 ([a6a1729](https://github.com/CleverShuttle/gh-composite-actions/commit/a6a1729bf2163235078f1ba5df2758a7368340f4))
-
-## [1.18.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.17.0...v1.18.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Append new composite action for analysis master branches ([c093211](https://github.com/CleverShuttle/gh-composite-actions/commit/c093211f8212f245293d81f436b2440471d6550e))
-
-
-### 🧹 Chores
-
-* **release:** v1.18.0 ([629657a](https://github.com/CleverShuttle/gh-composite-actions/commit/629657a3938827819698c06a2d0a93c58c50be44))
 
