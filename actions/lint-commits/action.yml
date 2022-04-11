@@ -9,9 +9,18 @@ runs:
       with:
         fetch-depth: 0
 
+    - name: "Copy config to workspace"
+      shell: bash
+      run: cp "${{ github.action_path }}/commitlint.config.js" .commitlint.config.js
+
     - name: "Lint commit messages"
       # https://github.com/wagoid/commitlint-github-action
       uses: wagoid/commitlint-github-action@v2.2.5
       with:
         failOnWarnings: true
-        configFile: ${{ github.action_path }}/commitlint.config.js
+        configFile: .commitlint.config.js
+
+    - name: "Delete config from workspace"
+      if: ${{ always() }}
+      shell: bash
+      run: rm .commitlint.config.js
