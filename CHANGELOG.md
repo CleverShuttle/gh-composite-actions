@@ -1,3 +1,10 @@
+### [1.35.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.0...v1.35.1) (2022-04-11)
+
+
+### 🐛 Bugfixes
+
+* Syntax error ([37aca1c](https://github.com/CleverShuttle/gh-composite-actions/commit/37aca1caf2d1d24bbcabac2dc725d53f0040e91b))
+
 ## [1.35.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.4...v1.35.0) (2022-04-11)
 
 
@@ -9,6 +16,7 @@
 ### 🧹 Chores
 
 * Copy commitlint config to workspace ([9c7da12](https://github.com/CleverShuttle/gh-composite-actions/commit/9c7da128ccd16e66f3c79c40e52eeb00f13c9120))
+* **release:** 1.35.0 ([ccc5b0a](https://github.com/CleverShuttle/gh-composite-actions/commit/ccc5b0add69f94bfecd29d7a26452c225d442898))
 
 ### [1.34.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.3...v1.34.4) (2022-04-09)
 
@@ -552,16 +560,4 @@
 ### 🧹 Chores
 
 * **release:** v1.20.0 ([2869a7f](https://github.com/CleverShuttle/gh-composite-actions/commit/2869a7f14263dd784feecca46f7d79085361225f))
-
-## [1.19.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.18.0...v1.19.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Append new composite action conventional-changelog ([5050a83](https://github.com/CleverShuttle/gh-composite-actions/commit/5050a83c69085fe674089291c73463c73da0589a))
-
-
-### 🧹 Chores
-
-* **release:** v1.19.0 ([a6a1729](https://github.com/CleverShuttle/gh-composite-actions/commit/a6a1729bf2163235078f1ba5df2758a7368340f4))
 
