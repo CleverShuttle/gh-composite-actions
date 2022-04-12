@@ -98,7 +98,6 @@ runs:
       run: |
         mvn $MAVEN_ARGS versions:set \
           -DnewVersion="$NEW_VERSION" \
-          -N versions:update-child-modules \
           -DgenerateBackupPoms=false
         mvn $MAVEN_ARGS versions:commit
 
