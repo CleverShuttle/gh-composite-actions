@@ -1,3 +1,3 @@
- :x: {{ type }} <{{ repo_base_url }}|{{ artefact_name }} {{ version }}> failed to deploy to `{{environment}}`
+ :x: {{ type }} <{{ repo_base_url }}|{{ artefact_name }}{{#if version}} {{ version }}{{/if}}> failed to deploy to `{{environment}}`
 
 <{{ repo_base_url }}/actions/runs/{{ run_id }}|Details>
