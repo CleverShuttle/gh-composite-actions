@@ -1,9 +1,21 @@
+### [1.35.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.1...v1.35.2) (2022-04-12)
+
+
+### 🐛 Bugfixes
+
+* Update versions in child modules ([1ddb3c1](https://github.com/CleverShuttle/gh-composite-actions/commit/1ddb3c110d0089726d818e2d5504b024d96dd0c8))
+
 ### [1.35.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.0...v1.35.1) (2022-04-11)
 
 
 ### 🐛 Bugfixes
 
 * Syntax error ([37aca1c](https://github.com/CleverShuttle/gh-composite-actions/commit/37aca1caf2d1d24bbcabac2dc725d53f0040e91b))
+
+
+### 🧹 Chores
+
+* **release:** 1.35.1 ([fcc422e](https://github.com/CleverShuttle/gh-composite-actions/commit/fcc422e3d56c2c860c8b50b0943a02e8ffc9adfb))
 
 ## [1.35.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.34.4...v1.35.0) (2022-04-11)
 
@@ -548,16 +560,4 @@
 ### 🧹 Chores
 
 * **release:** v1.21.0 ([b6bc7ee](https://github.com/CleverShuttle/gh-composite-actions/commit/b6bc7eea78a3aac84f03b21caf4b457686600960))
-
-## [1.20.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.19.0...v1.20.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Remove github_token from sonar-composite-actions ([fb33e37](https://github.com/CleverShuttle/gh-composite-actions/commit/fb33e37a03cfcda6562938abf3de042589f2d292))
-
-
-### 🧹 Chores
-
-* **release:** v1.20.0 ([2869a7f](https://github.com/CleverShuttle/gh-composite-actions/commit/2869a7f14263dd784feecca46f7d79085361225f))
 
