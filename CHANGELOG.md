@@ -1,9 +1,21 @@
+### [1.35.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.2...v1.35.3) (2022-04-12)
+
+
+### 🐛 Bugfixes
+
+* Really update versions in child modules ([9645f2b](https://github.com/CleverShuttle/gh-composite-actions/commit/9645f2bbecda3d2ee945715cdf4a952950d81fc4))
+
 ### [1.35.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.1...v1.35.2) (2022-04-12)
 
 
 ### 🐛 Bugfixes
 
 * Update versions in child modules ([1ddb3c1](https://github.com/CleverShuttle/gh-composite-actions/commit/1ddb3c110d0089726d818e2d5504b024d96dd0c8))
+
+
+### 🧹 Chores
+
+* **release:** 1.35.2 ([f0ec151](https://github.com/CleverShuttle/gh-composite-actions/commit/f0ec15105e1d2c3775d802870b28ad78faaad19f))
 
 ### [1.35.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.0...v1.35.1) (2022-04-11)
 
@@ -548,16 +560,4 @@
 
 * Append additional output properties to conventional-changelog ([f9bf0c5](https://github.com/CleverShuttle/gh-composite-actions/commit/f9bf0c5d8099e805c6e4eb66efe4be964d79ea3f))
 * **release:** v1.21.1 ([2b4220f](https://github.com/CleverShuttle/gh-composite-actions/commit/2b4220f2283f2d32b74d440dceccccf3be8c5e25))
-
-## [1.21.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.20.0...v1.21.0) (2022-03-18)
-
-
-### 🎉 New Features
-
-* Remove github_token from conventional-changelog ([f011bb6](https://github.com/CleverShuttle/gh-composite-actions/commit/f011bb69c2340d59f83579b71c7cdbaf9841301a))
-
-
-### 🧹 Chores
-
-* **release:** v1.21.0 ([b6bc7ee](https://github.com/CleverShuttle/gh-composite-actions/commit/b6bc7eea78a3aac84f03b21caf4b457686600960))
 
