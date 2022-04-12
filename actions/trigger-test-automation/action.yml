@@ -1,0 +1,33 @@
+name: 'Trigger test automation'
+description: ' GitHub action to create a repository dispatch event.'
+
+# Necessary permissions
+
+# https://github.com/peter-evans/repository-dispatch#token
+
+inputs:
+  token:
+    description: "GitHub token with repository permissions"
+    required: true
+  slack_message_ts:
+    description: "Optional Slack message timestamp"
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Dump GitHub context"
+      shell: bash
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
+
+    - name: "Trigger test automation"
+      # https://github.com/peter-evans/repository-dispatch
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ inputs.token }}
+        repository: CleverShuttle/cs-ops-control-tests
+        event-type: trigger-test-automation-event
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "slack_message_ts": "${{ inputs.slack_message_timestamp }}"}'
