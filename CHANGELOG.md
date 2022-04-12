@@ -1,9 +1,17 @@
+## [1.36.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.4...v1.36.0) (2022-04-12)
+
+
+### 🎉 New Features
+
+* New 'Trigger test automation' action added ([f114b25](https://github.com/CleverShuttle/gh-composite-actions/commit/f114b25a8df088ab368144f22094321b857b3079))
+
 ### [1.35.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.3...v1.35.4) (2022-04-12)
 
 
 ### 🧹 Chores
 
 * Hide version if not exists ([f3b251a](https://github.com/CleverShuttle/gh-composite-actions/commit/f3b251ae4c5d1d59728bc0d13d680ba4fc0b273d))
+* **release:** 1.35.4 ([f00be00](https://github.com/CleverShuttle/gh-composite-actions/commit/f00be0082fe1070d6970d1c186473bcbd6607cac))
 
 ### [1.35.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.2...v1.35.3) (2022-04-12)
 
@@ -552,16 +560,4 @@
 ### 🧹 Chores
 
 * **release:** v1.21.3 ([50fc99a](https://github.com/CleverShuttle/gh-composite-actions/commit/50fc99af05435569399e4cba306f09bc5e654795))
-
-### [1.21.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.1...v1.21.2) (2022-03-19)
-
-
-### 🐛 Bugfixes
-
-* Path problem in conventional-changelog ([3b986e3](https://github.com/CleverShuttle/gh-composite-actions/commit/3b986e362822483fc4b488c3769b0c69b1c0a5ce))
-
-
-### 🧹 Chores
-
-* **release:** v1.21.2 ([cfe13d4](https://github.com/CleverShuttle/gh-composite-actions/commit/cfe13d46bd46384cd5b2a48d7ed4695ac430f349))
 
