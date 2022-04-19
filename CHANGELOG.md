@@ -1,9 +1,21 @@
+### [1.36.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.0...v1.36.1) (2022-04-19)
+
+
+### 🧹 Chores
+
+* Use inline Renovate config ([a78ef9a](https://github.com/CleverShuttle/gh-composite-actions/commit/a78ef9af7bdd9fd2d3f9fff1e2d481b55d88949d))
+
 ## [1.36.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.4...v1.36.0) (2022-04-12)
 
 
 ### 🎉 New Features
 
 * New 'Trigger test automation' action added ([f114b25](https://github.com/CleverShuttle/gh-composite-actions/commit/f114b25a8df088ab368144f22094321b857b3079))
+
+
+### 🧹 Chores
+
+* **release:** 1.36.0 ([2a7da47](https://github.com/CleverShuttle/gh-composite-actions/commit/2a7da47e81d97f28ff2f7b69a07f05b1b409b6f5))
 
 ### [1.35.4](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.35.3...v1.35.4) (2022-04-12)
 
@@ -548,16 +560,4 @@
 ### 🧹 Chores
 
 * **release:** v1.21.4 ([744f621](https://github.com/CleverShuttle/gh-composite-actions/commit/744f6217bb8fc87397f82b28600a4d451421c2ee))
-
-### [1.21.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.2...v1.21.3) (2022-03-19)
-
-
-### 🐛 Bugfixes
-
-* Append node to conventional-changelog ([99dba90](https://github.com/CleverShuttle/gh-composite-actions/commit/99dba904a4dbff20726a334da6114572b3719bde))
-
-
-### 🧹 Chores
-
-* **release:** v1.21.3 ([50fc99a](https://github.com/CleverShuttle/gh-composite-actions/commit/50fc99af05435569399e4cba306f09bc5e654795))
 
