@@ -1,9 +1,17 @@
+### [1.36.3](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.2...v1.36.3) (2022-04-19)
+
+
+### 🧹 Chores
+
+* **deps:** update cardinalby/git-get-release-action action to v1.2.3 ([0833306](https://github.com/CleverShuttle/gh-composite-actions/commit/08333061d58d79590e94b16462329b2571879bbc))
+
 ### [1.36.2](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.1...v1.36.2) (2022-04-19)
 
 
 ### 🧹 Chores
 
 * **deps:** update dawidd6/action-download-artifact action to v2.19.0 ([ce00081](https://github.com/CleverShuttle/gh-composite-actions/commit/ce00081797b51b22cb761bb469a6b7ed26b34875))
+* **release:** 1.36.2 ([6ccc49d](https://github.com/CleverShuttle/gh-composite-actions/commit/6ccc49dbf078c20ef4406f88164cab4a491e69f9))
 
 ### [1.36.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.0...v1.36.1) (2022-04-19)
 
@@ -544,16 +552,4 @@
 ### 🧹 Chores
 
 * **release:** v1.21.6 ([7de9c7e](https://github.com/CleverShuttle/gh-composite-actions/commit/7de9c7ee54ea6fd170bf517764762ef048b75850))
-
-### [1.21.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.21.4...v1.21.5) (2022-03-19)
-
-
-### 🐛 Bugfixes
-
-* Try to fix conventional-changelog ([c428fd7](https://github.com/CleverShuttle/gh-composite-actions/commit/c428fd72081fb2544cee992aa21942679855da95))
-
-
-### 🧹 Chores
-
-* **release:** v1.21.5 ([5a4435e](https://github.com/CleverShuttle/gh-composite-actions/commit/5a4435e44c0a916538dc3dbba87b6f651683a9ff))
 
