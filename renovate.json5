@@ -1,12 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":semanticCommits"
-  ],
-  "semanticCommitType": "chore",
-  "schedule": [
-    "after 09:00 and before 16:00 on Monday through Thursday"
-  ],
-  // Do not automerge because there are no tests in this repository
+    "local>CleverShuttle/renovate-config:default"
+  ]
 }
