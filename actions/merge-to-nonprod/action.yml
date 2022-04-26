@@ -19,17 +19,11 @@ runs:
 
     - name: "Prepare nonprod"
       shell: bash
-      env:
-        BRANCH_NAME: ${{ github.head_ref }}
       run: |
         set -o errexit -o nounset
-        echo "nonprod branch does not exist. Creating it from master"
         if git switch nonprod 2>/dev/null; then
-          branchName="$BRANCH_NAME"
-          # https://stackoverflow.com/a/29613573/5390250
-          escapedBranchName=$(sed "s/[^^]/[&]/g; s/\^/\\^/g" <<< "$branchName")
-          echo "nonprod branch exists. Dropping old feature commit '$branchName' if it exists"
-          GIT_SEQUENCE_EDITOR="sed -i -e \"s/pick\(.*$escapedBranchName\)$/drop\1/g\"" git rebase -i master
+          echo "nonprod branch exists. Merging master."
+          git merge master
         else
           echo "nonprod branch does not exist. Creating it from master"
           git checkout -b nonprod origin/master
@@ -41,11 +35,11 @@ runs:
         BRANCH_NAME: ${{ github.head_ref }}
       run: |
         set -o nounset -o errexit
-        git merge --squash "origin/$BRANCH_NAME"
-        git commit -m "$BRANCH_NAME"
+        # no fast forward. every merged feature branch should be represented in the log with a merge commit to
+        # generate the changelog later
+        git merge --no-edit --no-ff "origin/$BRANCH_NAME"
 
     - name: "Push changes"
-      if: ${{ !env.ACT }}
       shell: bash
       run: |
-        git push --force origin nonprod
+        git push origin nonprod
