@@ -14,7 +14,8 @@ runs:
       env:
         REPOSITORY_NAME: ${{ github.event.repository.name }}
       run: echo "REPO_BASE_URL=https://github.com/CleverShuttle/$REPOSITORY_NAME" >> $GITHUB_ENV
-
+    - name: "Checkout repository"
+      uses: actions/checkout@v3
     - name: 'Generate changelog'
       id: create-nonprod-changelog
       shell: bash
@@ -22,6 +23,16 @@ runs:
         set -o nounset -o errexit
         output=$(git log --merges origin/master..origin/nonprod \
           | grep 'into nonprod' \
-          | sed -rn 's/^\s*Merge remote-tracking branch '"'origin\/("'.*'")'"' into nonprod/[\1](${REPO_BASE_URL})\/tree\/\1/p' \
+          | sed -rn "s/^\s*Merge remote-tracking branch 'origin\/(.*)' into nonprod/[\1](${REPO_BASE_URL}\/tree\/\1)/p" \
           | sort | uniq)
+        output="${output//'%'/'%25'}"
+        output="${output//$'\n'/'%0A'}"
+        output="${output//$'\r'/'%0D'}"
         echo "::set-output name=changelog::$output"
+
+    - name: 'Outputs'
+      shell: bash
+      env:
+        CHANGELOG: ${{ steps.create-nonprod-changelog.outputs.changelog }}
+      run: |
+        echo "Changelog: '$CHANGELOG'"
