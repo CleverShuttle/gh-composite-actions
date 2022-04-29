@@ -7,7 +7,8 @@ runs:
     - name: "Checkout repository"
       uses: actions/checkout@v3
       with:
-        ref: master
+        # https://stackoverflow.com/a/71158878
+        ref: ${{ github.head_ref || github.ref_name }}
         # The default of 1 only fetches the default branch. We also want nonprod, so we fetch all.
         fetch-depth: 0
 

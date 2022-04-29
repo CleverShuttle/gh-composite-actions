@@ -55,7 +55,8 @@ runs:
       uses: ietf-tools/semver-action@v1.1.1
       with:
         token: ${{ github.token }}
-        branch: master
+        # https://stackoverflow.com/a/71158878
+        branch: ${{ github.head_ref || github.ref_name }}
         minorList: feat, feature
         # https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum
         patchList: fix, bugfix, perf, refactor, test, tests, chore, build, ci, doc, docs, revert, style, deps, improvements, enhancement, other
