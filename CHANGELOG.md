@@ -1,3 +1,10 @@
+### [1.36.8](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.7...v1.36.8) (2022-05-09)
+
+
+### 🐛 Bugfixes
+
+* Replace solution for default branch with action ([d35458f](https://github.com/CleverShuttle/gh-composite-actions/commit/d35458f20b262e57042152491c4a22f3aaf5c644))
+
 ### [1.36.7](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.6...v1.36.7) (2022-05-09)
 
 
@@ -17,6 +24,11 @@
 ### 🐛 Bugfixes
 
 * Replace solution for default branch with action ([d7ba90e](https://github.com/CleverShuttle/gh-composite-actions/commit/d7ba90e10b6521ae990c0990451fb69cb3cbf2fb))
+
+
+### 🧹 Chores
+
+* **release:** 1.36.7 ([11c6890](https://github.com/CleverShuttle/gh-composite-actions/commit/11c689037c570e6707ca77aaabeafd3e8896de8b))
 
 ### [1.36.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.5...v1.36.6) (2022-05-05)
 
@@ -556,16 +568,4 @@
 ### 🧹 Chores
 
 * **release:** v1.23.2 ([092da31](https://github.com/CleverShuttle/gh-composite-actions/commit/092da31abfe361ee743957605c915a4c3b7f4605))
-
-### [1.23.1](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.0...v1.23.1) (2022-03-23)
-
-
-### 🐛 Bugfixes
-
-* Indentation ([4b0eb32](https://github.com/CleverShuttle/gh-composite-actions/commit/4b0eb3246cad92a963bfa50868f8af167c6c8afb))
-
-
-### 🧹 Chores
-
-* **release:** v1.23.1 ([bf701a3](https://github.com/CleverShuttle/gh-composite-actions/commit/bf701a3483c3c7d5caa06585661cdd545f853256))
 
