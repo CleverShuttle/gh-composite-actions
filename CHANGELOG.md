@@ -1,3 +1,23 @@
+### [1.36.7](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.6...v1.36.7) (2022-05-09)
+
+
+### 🗑 Reverts
+
+* Revert "refactor: wip" ([c60800a](https://github.com/CleverShuttle/gh-composite-actions/commit/c60800a2e560602c4e458c0355be6fb83fa1e789))
+* Revert "refactor: use merge instead of rebase and no squashing" ([32f8930](https://github.com/CleverShuttle/gh-composite-actions/commit/32f8930dc99564c8ff37f6f6235028ade3402f86))
+* Revert "fix: changelog action" ([031c443](https://github.com/CleverShuttle/gh-composite-actions/commit/031c443454d296c7d734e9bd74e23aa7ce18ad1f))
+* Revert "fix: create links changelog action" ([467cd53](https://github.com/CleverShuttle/gh-composite-actions/commit/467cd533422cab6137b961347527dc2da59ca583))
+* Revert "fix: fix regexp" ([dd1a894](https://github.com/CleverShuttle/gh-composite-actions/commit/dd1a89404b5153ad979fea48eed6c4b918f103b6))
+* Revert "fix: escape url" ([10796cd](https://github.com/CleverShuttle/gh-composite-actions/commit/10796cd0fc3c141ab774691328337a61a0508459))
+* Revert "fix: multiline changelog is somehow truncated" ([f8d8d10](https://github.com/CleverShuttle/gh-composite-actions/commit/f8d8d100d8f2b2454a40a994cf3ad6a096006905))
+* Revert "fix: multiline changelog is somehow truncated" ([5f7da6e](https://github.com/CleverShuttle/gh-composite-actions/commit/5f7da6e178f21cd41227256018d9279c75f3fd6d))
+* Revert "fix: revert accidential change" ([e91c1d6](https://github.com/CleverShuttle/gh-composite-actions/commit/e91c1d6a9e0c2f7b8ca6f4a2ee8214a1cdcf5a3f))
+
+
+### 🐛 Bugfixes
+
+* Replace solution for default branch with action ([d7ba90e](https://github.com/CleverShuttle/gh-composite-actions/commit/d7ba90e10b6521ae990c0990451fb69cb3cbf2fb))
+
 ### [1.36.6](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.5...v1.36.6) (2022-05-05)
 
 
@@ -16,6 +36,11 @@
 * multiline changelog is somehow truncated ([c1ea6fa](https://github.com/CleverShuttle/gh-composite-actions/commit/c1ea6fa09fd5888ac3be4644d05a8f2feb2f525c))
 * multiline changelog is somehow truncated ([8a6abd0](https://github.com/CleverShuttle/gh-composite-actions/commit/8a6abd063e524881ba631fe9b7bb1a6044e23bd4))
 * revert accidential change ([07fe25e](https://github.com/CleverShuttle/gh-composite-actions/commit/07fe25e6ed855bcd9537b916247d734f7cb403a4))
+
+
+### 🧹 Chores
+
+* **release:** 1.36.6 ([f7fa053](https://github.com/CleverShuttle/gh-composite-actions/commit/f7fa053ac95b60ddf750e1606ffee8353b7fe1d8))
 
 ### [1.36.5](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.4...v1.36.5) (2022-04-29)
 
@@ -543,16 +568,4 @@
 ### 🧹 Chores
 
 * **release:** v1.23.1 ([bf701a3](https://github.com/CleverShuttle/gh-composite-actions/commit/bf701a3483c3c7d5caa06585661cdd545f853256))
-
-## [1.23.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.22.0...v1.23.0) (2022-03-23)
-
-
-### 🎉 New Features
-
-* Use preset angular as default ([cce7ef0](https://github.com/CleverShuttle/gh-composite-actions/commit/cce7ef00a37888400e9307c78cdec0144d8b81b7))
-
-
-### 🧹 Chores
-
-* **release:** v1.23.0 ([8f06fd5](https://github.com/CleverShuttle/gh-composite-actions/commit/8f06fd5149feeb0bbbb11afaf131d8b7c42e7ad2))
 
