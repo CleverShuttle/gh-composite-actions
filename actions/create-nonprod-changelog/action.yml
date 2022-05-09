@@ -16,7 +16,7 @@ runs:
       shell: bash
       run: |
         set -o nounset -o errexit
-        output=$(git log --merges origin/master..origin/nonprod \
+        output=$(git log --merges origin/master..origin/nonprod_test \
           | grep 'into nonprod' \
           | sed -rn 's/^\s*Merge remote-tracking branch '"'("'.*'")'"' into nonprod/\1/p' \
           | sort | uniq)
