@@ -9,12 +9,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - name: "Env variable: General"
-      shell: bash
-      env:
-        REPOSITORY_NAME: ${{ github.event.repository.name }}
-      run: echo "REPO_BASE_URL=https://github.com/CleverShuttle/$REPOSITORY_NAME" >> $GITHUB_ENV
-
+    - name: "Checkout repository"
+      uses: actions/checkout@v3
     - name: 'Generate changelog'
       id: create-nonprod-changelog
       shell: bash
@@ -22,6 +18,6 @@ runs:
         set -o nounset -o errexit
         output=$(git log --merges origin/master..origin/nonprod \
           | grep 'into nonprod' \
-          | sed -rn 's/^\s*Merge remote-tracking branch '"'origin\/("'.*'")'"' into nonprod/[\1](${REPO_BASE_URL})\/tree\/\1/p' \
+          | sed -rn 's/^\s*Merge remote-tracking branch '"'("'.*'")'"' into nonprod/\1/p' \
           | sort | uniq)
         echo "::set-output name=changelog::$output"
