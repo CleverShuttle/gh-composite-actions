@@ -19,7 +19,7 @@ runs:
     - name: "Checkout repository"
       uses: actions/checkout@v3
       with:
-        ref: ${{ steps.branch-name.outputs.default_branch }}
+        ref: ${{ steps.branch-name.outputs.base_ref_branch }}
         # The default of 1 only fetches the default branch. We also want nonprod, so we fetch all.
         fetch-depth: 0
 
@@ -40,10 +40,10 @@ runs:
           # https://stackoverflow.com/a/29613573/5390250
           escapedBranchName=$(sed "s/[^^]/[&]/g; s/\^/\\^/g" <<< "$branchName")
           echo "nonprod branch exists. Dropping old feature commit '$branchName' if it exists"
-          GIT_SEQUENCE_EDITOR="sed -i -e \"s/pick\(.*$escapedBranchName\)$/drop\1/g\"" git rebase -i "${{ steps.branch-name.outputs.default_branch }}"
+          GIT_SEQUENCE_EDITOR="sed -i -e \"s/pick\(.*$escapedBranchName\)$/drop\1/g\"" git rebase -i "${{ steps.branch-name.outputs.base_ref_branch }}"
         else
-          echo "nonprod branch does not exist. Creating it from ${{ steps.branch-name.outputs.default_branch }}"
-          git checkout -b nonprod origin/${{ steps.branch-name.outputs.default_branch }}
+          echo "nonprod branch does not exist. Creating it from ${{ steps.branch-name.outputs.base_ref_branch }}"
+          git checkout -b nonprod origin/${{ steps.branch-name.outputs.base_ref_branch }}
         fi
 
     - name: "Merge feature to nonprod"
