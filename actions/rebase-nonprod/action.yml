@@ -4,11 +4,14 @@ description: 'Rebase nonprod onto master'
 runs:
   using: 'composite'
   steps:
+    - name: "Get default branch"
+      id: branch-name
+      uses: tj-actions/branch-names@v5.2
+
     - name: "Checkout repository"
       uses: actions/checkout@v3
       with:
-        # https://stackoverflow.com/a/71158878
-        ref: ${{ github.head_ref || github.ref_name }}
+        ref: ${{ steps.branch-name.outputs.default_branch }}
         # The default of 1 only fetches the default branch. We also want nonprod, so we fetch all.
         fetch-depth: 0
 
@@ -18,15 +21,15 @@ runs:
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
 
-    - name: "Rebase nonprod onto master"
+    - name: "Rebase nonprod onto default branch"
       shell: bash
       run: |
         if git switch nonprod 2>/dev/null; then
-          echo "nonprod branch exists. Rebasing it onto master"
-          git rebase origin/master
+          echo "nonprod branch exists. Rebasing it onto ${{ steps.branch-name.outputs.default_branch }}"
+          git rebase origin/${{ steps.branch-name.outputs.default_branch }}
         else
-          echo "nonprod branch does not exist. Creating it from master"
-          git checkout -b nonprod origin/master
+          echo "nonprod branch does not exist. Creating it from ${{ steps.branch-name.outputs.default_branch }}"
+          git checkout -b nonprod origin/${{ steps.branch-name.outputs.default_branch }}
         fi
 
     - name: "Push changes"
