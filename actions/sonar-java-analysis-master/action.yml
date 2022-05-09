@@ -1,5 +1,5 @@
 name: 'Sonar'
-description: 'Run analysis for master'
+description: 'Run analysis for default branch'
 
 inputs:
   sonar_token:

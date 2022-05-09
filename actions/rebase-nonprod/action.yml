@@ -1,12 +1,20 @@
-name: 'Rebase nonprod onto master'
-description: 'Rebase nonprod onto master'
+name: 'Rebase nonprod onto default branch'
+description: 'Rebase nonprod onto default branch'
 
 runs:
   using: 'composite'
   steps:
     - name: "Get default branch"
       id: branch-name
-      uses: tj-actions/branch-names@v5.2
+      # https://github.com/tj-actions/branch-names
+      uses: tj-actions/branch-names@v5
+
+    - name: "Echo branches"
+      shell: bash
+      run: |
+        echo "default_branch: ${{ steps.branch-name.outputs.default_branch }}"
+        echo "base_ref_branch: ${{ steps.branch-name.outputs.base_ref_branch }}"
+        echo "current_branch: ${{ steps.branch-name.outputs.current_branch }}"
 
     - name: "Checkout repository"
       uses: actions/checkout@v3
