@@ -1,9 +1,21 @@
+### [1.36.10](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.9...v1.36.10) (2022-05-10)
+
+
+### 🐛 Bugfixes
+
+* Replace base_ref_branch with current_branch for rebase nonprod action ([5088c3b](https://github.com/CleverShuttle/gh-composite-actions/commit/5088c3b79c9b7f130a3e8f6b9e9239399d98939c))
+
 ### [1.36.9](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.8...v1.36.9) (2022-05-09)
 
 
 ### 🐛 Bugfixes
 
 * Replace default_branch with base_ref_branch ([3994a3d](https://github.com/CleverShuttle/gh-composite-actions/commit/3994a3d1d2538b733573d9de20df74bff5a55360))
+
+
+### 🧹 Chores
+
+* **release:** 1.36.9 ([13aef3e](https://github.com/CleverShuttle/gh-composite-actions/commit/13aef3e73295091ccbed0d9e890dbdb8531e34d5))
 
 ### [1.36.8](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.36.7...v1.36.8) (2022-05-09)
 
@@ -555,17 +567,4 @@
 ### 🧹 Chores
 
 * **release:** v1.25.0 ([0498983](https://github.com/CleverShuttle/gh-composite-actions/commit/049898316bf3c03699ed03d90e257debe47c1fb2))
-
-## [1.24.0](https://github.com/CleverShuttle/gh-composite-actions/compare/v1.23.2...v1.24.0) (2022-03-24)
-
-
-### 🎉 New Features
-
-* Add action deploy-lambda-function ([a204a3b](https://github.com/CleverShuttle/gh-composite-actions/commit/a204a3b0d9fbaf8b6e9ee5d5dbf721a0285b9bf3))
-* Add action deploy-lambda-function ([65ba818](https://github.com/CleverShuttle/gh-composite-actions/commit/65ba818d822af9af8c1747ed881fc1456ef7fe7d))
-
-
-### 🧹 Chores
-
-* **release:** v1.24.0 ([01fd83b](https://github.com/CleverShuttle/gh-composite-actions/commit/01fd83b4d7ae1c7d4ef3aa96ff064d6b35641848))
 
