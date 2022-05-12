@@ -35,6 +35,7 @@ runs:
         BRANCH_NAME: ${{ github.head_ref }}
       run: |
         set -o errexit -o nounset
+        echo "nonprod branch does not exist. Creating it from master"
         if git switch nonprod 2>/dev/null; then
           branchName="$BRANCH_NAME"
           # https://stackoverflow.com/a/29613573/5390250
@@ -56,6 +57,7 @@ runs:
         git commit -m "$BRANCH_NAME"
 
     - name: "Push changes"
+      if: ${{ !env.ACT }}
       shell: bash
       run: |
         git push --force origin nonprod
