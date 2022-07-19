@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>CleverShuttle/renovate-config:default"
+    "local>CleverShuttle/renovate-config:default.json5"
   ]
 }
